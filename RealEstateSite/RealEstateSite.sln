@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateSite", "RealEstat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{4FDF9790-A767-445C-95FB-1EF2AE259E7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateClassLibary", "RealEstateClassLibary\RealEstateClassLibary.csproj", "{B7D71A63-0FB1-49E3-BE95-C253FE901860}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateSoap", "RealEstateSoap\RealEstateSoap.csproj", "{7629F37D-F15D-438B-859E-FFB61A034BB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4FDF9790-A767-445C-95FB-1EF2AE259E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FDF9790-A767-445C-95FB-1EF2AE259E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FDF9790-A767-445C-95FB-1EF2AE259E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D71A63-0FB1-49E3-BE95-C253FE901860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D71A63-0FB1-49E3-BE95-C253FE901860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D71A63-0FB1-49E3-BE95-C253FE901860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D71A63-0FB1-49E3-BE95-C253FE901860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7629F37D-F15D-438B-859E-FFB61A034BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7629F37D-F15D-438B-859E-FFB61A034BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7629F37D-F15D-438B-859E-FFB61A034BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7629F37D-F15D-438B-859E-FFB61A034BB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
