@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PIN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoredProceduralCommand.cs" />
     <Compile Include="TwoFactorPinGenerator.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
