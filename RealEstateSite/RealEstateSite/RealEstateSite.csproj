@@ -76,6 +76,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MasterSeller.Master.cs">
+      <DependentUpon>MasterSeller.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterSeller.Master.designer.cs">
+      <DependentUpon>MasterSeller.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstateLogin.aspx.cs">
       <DependentUpon>RealEstateLogin.aspx</DependentUpon>
@@ -86,6 +93,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterSeller.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
