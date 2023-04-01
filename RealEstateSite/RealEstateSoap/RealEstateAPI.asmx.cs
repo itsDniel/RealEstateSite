@@ -6,6 +6,7 @@ using System.Web.Services;
 using Utilities;
 using System.Data.SqlClient;
 using RealEstateClassLibary;
+using System.Data;
 
 namespace RealEstateSoap
 {
@@ -77,6 +78,35 @@ namespace RealEstateSoap
             DBConnect objDB = new DBConnect();
             StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.updateAccount(user));
+        }
+
+        [WebMethod] //This method retrieve dataset from TP_Account based on the email and role provided
+        public DataSet getQuestion(string email, string role)
+        {
+            DataSet ds = new DataSet();
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            ds = objDB.GetDataSet(command.getQuestion(email, role));
+            return ds;
+        }
+
+        [WebMethod] //This method update a user password in TP_Account based on the provided email and role
+        public void updatePassword(string email, string role, string password)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.updatePassword(email, role, password));
+        }
+
+        [WebMethod] //This method get the role of the given username
+        public string getRole(string username)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.getRole(username));
+            string role = ds.Tables[0].Rows[0][0].ToString();
+            return role;
         }
     }
 }
