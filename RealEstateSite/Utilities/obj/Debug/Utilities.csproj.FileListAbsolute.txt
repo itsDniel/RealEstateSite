@@ -1,6 +1,0 @@
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\bin\Debug\Utilities.dll
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\bin\Debug\Utilities.pdb
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.dll
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
