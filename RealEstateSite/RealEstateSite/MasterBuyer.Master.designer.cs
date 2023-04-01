@@ -11,7 +11,7 @@ namespace RealEstateSite
 {
 
 
-    public partial class MasterSeller
+    public partial class MasterBuyer
     {
 
         /// <summary>
