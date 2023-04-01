@@ -71,11 +71,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BuyerFeedback.aspx" />
+    <Content Include="BuyerOffer.aspx" />
+    <Content Include="BuyerRequest.aspx" />
+    <Content Include="House.aspx" />
     <Content Include="RealEstateLogin.aspx" />
+    <Content Include="Search.aspx" />
+    <Content Include="SellerFeedback.aspx" />
+    <Content Include="SellerOffer.aspx" />
+    <Content Include="SellerRequest.aspx" />
     <Content Include="Stylesheet\Login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyerFeedback.aspx.cs">
+      <DependentUpon>BuyerFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyerFeedback.aspx.designer.cs">
+      <DependentUpon>BuyerFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyerOffer.aspx.cs">
+      <DependentUpon>BuyerOffer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyerOffer.aspx.designer.cs">
+      <DependentUpon>BuyerOffer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyerRequest.aspx.cs">
+      <DependentUpon>BuyerRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyerRequest.aspx.designer.cs">
+      <DependentUpon>BuyerRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="House.aspx.cs">
+      <DependentUpon>House.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="House.aspx.designer.cs">
+      <DependentUpon>House.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterBuyer.Master.cs">
+      <DependentUpon>MasterBuyer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterBuyer.Master.designer.cs">
+      <DependentUpon>MasterBuyer.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterSeller.Master.cs">
       <DependentUpon>MasterSeller.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,9 +134,38 @@
     <Compile Include="RealEstateLogin.aspx.designer.cs">
       <DependentUpon>RealEstateLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerFeedback.aspx.cs">
+      <DependentUpon>SellerFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerFeedback.aspx.designer.cs">
+      <DependentUpon>SellerFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerOffer.aspx.cs">
+      <DependentUpon>SellerOffer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerOffer.aspx.designer.cs">
+      <DependentUpon>SellerOffer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerRequest.aspx.cs">
+      <DependentUpon>SellerRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerRequest.aspx.designer.cs">
+      <DependentUpon>SellerRequest.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterSeller.Master" />
+    <Content Include="MasterBuyer.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
