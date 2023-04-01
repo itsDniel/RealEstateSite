@@ -39,7 +39,7 @@ namespace RealEstateSite
                 else
                 {
                     loginmsg.Visible = true;
-                    loginmsg.Text = "User Does Not Exist";
+                    loginmsg.Text = "The Login Credential is wrong";
                 }
             }
             else
