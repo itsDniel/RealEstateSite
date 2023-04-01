@@ -85,10 +85,29 @@ namespace RealEstateClassLibary
         }
 
         //Command to get the role of the given username
+        //Daniel
         public SqlCommand getRole(string username)
         {
             SqlCommand command = new SqlCommand("TP_GetRole");
             command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to get home based on search filter
+        //Daniel
+        public SqlCommand searchHome(searchHouse house)
+        {
+            SqlCommand command = new SqlCommand("TP_SearchHouse");
+            command.Parameters.Add("@location", SqlDbType.VarChar).Value = house.location;
+            command.Parameters.Add("@minPrice", SqlDbType.Int).Value = house.minPrice;
+            command.Parameters.Add("@maxPrice", SqlDbType.Int).Value = house.maxPrice;
+            command.Parameters.Add("@property", SqlDbType.VarChar).Value = house.property;
+            command.Parameters.Add("@garage", SqlDbType.VarChar).Value = house.garage;
+            command.Parameters.Add("@minSize", SqlDbType.Int).Value = house.minSize;
+            command.Parameters.Add("@maxSize", SqlDbType.Int).Value = house.maxSize;
+            command.Parameters.Add("@amenity", SqlDbType.VarChar).Value = house.amenity;
+            command.Parameters.Add("@utility", SqlDbType.VarChar).Value = house.utility;
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }

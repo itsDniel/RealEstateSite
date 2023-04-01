@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PIN.cs" />
+    <Compile Include="housePrice.cs" />
+    <Compile Include="houseSize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="searchHouse.cs" />
     <Compile Include="StoredProceduralCommand.cs" />
     <Compile Include="TwoFactorPinGenerator.cs" />
     <Compile Include="User.cs" />

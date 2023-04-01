@@ -108,5 +108,15 @@ namespace RealEstateSoap
             string role = ds.Tables[0].Rows[0][0].ToString();
             return role;
         }
+
+        [WebMethod] //This is retrieve all the houses based on the user defined search filter
+        public DataSet getHouse(searchHouse house)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.searchHome(house));
+            return ds;
+        }
     }
 }
