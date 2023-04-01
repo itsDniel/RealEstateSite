@@ -80,6 +80,7 @@
     <Content Include="SellerFeedback.aspx" />
     <Content Include="SellerOffer.aspx" />
     <Content Include="SellerRequest.aspx" />
+    <Content Include="Stylesheet\BuyerSearch.css" />
     <Content Include="Stylesheet\Login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
