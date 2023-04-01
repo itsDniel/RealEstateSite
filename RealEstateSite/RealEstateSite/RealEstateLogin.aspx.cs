@@ -10,6 +10,7 @@ using RealEstateSoap;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Mail;
+using System.Data;
 
 namespace RealEstateSite
 {
@@ -17,6 +18,10 @@ namespace RealEstateSite
     {
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         public static int PIN { get; set; }
+        public static string email { get; set; }
+        public static string role { get; set; }
+        public static string question { get; set; }
+        public static string answer { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -35,6 +40,19 @@ namespace RealEstateSite
                 {
                     loginmsg.Visible = true;
                     loginmsg.Text = "Login Success";
+                    HttpCookie username = new HttpCookie("Username");
+                    username.Value = usernametxt.Text;
+                    Response.Cookies.Add(username);
+                    string role = pxy.getRole(usernametxt.Text);
+                    string buyer = "Buyer";
+                    if(role.Equals(buyer))
+                    {
+                        Response.Redirect("Search.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("House.aspx");
+                    }
                 }
                 else
                 {
@@ -171,6 +189,8 @@ namespace RealEstateSite
                         client.Send(message);
                         PasswordPanel.Visible = false;
                         PINPanel.Visible = true;
+                        email = PasswordEmailtxt.Text;
+                        role = passwordroleddl.Text;
                     }
                 }
             }
@@ -198,13 +218,67 @@ namespace RealEstateSite
                 int input = int.Parse(Pintxt.Text);
                 if(input == PIN)
                 {
-                    Pinmsg.Text = "match";
+                    PINPanel.Visible = false;
+                    SecurityQuestionPanel.Visible = true;
+                    DataSet ds = new DataSet();
+                    int questionNum = TwoFactorPinGenerator.questionGenerator();
+                    string QuestionNum = "Q" + questionNum;
+                    string AnswerNum = "A" + questionNum;
+                    ds = pxy.getQuestion(email, role);
+                    question = ds.Tables[0].Rows[0][QuestionNum].ToString();
+                    answer = ds.Tables[0].Rows[0][AnswerNum].ToString().ToUpper();
+                    SQPQuestionlbl.Text = question;
+
                 }
                 else
                 {
-                    Pinmsg.Text = "not match";
+                    Pinmsg.Text = "Incorrect PIN";
                 }
             }
+        }
+
+        protected void SQPSubmitbtn_Click(object sender, EventArgs e)
+        {
+            string InputAnswer = SQPAnswertxt.Text.ToUpper();
+            if (string.IsNullOrEmpty(SQPAnswertxt.Text)){
+                SQPmsg.Text = "You Must Answer The Security Question To Proceed!";
+            }
+            else
+            {
+                if(InputAnswer != answer)
+                {
+                    SQPmsg.Text = "Incorrect Answer";
+                }
+                else
+                {
+                    SQPmsg.Text = "Please enter a new password for your account";
+                    SQPQuestionlbl.Visible = false;
+                    SQPAnswertxt.Text = string.Empty;
+                    SQPSubmitbtn.Visible = false;
+                    SQPChangePassbtn.Visible = true;
+                    SQPAnswertxt.TextMode = TextBoxMode.Password;
+                }
+            }
+        }
+
+        protected void SQPBackbtn_Click(object sender, EventArgs e)
+        {
+            SecurityQuestionPanel.Visible = false;
+            PasswordPanel.Visible = true;
+        }
+
+        protected void SQPChangePassbtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(SQPAnswertxt.Text))
+            {
+                SQPmsg.Text = "You must enter a new password";
+            }
+            else
+            {
+                string password = SQPAnswertxt.Text;
+                pxy.updatePassword(email, role, password);
+            }
+
         }
     }
 }

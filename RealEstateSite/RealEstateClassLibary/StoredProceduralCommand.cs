@@ -60,5 +60,38 @@ namespace RealEstateClassLibary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Command to retrieve dataset based on the given email and role
+        //Daniel
+        public SqlCommand getQuestion (string email, string role)
+        {
+            SqlCommand command = new SqlCommand("TP_GetQuestion");
+            command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to update a user password in TP_Account
+        //Daniel
+        public SqlCommand updatePassword(string email, string role, string password)
+        {
+            SqlCommand command = new SqlCommand("TP_UpdatePassword");
+            command.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+            command.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
+            command.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to get the role of the given username
+        public SqlCommand getRole(string username)
+        {
+            SqlCommand command = new SqlCommand("TP_GetRole");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
     }
 }

@@ -86,7 +86,18 @@
             <asp:TextBox ID="Pintxt" runat="server"></asp:TextBox>
             <asp:Button ID="PinSubmitbtn" runat="server" Text ="Submit" OnClick="PinSubmitbtn_Click"/>
             <asp:Button ID="PinBackbtn" runat="server" Text="Didn't receive the email?" OnClick="PinBackbtn_Click" />
-            <ajaxToolkit:ModalPopupExtender ID="PinModal" runat="server" TargetControlID="PINPanel" PopupControlID="PINPanel, PasswordPanel" OkControlID="PinBackbtn" >
+            <ajaxToolkit:ModalPopupExtender ID="PinModal" runat="server" TargetControlID="PasswordSendbtn" PopupControlID="PINPanel, PasswordPanel" OkControlID="PinBackbtn" >
+            </ajaxToolkit:ModalPopupExtender>
+        </asp:Panel>
+
+         <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="Modal" BorderStyle="Solid" Visible = "false">
+            <asp:Label ID="SQPmsg" runat="server" Text="Please Answer Your Security Question" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="SQPQuestionlbl" runat="server" ForeColor="Red"></asp:Label>
+            <asp:TextBox ID="SQPAnswertxt" runat="server"></asp:TextBox>
+            <asp:Button ID="SQPSubmitbtn" runat="server" Text ="Submit" OnClick="SQPSubmitbtn_Click"/>
+             <asp:Button ID="SQPChangePassbtn" runat="server" Text="Change Password" Visible ="false" OnClick="SQPChangePassbtn_Click" />
+            <asp:Button ID="SQPBackbtn" runat="server" Text="Back" OnClick="SQPBackbtn_Click"/>
+            <ajaxToolkit:ModalPopupExtender ID="SQLModal" runat="server" TargetControlID="PinSubmitbtn" PopupControlID="PINPanel, SecurityQuestionPanel" OkControlID="SQPBackbtn, SQPChangePassbtn" >
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

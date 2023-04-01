@@ -1,0 +1,6 @@
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\bin\Debug\Utilities.dll
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\bin\Debug\Utilities.pdb
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.dll
+C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
