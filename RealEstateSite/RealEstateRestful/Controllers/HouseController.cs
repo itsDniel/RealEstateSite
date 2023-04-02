@@ -17,5 +17,10 @@ namespace RealEstateRestful.Controllers
         {
             return true;
         }
+
+        public Boolean test()
+        {
+            return true;
+        }
     }
 }
