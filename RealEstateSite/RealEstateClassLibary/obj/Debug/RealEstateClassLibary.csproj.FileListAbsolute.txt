@@ -10,3 +10,6 @@ C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLi
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CopyComplete
