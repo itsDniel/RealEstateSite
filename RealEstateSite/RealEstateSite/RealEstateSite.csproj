@@ -81,7 +81,9 @@
     <Content Include="SellerOffer.aspx" />
     <Content Include="SellerRequest.aspx" />
     <Content Include="Stylesheet\BuyerSearch.css" />
+    <Content Include="Stylesheet\BuyerVisitRequest.css" />
     <Content Include="Stylesheet\Login.css" />
+    <Content Include="VisitRequest.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +164,13 @@
     </Compile>
     <Compile Include="SellerRequest.aspx.designer.cs">
       <DependentUpon>SellerRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisitRequest.ascx.cs">
+      <DependentUpon>VisitRequest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitRequest.ascx.designer.cs">
+      <DependentUpon>VisitRequest.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

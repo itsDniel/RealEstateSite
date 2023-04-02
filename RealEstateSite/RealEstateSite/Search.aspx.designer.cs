@@ -195,13 +195,13 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Button Searchbtn;
 
         /// <summary>
-        /// Closebtn control.
+        /// SearchFilterClosebtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Closebtn;
+        protected global::System.Web.UI.WebControls.Button SearchFilterClosebtn;
 
         /// <summary>
         /// SearchModal control.
@@ -247,6 +247,105 @@ namespace RealEstateSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rprProfile;
+
+        /// <summary>
+        /// visitHiddenbutton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button visitHiddenbutton;
+
+        /// <summary>
+        /// visitRequestPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel visitRequestPanel;
+
+        /// <summary>
+        /// visitrequestlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label visitrequestlbl;
+
+        /// <summary>
+        /// Visitmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Visitmsg;
+
+        /// <summary>
+        /// visitDatelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label visitDatelbl;
+
+        /// <summary>
+        /// visitDatetxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox visitDatetxt;
+
+        /// <summary>
+        /// visitTimelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label visitTimelbl;
+
+        /// <summary>
+        /// visitTimetxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox visitTimetxt;
+
+        /// <summary>
+        /// visitSubmitbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button visitSubmitbtn;
+
+        /// <summary>
+        /// visitClosebtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button visitClosebtn;
+
+        /// <summary>
+        /// visitModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender visitModal;
 
         /// <summary>
         /// ScriptManager1 control.

@@ -50,6 +50,7 @@
     <Compile Include="StoredProcedure.cs" />
     <Compile Include="TwoFactorPinGenerator.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="visitRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilities\Utilities.csproj">

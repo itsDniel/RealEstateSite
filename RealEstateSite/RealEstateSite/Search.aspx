@@ -61,7 +61,7 @@
                 <asp:ListItem>Public supply</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="Searchbtn" runat="server" Text ="Search" OnClick="Searchbtn_Click" />
-            <asp:Button ID="Closebtn" runat="server" Text="Close"/>
+            <asp:Button ID="SearchFilterClosebtn" runat="server" Text="Close" OnClick="SearchFilterClosebtn_click"/>
             <ajaxToolkit:ModalPopupExtender ID="SearchModal" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
             </ajaxToolkit:ModalPopupExtender>
 
@@ -148,13 +148,25 @@
                                     <p class="card-text">
                                         <asp:Label ID="agentphonelbl" runat="server" Text='<%# "Phone number: " + DataBinder.Eval(Container.DataItem, "Phone") %>'></asp:Label>
                                     </p>
-                                    <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" />
+                                    <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" OnClick="visitRequestbtn_Click"/>
                                     <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" OnClick="ProfileClosebtn_Click" />
                                 </div>
                             </div>
                      </ItemTemplate>
                     </asp:Repeater>
-        
+        <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
+        </asp:Panel>
+    <asp:Panel ID="visitRequestPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">
+            <asp:Label ID="visitrequestlbl" runat="server" Text="Schedule a visit date and time" Font-Size="X-Large"></asp:Label>
+            <asp:Label ID="Visitmsg" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="visitDatelbl" runat="server" Text="Please enter your desired visit date"></asp:Label>
+            <asp:TextBox ID="visitDatetxt" runat="server" TextMode="Date" placeholder ="mm/dd/yy" DataFormatString="{0:MM/dd/yy}"></asp:TextBox>
+            <asp:Label ID="visitTimelbl" runat="server" Text="Please enter the time you want to visit"></asp:Label>
+            <asp:TextBox ID="visitTimetxt" runat="server" TextMode="Time" DataFormatString="{0:hh:mm}" placeholder="hh:mm"></asp:TextBox>
+            <asp:Button ID="visitSubmitbtn" runat="server" Text ="Request Visit" OnClick="visitSubmitbtn_Click" />
+            <asp:Button ID="visitClosebtn" runat="server" Text="Close" OnClick="visitClosebtn_Click" />
+            <ajaxToolkit:ModalPopupExtender ID="visitModal" runat="server" TargetControlID="visitHiddenbutton" PopupControlID="visitRequestPanel" OkControlID="visitClosebtn" >
+            </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>

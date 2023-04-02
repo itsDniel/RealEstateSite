@@ -110,12 +110,12 @@ namespace RealEstateSoap
         }
 
         [WebMethod] //This retrieve all the houses based on the user defined search filter
-        public DataSet getHouse(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility)
+        public DataSet getHouse(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility, string username)
         {
             DBConnect objDB = new DBConnect();
             StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
-            ds = objDB.GetDataSet(command.searchHome(location, minPrice, maxPrice, property, garage, minSize, maxSize, amenity, utility));
+            ds = objDB.GetDataSet(command.searchHome(location, minPrice, maxPrice, property, garage, minSize, maxSize, amenity, utility, username));
             return ds;
         }
 
@@ -126,6 +126,35 @@ namespace RealEstateSoap
             StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getHome(homeID));
+            return ds;
+        }
+
+        [WebMethod] //This update the user visit request to TP_VisitRequest
+        public void insertVisit(visitRequest request)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.addVisit(request));
+        }
+
+        [WebMethod] //This check to see if a buyer already has a visit request with this home id
+        public int checkVisit(visitRequest request)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            int check = (int)objDB.ExecuteScalarFunction(command.checkVisit(request));
+            objDB.CloseConnection();
+            return check;
+
+        }
+
+        [WebMethod] //This is used to get all the visit request from TP_VisitRequest table based on given buyer username
+        public DataSet getVisit(string username, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.getVisit(username, status));
             return ds;
         }
 
