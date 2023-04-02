@@ -12,7 +12,6 @@ namespace RealEstateSite
 {
     public partial class Search : System.Web.UI.Page
     {
-        public static string HomeID { get; set; }
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,26 +62,6 @@ namespace RealEstateSite
         {
             SearchFilterPanel.Visible = true;
             SearchPanel.Visible = false;
-        }
-
-        protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
-        {
-
-            
-            int rowIndex = e.Item.ItemIndex;
-            Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
-            HomeID = myLabel.Text;
-            
-        }
-
-        protected void btnShowDetail_Click(object sender, EventArgs e)
-        {
-            ProfilePanel.Visible = true;
-        }
-
-        protected void profileClosebtn_Click(object sender, EventArgs e)
-        {
-            ProfilePanel.Visible = false;
         }
     }
 }
