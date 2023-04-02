@@ -90,7 +90,35 @@
                             </div>
                      </ItemTemplate>
                     </asp:Repeater>
-    
+        </asp:Panel>
+        <asp:Panel ID="ProfilePanel" runat="server" CssClass="SearchModal" Visible="false">
+            <asp:Repeater ID="Repeater1" runat="server">
+                        <ItemTemplate>
+                            <div class="card" style="width: 18rem;">
+                                
+                                <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                                <div class="card-body">
+                                    <h1 class="card-title">
+                                        <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
+                                        <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
+                                    </h1>
+                                    <p class="card-text">
+                                        <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
+                                    </p>
+                                    <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" />
+                                    <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" />
+                                </div>
+                            </div>
+                     </ItemTemplate>
+                    </asp:Repeater>
+        <ajaxToolkit:ModalPopupExtender ID="ProfilePopUp" runat="server" TargetControlID="btnShowDetail" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
+            </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
