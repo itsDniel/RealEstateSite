@@ -47,8 +47,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="searchHouse.cs" />
     <Compile Include="StoredProceduralCommand.cs" />
+    <Compile Include="StoredProcedure.cs" />
     <Compile Include="TwoFactorPinGenerator.cs" />
     <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{4fdf9790-a767-445c-95fb-1ef2ae259e7e}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
