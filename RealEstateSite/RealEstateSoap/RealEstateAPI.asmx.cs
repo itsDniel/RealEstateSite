@@ -110,13 +110,14 @@ namespace RealEstateSoap
         }
 
         [WebMethod] //This is retrieve all the houses based on the user defined search filter
-        public DataSet getHouse(searchHouse house)
+        public DataSet getHouse(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility)
         {
             DBConnect objDB = new DBConnect();
             StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
-            ds = objDB.GetDataSet(command.searchHome(house));
+            ds = objDB.GetDataSet(command.searchHome(location, minPrice, maxPrice, property, garage, minSize, maxSize, amenity, utility));
             return ds;
         }
+
     }
 }

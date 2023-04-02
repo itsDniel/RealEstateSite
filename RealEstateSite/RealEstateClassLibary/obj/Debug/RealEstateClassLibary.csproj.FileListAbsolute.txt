@@ -4,3 +4,9 @@ C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLib
 C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CoreCompileInputs.cache
 C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
 C:\Users\qahdu\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb

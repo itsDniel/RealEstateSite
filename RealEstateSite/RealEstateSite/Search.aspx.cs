@@ -37,12 +37,10 @@ namespace RealEstateSite
             int maxHouse;
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
-            string house = priceddl.SelectedValue;
-            string size = houseSizeddl.SelectedValue;
-            minPrice = housePrice.minPrice(int.Parse(house));
-            maxPrice = housePrice.maxPrice(int.Parse(house));
-            minHouse = houseSize.minSize(int.Parse(size));
-            maxHouse = houseSize.maxSize(int.Parse(size));
+            minPrice = housePrice.minPrice(priceddl.SelectedValue);
+            maxPrice = housePrice.maxPrice(priceddl.SelectedValue);
+            minHouse = houseSize.minSize(houseSizeddl.SelectedValue);
+            maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
             searchHouse getHome = new searchHouse();
             getHome.location = location;
             getHome.minPrice = minPrice;
@@ -54,8 +52,16 @@ namespace RealEstateSite
             getHome.amenity = amenity;
             getHome.utility = utility;
             rprDisplay.Visible = true;
-            rprDisplay.DataSource = pxy.getHouse(getHome);
+            rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse, maxHouse, amenity, utility);
             rprDisplay.DataBind();
+            SearchPanel.Visible = true;
+            SearchFilterPanel.Visible = false;
+        }
+
+        protected void searchFilterbtn_Click(object sender, EventArgs e)
+        {
+            SearchFilterPanel.Visible = true;
+            SearchPanel.Visible = false;
         }
     }
 }

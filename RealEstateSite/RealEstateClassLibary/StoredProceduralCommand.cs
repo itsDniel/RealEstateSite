@@ -96,21 +96,22 @@ namespace RealEstateClassLibary
 
         //Command to get home based on search filter
         //Daniel
-        public SqlCommand searchHome(searchHouse house)
+        public SqlCommand searchHome(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility)
         {
             SqlCommand command = new SqlCommand("TP_SearchHouse");
-            command.Parameters.Add("@location", SqlDbType.VarChar).Value = house.location;
-            command.Parameters.Add("@minPrice", SqlDbType.Int).Value = house.minPrice;
-            command.Parameters.Add("@maxPrice", SqlDbType.Int).Value = house.maxPrice;
-            command.Parameters.Add("@property", SqlDbType.VarChar).Value = house.property;
-            command.Parameters.Add("@garage", SqlDbType.VarChar).Value = house.garage;
-            command.Parameters.Add("@minSize", SqlDbType.Int).Value = house.minSize;
-            command.Parameters.Add("@maxSize", SqlDbType.Int).Value = house.maxSize;
-            command.Parameters.Add("@amenity", SqlDbType.VarChar).Value = house.amenity;
-            command.Parameters.Add("@utility", SqlDbType.VarChar).Value = house.utility;
+            command.Parameters.Add("@location", SqlDbType.VarChar).Value = location;
+            command.Parameters.Add("@minPrice", SqlDbType.Int).Value = minPrice;
+            command.Parameters.Add("@maxPrice", SqlDbType.Int).Value = maxPrice;
+            command.Parameters.Add("@property", SqlDbType.VarChar).Value = property;
+            command.Parameters.Add("@garage", SqlDbType.VarChar).Value = garage;
+            command.Parameters.Add("@minSize", SqlDbType.Int).Value = minSize;
+            command.Parameters.Add("@maxSize", SqlDbType.Int).Value = maxSize;
+            command.Parameters.Add("@amenity", SqlDbType.VarChar).Value = amenity;
+            command.Parameters.Add("@utility", SqlDbType.VarChar).Value = utility;
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
 
     }
 }

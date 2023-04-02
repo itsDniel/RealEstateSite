@@ -7,9 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="searchMessage">
     <asp:Label ID="searchlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Find it. Tour it. Own it"></asp:Label>
-    <asp:Button ID="searchFilterbtn" runat="server" Text ="Search Filter" />
+    <asp:Button ID="searchFilterbtn" runat="server" Text ="Search Filter" OnClick="searchFilterbtn_Click" />
    </div>
-     <asp:Panel ID="SearchFilterPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid">
+     <asp:Panel ID="SearchFilterPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible="false">
             <asp:Label ID="SearchFilterlbl" runat="server" Text="Please select your search filter" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Locationlbl" runat="server" Text="Please choose your city"></asp:Label>
             <asp:DropDownList ID="cityddl" runat="server">
@@ -20,7 +20,7 @@
             </asp:DropDownList>
             <asp:Label ID="Pricelbl" runat="server" Text="Please select your price range"></asp:Label>
             <asp:DropDownList ID="priceddl" runat="server">
-                <asp:ListItem Value="0">Not specified</asp:ListItem>
+                <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">100,000<</asp:ListItem>
                 <asp:ListItem Value="2">100,000 - 300,000</asp:ListItem>
                 <asp:ListItem Value="3">>300,000</asp:ListItem>
@@ -41,7 +41,7 @@
             </asp:DropDownList>
             <asp:Label ID="houseSizelbl" runat="server" Text="Please choose your house size"></asp:Label>
             <asp:DropDownList ID="houseSizeddl" runat="server">
-                <asp:ListItem Value="0">Not specified</asp:ListItem>
+                <asp:ListItem></asp:ListItem>
                 <asp:ListItem Value="1">&lt;2500 sq ft</asp:ListItem>
                 <asp:ListItem Value="2">2500 sq ft &lt; and &lt; 5000 sq ft</asp:ListItem>
                 <asp:ListItem Value="3">&gt; 5000 sq ft</asp:ListItem>
@@ -61,12 +61,12 @@
             </asp:DropDownList>
             <asp:Button ID="Searchbtn" runat="server" Text ="Search" OnClick="Searchbtn_Click" />
             <asp:Button ID="Closebtn" runat="server" Text="Close"/>
-            <ajaxToolkit:ModalPopupExtender ID="SearchModal" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel" OkControlID="Closebtn">
+            <ajaxToolkit:ModalPopupExtender ID="SearchModal" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
             </ajaxToolkit:ModalPopupExtender>
 
         </asp:Panel>
-    <asp:Panel ID="SearchPanel" runat="server" CssClass="Searchrpr">
-            <asp:Repeater ID="rprDisplay" runat="server" Visible="false" >
+    <asp:Panel ID="SearchPanel" runat="server" CssClass="Searchrpr" Visible="false">
+            <asp:Repeater ID="rprDisplay" runat="server" >
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">
                                 

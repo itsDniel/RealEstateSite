@@ -8,38 +8,42 @@ namespace RealEstateClassLibary
 {
     public class houseSize
     {
-        public static int minSize(int a)
+        public static int minSize(string selected)
         {
-            int min;
-            if(a == 1 || a == 0)
+            
+            if(selected == "1")
             {
-                min = 0;
-            }else if(a == 2)
+                return 0;
+            }else if(selected == "2")
             {
-                min = 2500;
+                return 2500;
+            }
+            else if(selected == "3")
+            {
+                return 5000;
             }
             else
             {
-                min = 5000;
+                return 0;
             }
-            return min;
+            
         }
 
-        public static int maxSize(int a)
+        public static int maxSize(string selected)
         {
-            int max;
-            if(a == 1)
+            
+            if(selected == "1")
             {
-                max = 2500;
-            }else if(a == 2)
+                return 2500;
+            }else if(selected == "2")
             {
-                max = 5000;
+                return 5000;
             }
             else
             {
-                max = int.MaxValue;
+                return int.MaxValue;
             }
-            return max;
+            
         }
     }
 }
