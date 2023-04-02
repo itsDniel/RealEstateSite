@@ -117,7 +117,7 @@
                             </div>
                      </ItemTemplate>
                     </asp:Repeater>
-        <ajaxToolkit:ModalPopupExtender ID="ProfilePopUp" runat="server" TargetControlID="btnShowDetail" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
+        <ajaxToolkit:ModalPopupExtender ID="ProfilePopUp" runat="server" TargetControlID="btnShowDetail" PopupControlID="ProfilePanel, SearchPanel" OkControlID="ProfileClosebtn">
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
