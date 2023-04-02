@@ -66,7 +66,7 @@
 
         </asp:Panel>
     <asp:Panel ID="SearchPanel" runat="server" CssClass="Searchrpr" Visible="false">
-            <asp:Repeater ID="rprDisplay" runat="server" >
+            <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand" >
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">
                                 
