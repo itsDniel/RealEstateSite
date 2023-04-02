@@ -222,6 +222,33 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Repeater rprDisplay;
 
         /// <summary>
+        /// ProfilePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ProfilePanel;
+
+        /// <summary>
+        /// rprProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rprProfile;
+
+        /// <summary>
+        /// ProfilePopup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ProfilePopup;
+
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
