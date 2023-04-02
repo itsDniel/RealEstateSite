@@ -10,6 +10,7 @@ namespace RealEstateClassLibary
 {
     public class StoredProceduralCommand
     {
+        
         //Command to check if user exist in TP_Account table
         //Daniel
         public SqlCommand checkLogin(string username, string password)

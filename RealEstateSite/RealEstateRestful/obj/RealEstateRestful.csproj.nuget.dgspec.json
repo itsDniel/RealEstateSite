@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
+        "projectName": "RealEstateClassLibary",
+        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
+        "frameworks": {
+          "net46": {
+            "projectReferences": {
+              "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj": {
+                "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net46": {}
+      }
+    },
+    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+        "projectName": "RealEstateRestful",
+        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+        "packagesPath": "C:\\Users\\jenny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {
+              "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
+                "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj"
+              },
+              "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj": {
+                "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.424\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj",
+        "projectName": "Utilities",
+        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj",
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net46": {}
+      }
+    }
+  }
+}
