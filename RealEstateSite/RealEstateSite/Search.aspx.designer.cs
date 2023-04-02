@@ -15,6 +15,15 @@ namespace RealEstateSite
     {
 
         /// <summary>
+        /// homeidplaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label homeidplaceholder;
+
+        /// <summary>
         /// searchlbl control.
         /// </summary>
         /// <remarks>
@@ -231,22 +240,13 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Panel ProfilePanel;
 
         /// <summary>
-        /// Repeater1 control.
+        /// rprProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
-
-        /// <summary>
-        /// ProfilePopUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ProfilePopUp;
+        protected global::System.Web.UI.WebControls.Repeater rprProfile;
 
         /// <summary>
         /// ScriptManager1 control.

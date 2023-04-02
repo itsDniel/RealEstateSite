@@ -112,6 +112,13 @@ namespace RealEstateClassLibary
             return command;
         }
 
-
+        //Command to get house based on given homeid
+        public SqlCommand getHome(string homeid)
+        {
+            SqlCommand command = new SqlCommand("TP_GetHouse");
+            command.Parameters.Add("@homeid", SqlDbType.VarChar).Value = homeid;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }

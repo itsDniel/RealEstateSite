@@ -6,6 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    <div class="searchMessage">
+       <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
     <asp:Label ID="searchlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Find it. Tour it. Own it"></asp:Label>
     <asp:Button ID="searchFilterbtn" runat="server" Text ="Search Filter" OnClick="searchFilterbtn_Click" />
    </div>
@@ -85,14 +86,14 @@
                                     <p class="card-text">
                                         <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
                                     </p>
-                                    <asp:Button ID="btnShowDetail" Text="More Details" runat="server" />
+                                    <asp:Button ID="btnShowDetail" Text="More Details" runat="server"/>
                                 </div>
                             </div>
                      </ItemTemplate>
                     </asp:Repeater>
         </asp:Panel>
         <asp:Panel ID="ProfilePanel" runat="server" CssClass="SearchModal" Visible="false">
-            <asp:Repeater ID="Repeater1" runat="server">
+            <asp:Repeater ID="rprProfile" runat="server">
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">
                                 
@@ -109,16 +110,51 @@
                                         <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
                                     </p>
                                     <p class="card-text">
+                                        <asp:Label ID="homesizelbl" runat="server" Text='<%# "Home Size: " + DataBinder.Eval(Container.DataItem, "HomeSize") + " square feet" %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="bedroomlbl" runat="server" Text='<%# "Bedroom: " + DataBinder.Eval(Container.DataItem, "Bedroom") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="bathroomlbl" runat="server" Text='<%# "Bathroom: " + DataBinder.Eval(Container.DataItem, "Bathroom") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="amenity" runat="server" Text='<%# "Amenity: " + DataBinder.Eval(Container.DataItem, "Amenity") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="heatlbl" runat="server" Text='<%# "Heating/Cooling Type: " + DataBinder.Eval(Container.DataItem, "Heating/Cooling") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="builtyearlbl" runat="server" Text='<%# "Built Year: " + DataBinder.Eval(Container.DataItem, "BuiltYear") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="garagelbl" runat="server" Text='<%# "Garage Size: " + DataBinder.Eval(Container.DataItem, "GarageSize") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="utilitylbl" runat="server" Text='<%# "Utility: " + DataBinder.Eval(Container.DataItem, "Utility") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="homedeslbl" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "HomeDescription") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
                                         <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
                                     </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="agentlbl" runat="server" Text='<%# "Agent: " + DataBinder.Eval(Container.DataItem, "FullName") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="agentemaillbl" runat="server" Text='<%# "Email: " + DataBinder.Eval(Container.DataItem, "Email") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="agentphonelbl" runat="server" Text='<%# "Phone number: " + DataBinder.Eval(Container.DataItem, "Phone") %>'></asp:Label>
+                                    </p>
                                     <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" />
-                                    <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" />
+                                    <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" OnClick="ProfileClosebtn_Click" />
                                 </div>
                             </div>
                      </ItemTemplate>
                     </asp:Repeater>
-        <ajaxToolkit:ModalPopupExtender ID="ProfilePopUp" runat="server" TargetControlID="btnShowDetail" PopupControlID="ProfilePanel, SearchPanel" OkControlID="ProfileClosebtn">
-            </ajaxToolkit:ModalPopupExtender>
+        
         </asp:Panel>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
