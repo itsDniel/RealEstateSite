@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace RealEstateClassLibary
 {
@@ -96,7 +97,7 @@ namespace RealEstateClassLibary
 
         //Command to get home based on search filter
         //Daniel
-        public SqlCommand searchHome(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility)
+        public SqlCommand searchHome(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility, string username)
         {
             SqlCommand command = new SqlCommand("TP_SearchHouse");
             command.Parameters.Add("@location", SqlDbType.VarChar).Value = location;
@@ -108,6 +109,7 @@ namespace RealEstateClassLibary
             command.Parameters.Add("@maxSize", SqlDbType.Int).Value = maxSize;
             command.Parameters.Add("@amenity", SqlDbType.VarChar).Value = amenity;
             command.Parameters.Add("@utility", SqlDbType.VarChar).Value = utility;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = username;
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
@@ -117,6 +119,40 @@ namespace RealEstateClassLibary
         {
             SqlCommand command = new SqlCommand("TP_GetHouse");
             command.Parameters.Add("@homeid", SqlDbType.VarChar).Value = homeid;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to add a user visit request to database
+        public SqlCommand addVisit(visitRequest request)
+        {
+            SqlCommand command = new SqlCommand("TP_AddVisitRequest");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = request.homeid;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = request.buyer;
+            command.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(request.date);
+            command.Parameters.Add("@time", SqlDbType.DateTime).Value = DateTime.Parse(request.time);
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = request.status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to check if a buyer already has a visit request with this house
+        public SqlCommand checkVisit(visitRequest request)
+        {
+            SqlCommand command = new SqlCommand("TP_CheckVisit");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = request.homeid;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = request.buyer;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = request.status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to get all the visit request
+        public SqlCommand getVisit(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_GetVisit");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }

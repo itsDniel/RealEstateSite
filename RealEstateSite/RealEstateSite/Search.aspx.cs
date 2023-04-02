@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RealEstateClassLibary;
 using RealEstateSoap;
 using System.Data;
+using AjaxControlToolkit; 
 
 namespace RealEstateSite
 {
@@ -27,7 +28,7 @@ namespace RealEstateSite
 
         protected void Searchbtn_Click(object sender, EventArgs e)
         {
-            
+            string buyer = Request.Cookies["Username"].Value.ToString();
             string location = cityddl.Text;
             int minPrice;
             int maxPrice;
@@ -52,7 +53,7 @@ namespace RealEstateSite
             getHome.amenity = amenity;
             getHome.utility = utility;
             rprDisplay.Visible = true;
-            rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse, maxHouse, amenity, utility);
+            rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse, maxHouse, amenity, utility, buyer);
             rprDisplay.DataBind();
             SearchPanel.Visible = true;
             SearchFilterPanel.Visible = false;
@@ -62,6 +63,14 @@ namespace RealEstateSite
         {
             SearchFilterPanel.Visible = true;
             SearchPanel.Visible = false;
+            searchlbl.Text = "Find it. Tour it. Own it";
+            visitRequestPanel.Visible = false;
+            ProfilePanel.Visible = false;
+        }
+
+        protected void SearchFilterClosebtn_click(object sender, EventArgs e)
+        {
+            SearchFilterPanel.Visible = false;
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
@@ -72,11 +81,11 @@ namespace RealEstateSite
             int rowIndex = e.Item.ItemIndex;
             Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
             homeidplaceholder.Text = myLabel.Text;
-            System.Diagnostics.Debug.WriteLine(homeidplaceholder.Text);
             rprProfile.DataSource = pxy.getHouseByID(homeidplaceholder.Text);
             rprProfile.DataBind();
             ProfilePanel.Visible = true;
             SearchPanel.Visible = false;
+            searchlbl.Text = "Find it. Tour it. Own it";
         }
 
 
@@ -84,6 +93,72 @@ namespace RealEstateSite
         {
             ProfilePanel.Visible = false;
             SearchPanel.Visible = true;
+        }
+
+        protected void visitRequestbtn_Click(object sender, EventArgs e)
+        {
+         
+            Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("visitHiddenbutton"));
+            hiddenButton_click(hiddenButton, EventArgs.Empty);
+            
+        }
+
+
+        protected void hiddenButton_click(object sender, EventArgs e)
+        {
+            visitRequestPanel.Visible = true;
+            visitModal.Show();
+            ProfilePanel.Visible = false;
+        }
+
+        protected void visitClosebtn_Click(object sender, EventArgs e)
+        {
+            ProfilePanel.Visible = true;
+            visitRequestPanel.Visible = false;
+            Visitmsg.Text = string.Empty;
+        }
+
+        protected void visitSubmitbtn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(visitDatetxt.Text) || string.IsNullOrEmpty(visitTimetxt.Text))
+            {
+                Visitmsg.Text = "You must enter the date and time";
+            }
+            else
+            {
+                string date = DateTime.Now.ToString("MM/dd/yy");
+                if(DateTime.Parse(visitDatetxt.Text) < DateTime.Parse(date))
+                {
+                    Visitmsg.Text = "You must enter a valid date";
+                }
+                else
+                {
+                    
+                    string status = "Pending";
+                    visitRequest request = new visitRequest();
+                    string buyer = Request.Cookies["Username"].Value.ToString();
+                    request.homeid = int.Parse(homeidplaceholder.Text);
+                    request.buyer = buyer;
+                    request.date = visitDatetxt.Text;
+                    request.time = visitTimetxt.Text;
+                    request.status = status;
+                    int check = pxy.checkVisit(request);
+                    if (check > 0)
+                    {
+                        Visitmsg.Text = "You already have a visit request with this specific home";
+                    }
+                    else
+                    {
+
+
+                        pxy.insertVisit(request);
+                        searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
+                        visitRequestPanel.Visible = false;
+                        SearchPanel.Visible = true;
+                        
+                    }
+                }
+            }
         }
     }
 }
