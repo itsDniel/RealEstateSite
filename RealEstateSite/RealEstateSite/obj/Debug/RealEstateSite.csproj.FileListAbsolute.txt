@@ -50,7 +50,6 @@ C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bi
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\roslyn\vbc.rsp
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\roslyn\VBCSCompiler.exe
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\AjaxControlToolkit.dll
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\RealEstateClassLibary.dll
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateSite\bin\RealEstateSoap.dll
