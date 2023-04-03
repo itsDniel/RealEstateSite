@@ -31,18 +31,22 @@ namespace RealEstateSite
                 status = "Pending";
                 requestdtl.DataBind(status);
                 requestdtl.Visible = true;
+                requestdtl.hidebutton();
             }
             else if(statusddl.Text == "Approved")
             {
                 status = "Approved";
                 requestdtl.DataBind(status);
                 requestdtl.Visible = true;
+                requestdtl.showButton();
+                
             }
             else
             {
                 status = "Denied";
                 requestdtl.DataBind(status);
                 requestdtl.Visible = true;
+                requestdtl.hidebutton();
             }
         }
     }

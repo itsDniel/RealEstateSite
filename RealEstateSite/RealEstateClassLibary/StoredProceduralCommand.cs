@@ -156,5 +156,16 @@ namespace RealEstateClassLibary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Command to update the visit status to visited
+        public SqlCommand updateVisit(string username, string status, string homeid)
+        {
+            SqlCommand command = new SqlCommand("TP_updateVisit");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@homeid", SqlDbType.VarChar).Value = homeid;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }

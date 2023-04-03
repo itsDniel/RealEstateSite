@@ -8,6 +8,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="requestMessage">
         
+       
+        
     <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
     <asp:Label ID="requestlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here you can see the status of your visit request"></asp:Label>
     <asp:DropDownList ID="statusddl" runat="server">
