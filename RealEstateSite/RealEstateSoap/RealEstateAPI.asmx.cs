@@ -158,5 +158,13 @@ namespace RealEstateSoap
             return ds;
         }
 
+        [WebMethod] //This is used to update the visit status to visited
+        public void updateVisit(string username, string status, string homeid)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.updateVisit(username, status, homeid));
+        }
+
     }
 }
