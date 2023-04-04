@@ -167,5 +167,65 @@ namespace RealEstateClassLibary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Command to get all the house that the buyer have visited
+        public SqlCommand getVisited(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_GetVisitedHome");
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //This command update feedback to TP_Feedback
+        public SqlCommand addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
+        {
+            SqlCommand command = new SqlCommand("TP_AddFeedback");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = buyer;
+            command.Parameters.Add("@a1", SqlDbType.VarChar).Value = a1;
+            command.Parameters.Add("@a2", SqlDbType.VarChar).Value = a2;
+            command.Parameters.Add("@a3", SqlDbType.VarChar).Value = a3;
+            command.Parameters.Add("@a4", SqlDbType.VarChar).Value = a4;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //This command retrieve all home that the user have left a feedback on
+        public SqlCommand getFeedbacked(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_GetFeedbackedHome");
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //This command add offer to TP_Offer
+        public SqlCommand addOffer(int homeid, string buyer, int a1, string a2, string a3, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_AddOffer");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = buyer;
+            command.Parameters.Add("@a1", SqlDbType.Int).Value = a1;
+            command.Parameters.Add("@a2", SqlDbType.VarChar).Value = a2;
+            command.Parameters.Add("@a3", SqlDbType.VarChar).Value = a3;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+
+        }
+
+        //Command to update the offer status to TP_Feedback
+        public SqlCommand updateFeedback(string username, string status, int homeid)
+        {
+            SqlCommand command = new SqlCommand("TP_UpdateOffer");
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }
