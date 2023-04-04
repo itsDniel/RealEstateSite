@@ -166,5 +166,49 @@ namespace RealEstateSoap
             objDB.DoUpdate(command.updateVisit(username, status, homeid));
         }
 
+        [WebMethod] //This is used to get all the home that the buyer have visited
+        public DataSet getVisited(string username, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.getVisited(username, status));
+            return ds;
+        }
+
+        [WebMethod] //This update feedback to TP_Feedback table
+        public void addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.addFeedback(homeid, buyer, a1, a2, a3, a4));
+        }
+
+        [WebMethod] //This get all the homes that the buyer left the feedback on
+        public DataSet getFeedbacked(string buyer, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.getFeedbacked(buyer, status));
+            return ds;
+        }
+
+        [WebMethod] //This add the buyer offer to the TP_Offer table
+        public void addOffer(int homeid, string buyer, int a1, string a2, string a3, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.addOffer(homeid, buyer, a1, a2, a3, status));
+        }
+
+        [WebMethod] //This update the status in TP_Feedback
+        public void updateFeedback(int homeid, string buyer, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.updateFeedback(buyer, status, homeid));
+        }
+
     }
 }

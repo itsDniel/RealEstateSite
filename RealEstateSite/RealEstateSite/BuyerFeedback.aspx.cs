@@ -9,9 +9,85 @@ namespace RealEstateSite
 {
     public partial class BuyerFeedback : System.Web.UI.Page
     {
+        RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["Username"] != null)
+            {
+                if (!IsPostBack)
+                {
+                    string buyer = Request.Cookies["Username"].Value.ToString();
+                    string status = "Visited";
+                    rprDisplay.DataSource = pxy.getVisited(buyer, status);
+                    rprDisplay.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("RealEstateLogin.aspx");
+            }
+        }
 
+        protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+
+        {
+
+            
+            int rowIndex = e.Item.ItemIndex;
+            Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
+            homeidplaceholder.Text = myLabel.Text;
+            
+        }
+
+        protected void feedbackbtn_Click(object sender, EventArgs e)
+        {
+
+            Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("feedbackHiddenbutton"));
+            feedbackHiddenbutton_click(hiddenButton, EventArgs.Empty);
+
+        }
+
+        protected void feedbackHiddenbutton_click(object sender, EventArgs e)
+        {
+            FeedbackPanel.Visible = true;
+            feedbackModal.Show();
+            ApprovedRequestPanel.Visible = false;
+        }
+
+        protected void feedbackClosebtn_Click(object sender, EventArgs e)
+        {
+            ApprovedRequestPanel.Visible = true;
+            FeedbackPanel.Visible = false;
+        }
+
+        protected void feedbackSubmitbtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in FeedbackPanel.Controls)
+            {
+
+                if (control is TextBox)
+                {
+                    TextBox tb = control as TextBox;
+                    if (string.IsNullOrEmpty(tb.Text))
+                    {
+                        feedbackmsg.Text = "You need to fill in all the textbox";
+                    }
+                    else
+                    {
+                        string status = "Feedbacked";
+                        string a1 = A1ddl.Text;
+                        string a2 = A2ddl.Text;
+                        string a3 = A3txt.Text;
+                        string a4 = A4txt.Text;
+                        int homeid = int.Parse(homeidplaceholder.Text);
+                        string buyer = Request.Cookies["Username"].Value.ToString();
+                        pxy.addFeedback(homeid, buyer, a1, a2, a3, a4);
+                        pxy.updateVisit(buyer, status, homeid.ToString());
+                        requestlbl.Text = "Great You Left A Feedback, Head On To The Offer Page If You Would Like To Make An Offer";
+                        FeedbackPanel.Visible = false;
+                    }
+                }
+            }
         }
     }
 }

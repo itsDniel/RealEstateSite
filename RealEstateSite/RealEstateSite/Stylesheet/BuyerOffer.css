@@ -5,7 +5,7 @@
     display: none;
 }
 
-.feedbackDiv {
+.OfferDiv {
     text-align: center;
     justify-content: center;
     display: flex;
@@ -23,7 +23,6 @@
 }
 
 .feedbackModal {
-
     align-items: center;
     text-align: center;
     justify-content: center;
