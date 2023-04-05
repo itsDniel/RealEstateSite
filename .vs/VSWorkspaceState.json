@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\RealEstateSite",
-    "\\RealEstateSite\\packages",
-    "\\RealEstateSite\\RealEstateRestful",
-    "\\RealEstateSite\\RealEstateRestful\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\RealEstateSite\\RealEstateRestful\\Controllers\\HouseController.cs",
+  "SelectedNode": "\\RealEstateSite.sln",
   "PreviewInSolutionExplorer": false
 }
