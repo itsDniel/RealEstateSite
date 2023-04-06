@@ -54,19 +54,16 @@ namespace RealEstateClassLibary
             //if (result != -1) return true;
             //else return false;
         }
-    
-        public Boolean AddRoom(int id, String room, int dimension)
-        {
-            command.CommandText = "TP_AddRoom";
+
+        //for TP_AddRoom and TP_UpdateRoom
+        public Boolean UpdateRoomDB(String procedure, int id, String room, int dimension)
+        {   
+            command.CommandText = procedure;//"TP_AddRoom";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@room", room);
             command.Parameters.AddWithValue("@dimension", dimension);
             return UpdateDB();
-            //result = connect.DoUpdate(command);
-
-            //if (result != -1) return true;
-            //else return false;
         }
 
         public Boolean UpdateHouse()
@@ -74,23 +71,27 @@ namespace RealEstateClassLibary
             return false;
         }
 
-        public Boolean UpdateRoom()
-        {
-            return false;
-        }
-
         public Boolean DeleteHouse(int id)
-        {
-            command.CommandText = "TP_DeleteHouse";
+        {   //delete all associated rooms 1st and then delete the house
+            command.CommandText = "TP_DeleteAllRooms";
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@id", id);
-            return UpdateDB();
-        }
-        //call DeleteRoom() 1st and then call DeleteHouse()
-        //since TP_Room has id as a foreign key from TP_House
-        public Boolean DeleteRoom()
-        {
+            int result = connect.DoUpdate(command);
+
+            command.CommandText = "TP_DeleteHouse";
+            result += connect.DoUpdate(command);
+
+            if (result >= 2) return true;
             return false;
+        }
+        
+        public Boolean DeleteRoom(int id, String room)
+        {   //delete a single room
+            command.CommandText = "TP_DeleteRoom";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@room", room);
+            return UpdateDB();
         }
     }
 }
