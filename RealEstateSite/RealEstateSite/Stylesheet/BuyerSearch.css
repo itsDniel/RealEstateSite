@@ -21,7 +21,8 @@
     top: 20%;
     width: 18%;
     position: absolute;
-    z-index: 10000;
+    z-index: 100000;
+    background-color: white;
 }
 
 .Searchrpr{
@@ -36,4 +37,15 @@
 
 .hidden{
     display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+     
 }

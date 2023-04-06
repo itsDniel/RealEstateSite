@@ -52,12 +52,14 @@ namespace RealEstateSite
             OfferPanel.Visible = true;
             OfferModal.Show();
             FeedbackedPanel.Visible = false;
+            OverlayPanel.Visible = true;
         }
 
         protected void offerClosebtn_Click(object sender, EventArgs e)
         {
             FeedbackedPanel.Visible = true;
             OfferPanel.Visible = false;
+            OverlayPanel.Visible = false;
         }
 
         protected void offerSubmitbtn_Click(object sender, EventArgs e)
@@ -86,6 +88,7 @@ namespace RealEstateSite
                         pxy.updateFeedback(homeid, buyer, statusFeedback);
                         offerlbl.Text = "Great You Submitted An Offer";
                         OfferPanel.Visible = false;
+                        OverlayPanel.Visible = false;
                     }
                 }
             }

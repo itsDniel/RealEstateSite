@@ -10,6 +10,7 @@
     <asp:Label ID="searchlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Find it. Tour it. Own it"></asp:Label>
     <asp:Button ID="searchFilterbtn" runat="server" Text ="Search Filter" OnClick="searchFilterbtn_Click" />
    </div>
+    <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
      <asp:Panel ID="SearchFilterPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible="false">
             <asp:Label ID="SearchFilterlbl" runat="server" Text="Please select your search filter" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Locationlbl" runat="server" Text="Please choose your city"></asp:Label>

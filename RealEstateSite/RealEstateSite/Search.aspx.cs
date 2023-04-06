@@ -57,6 +57,7 @@ namespace RealEstateSite
             rprDisplay.DataBind();
             SearchPanel.Visible = true;
             SearchFilterPanel.Visible = false;
+            OverlayPanel.Visible = false;
         }
 
         protected void searchFilterbtn_Click(object sender, EventArgs e)
@@ -66,11 +67,13 @@ namespace RealEstateSite
             searchlbl.Text = "Find it. Tour it. Own it";
             visitRequestPanel.Visible = false;
             ProfilePanel.Visible = false;
+            OverlayPanel.Visible = true;
         }
 
         protected void SearchFilterClosebtn_click(object sender, EventArgs e)
         {
             SearchFilterPanel.Visible = false;
+            OverlayPanel.Visible = false;
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
@@ -109,6 +112,7 @@ namespace RealEstateSite
             visitRequestPanel.Visible = true;
             visitModal.Show();
             ProfilePanel.Visible = false;
+            OverlayPanel.Visible = true;
         }
 
         protected void visitClosebtn_Click(object sender, EventArgs e)
@@ -116,6 +120,7 @@ namespace RealEstateSite
             ProfilePanel.Visible = true;
             visitRequestPanel.Visible = false;
             Visitmsg.Text = string.Empty;
+            OverlayPanel.Visible = false;
         }
 
         protected void visitSubmitbtn_Click(object sender, EventArgs e)
@@ -155,7 +160,8 @@ namespace RealEstateSite
                         searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
                         visitRequestPanel.Visible = false;
                         SearchPanel.Visible = true;
-                        
+                        OverlayPanel.Visible = false;
+
                     }
                 }
             }

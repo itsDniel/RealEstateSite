@@ -9,6 +9,7 @@
     <asp:Button ID="OfferHiddenbutton" runat="server" CssClass="hidden" OnClick="offerHiddenbutton_click"/>
     <asp:Label ID="offerlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here are the homes that you have left a feedback on"></asp:Label>
     </div>
+    <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
      <asp:Panel ID="FeedbackedPanel" runat="server" CssClass="Searchrpr" Visible="true">
             <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand">
                         <ItemTemplate>
