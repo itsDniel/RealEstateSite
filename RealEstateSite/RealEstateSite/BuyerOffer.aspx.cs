@@ -29,22 +29,16 @@ namespace RealEstateSite
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
-
         {
-
-
             int rowIndex = e.Item.ItemIndex;
             Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
             homeidplaceholder.Text = myLabel.Text;
-
         }
 
         protected void offerbtn_Click(object sender, EventArgs e)
         {
-
             Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("feedbackHiddenbutton"));
             offerHiddenbutton_click(hiddenButton, EventArgs.Empty);
-
         }
 
         protected void offerHiddenbutton_click(object sender, EventArgs e)
@@ -66,7 +60,6 @@ namespace RealEstateSite
         {
             foreach (Control control in OfferPanel.Controls)
             {
-
                 if (control is TextBox)
                 {
                     TextBox tb = control as TextBox;
@@ -95,4 +88,3 @@ namespace RealEstateSite
         }
     }
 }
-    

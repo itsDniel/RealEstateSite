@@ -11,7 +11,9 @@ namespace RealEstateSite
     {
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {   //jenny's comment
+            //eh...if there's nothing to do for the if statement
+            //why not just do if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
             if (Request.Cookies["Username"] != null)
             {
 

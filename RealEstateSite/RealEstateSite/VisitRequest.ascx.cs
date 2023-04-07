@@ -42,7 +42,6 @@ namespace RealEstateSite
             }
         }
 
-
         public void visitddl_ItemCommand(object sender, DataListCommandEventArgs e)
         {
             int rowIndex = e.Item.ItemIndex;
@@ -58,9 +57,7 @@ namespace RealEstateSite
                 lbl.Visible = true;
                 Button btn = (Button)item.FindControl("visitedbtn");
                 btn.Visible = false;
-
             }
         }
-
     }
 }

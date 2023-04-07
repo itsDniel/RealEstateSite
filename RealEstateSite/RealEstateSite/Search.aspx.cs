@@ -16,7 +16,10 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Cookies["Username"] != null)
+            //jenny's comment
+            //eh...if there's nothing to do for the if statement
+            //why not just do if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
+            if (Request.Cookies["Username"] != null)
             {
 
             }
@@ -30,19 +33,21 @@ namespace RealEstateSite
         {
             string buyer = Request.Cookies["Username"].Value.ToString();
             string location = cityddl.Text;
-            int minPrice;
-            int maxPrice;
+            int minPrice = housePrice.minPrice(priceddl.SelectedValue); ;
+            int maxPrice = housePrice.maxPrice(priceddl.SelectedValue); ;
             string property = propertyddl.Text;
             string garage = garageddl.Text;
-            int minHouse;
-            int maxHouse;
+            int minHouse = houseSize.minSize(houseSizeddl.SelectedValue);//jenny
+            int maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
-            minPrice = housePrice.minPrice(priceddl.SelectedValue);
-            maxPrice = housePrice.maxPrice(priceddl.SelectedValue);
-            minHouse = houseSize.minSize(houseSizeddl.SelectedValue);
-            maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
-            searchHouse getHome = new searchHouse();
+            //minPrice = housePrice.minPrice(priceddl.SelectedValue);
+            //maxPrice = housePrice.maxPrice(priceddl.SelectedValue);
+            //minHouse = houseSize.minSize(houseSizeddl.SelectedValue);
+            //maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
+
+            //do we need this? this var is not used anywhere else in the code - jenny
+            searchHouse getHome = new searchHouse(); 
             getHome.location = location;
             getHome.minPrice = minPrice;
             getHome.maxPrice = maxPrice;
@@ -52,8 +57,10 @@ namespace RealEstateSite
             getHome.maxSize = maxHouse;
             getHome.amenity = amenity;
             getHome.utility = utility;
+
             rprDisplay.Visible = true;
-            rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse, maxHouse, amenity, utility, buyer);
+            rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse,
+                maxHouse, amenity, utility, buyer);
             rprDisplay.DataBind();
             SearchPanel.Visible = true;
             SearchFilterPanel.Visible = false;
@@ -77,10 +84,7 @@ namespace RealEstateSite
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
-
         {
-
-            
             int rowIndex = e.Item.ItemIndex;
             Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
             homeidplaceholder.Text = myLabel.Text;
@@ -91,7 +95,6 @@ namespace RealEstateSite
             searchlbl.Text = "Find it. Tour it. Own it";
         }
 
-
         protected void ProfileClosebtn_Click(object sender, EventArgs e)
         {
             ProfilePanel.Visible = false;
@@ -100,12 +103,9 @@ namespace RealEstateSite
 
         protected void visitRequestbtn_Click(object sender, EventArgs e)
         {
-         
             Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("visitHiddenbutton"));
             hiddenButton_click(hiddenButton, EventArgs.Empty);
-            
         }
-
 
         protected void hiddenButton_click(object sender, EventArgs e)
         {
@@ -138,7 +138,6 @@ namespace RealEstateSite
                 }
                 else
                 {
-                    
                     string status = "Pending";
                     visitRequest request = new visitRequest();
                     string buyer = Request.Cookies["Username"].Value.ToString();
@@ -154,14 +153,11 @@ namespace RealEstateSite
                     }
                     else
                     {
-
-
                         pxy.insertVisit(request);
                         searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
                         visitRequestPanel.Visible = false;
                         SearchPanel.Visible = true;
                         OverlayPanel.Visible = false;
-
                     }
                 }
             }

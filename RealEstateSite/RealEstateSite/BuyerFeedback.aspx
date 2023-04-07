@@ -1,44 +1,48 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterBuyer.Master" AutoEventWireup="true" CodeBehind="BuyerFeedback.aspx.cs" Inherits="RealEstateSite.BuyerFeedback" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Stylesheet/BuyerFeedback.css" rel="stylesheet" />
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="feedbackDiv">
-    <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
-    <asp:Button ID="feedbackHiddenbutton" runat="server" CssClass="hidden" OnClick="feedbackHiddenbutton_click"/>
-    <asp:Label ID="requestlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here are the homes that you have visited"></asp:Label>
+        <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
+        <asp:Button ID="feedbackHiddenbutton" runat="server" CssClass="hidden" OnClick="feedbackHiddenbutton_click"/>
+        <asp:Label ID="requestlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here are the homes that you have visited"></asp:Label>
     </div>
+
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
-     <asp:Panel ID="ApprovedRequestPanel" runat="server" CssClass="Searchrpr" Visible="true">
-            <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand">
-                        <ItemTemplate>
-                            <div class="card" style="width: 18rem;">
-                                
-                                <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
-                                <div class="card-body">
-                                    <h1 class="card-title">
-                                        <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
-                                        <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
-                                    </h1>
-                                    <p class="card-text">
-                                        <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
-                                    </p>
-                                    <p class="card-text">
-                                        <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
-                                    </p>
-                                    <p class="card-text">
-                                        <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
-                                    </p>
-                                    <p class="card-text">
-                                        <asp:Label ID="dateVisitedlbl" runat="server" Text='<%#"Date Visited: " + DataBinder.Eval(Container.DataItem, "DateRequested") %>'></asp:Label>
-                                    </p>
-                                    <asp:Button ID="feedbackbtn" Text="Leave Feedback" runat="server" OnClick="feedbackbtn_Click"/>
-                                </div>
-                            </div>
-                     </ItemTemplate>
-                    </asp:Repeater>
-        </asp:Panel>
+     
+    <asp:Panel ID="ApprovedRequestPanel" runat="server" CssClass="Searchrpr" Visible="true">
+        <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand">
+            <ItemTemplate>
+                <div class="card" style="width: 18rem;">
+                    <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                    <div class="card-body">
+                        <h1 class="card-title">
+                            <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
+                            <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
+                        </h1>
+                        <p class="card-text">
+                            <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
+                        </p>
+                        <p class="card-text">
+                            <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
+                        </p>
+                        <p class="card-text">
+                            <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
+                        </p>
+                        <p class="card-text">
+                            <asp:Label ID="dateVisitedlbl" runat="server" Text='<%#"Date Visited: " + DataBinder.Eval(Container.DataItem, "DateRequested") %>'></asp:Label>
+                        </p>
+                        <asp:Button ID="feedbackbtn" Text="Leave Feedback" runat="server" OnClick="feedbackbtn_Click"/>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </asp:Panel>
+
     <asp:Panel ID="FeedbackPanel" runat="server" CssClass="feedbackModal" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="feedbacklbl" runat="server" Text="Please Leave Your Feedback For This Home" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="feedbackmsg" runat="server" ForeColor="Red"></asp:Label>
@@ -64,12 +68,11 @@
             </asp:DropDownList>
             <asp:Button ID="feedbackSubmitbtn" runat="server" Text ="Leave Feedback" OnClick="feedbackSubmitbtn_Click"/>
             <asp:Button ID="feedbackClosebtn" runat="server" Text="Close" OnClick="feedbackClosebtn_Click"/>
+            
             <ajaxtoolkit:modalpopupextender ID="feedbackModal" runat="server" TargetControlID="feedbackHiddenbutton" PopupControlID="FeedbackPanel, ApprovedRequestPanel" OkControlID="feedbackClosebtn"> 
             </ajaxToolkit:ModalPopupExtender>
-        
         </asp:Panel>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
-
+    </asp:ScriptManager>
 </asp:Content>
