@@ -13,3 +13,12 @@ C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLi
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.dll
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.pdb
 C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CopyComplete
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.dll
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.pdb
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.AssemblyReference.cache
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CoreCompileInputs.cache
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CopyComplete
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
+C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb
