@@ -16,6 +16,12 @@ namespace RealEstateClassLibary
 
         public StoredProcedure() { command.CommandType = CommandType.StoredProcedure; }
 
+        private void SetCommandTextAndClearParam(String procedure)
+        {
+            command.CommandText = procedure;
+            command.Parameters.Clear();
+        }
+
         private Boolean UpdateDB()
         {
             int result = connect.DoUpdate(command);
@@ -23,13 +29,11 @@ namespace RealEstateClassLibary
             else return false;
         }
 
-        public int AddHouse(String seller, String agent, String address, String status, String city,
+        private void AddHouseParams(String seller, String agent, String address, String status, String city,
             String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
-            String heatingCooling, String builtYear, String garageSize, String utility, 
+            String heatingCooling, String builtYear, String garageSize, String utility,
             String homeDescription, int price, String image)
-        {   
-            command.CommandText = "AddHouse";
-            command.Parameters.Clear();
+        {
             command.Parameters.AddWithValue("@seller", seller);
             command.Parameters.AddWithValue("@agent", agent);
             command.Parameters.AddWithValue("@address", address);
@@ -47,34 +51,48 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@homeDescription", homeDescription);
             command.Parameters.AddWithValue("@price", price);
             command.Parameters.AddWithValue("@image", image);
-            command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
-            connect.DoUpdate(command);
-            return int.Parse(command.Parameters["@@identity"].Value.ToString());
-
-            //if (result != -1) return true;
-            //else return false;
         }
 
-        //for TP_AddRoom and TP_UpdateRoom
-        public Boolean UpdateRoomDB(String procedure, int id, String room, int dimension)
-        {   
-            command.CommandText = procedure;//"TP_AddRoom";
-            command.Parameters.Clear();
+        public int AddHouse(String seller, String agent, String address, String status, String city,
+            String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
+            String heatingCooling, String builtYear, String garageSize, String utility,
+            String homeDescription, int price, String image)
+        {
+            SetCommandTextAndClearParam("TP_AddHouse");
+            AddHouseParams(seller, agent, address, status, city, propertyType, homeSize, bedroom, bathroom,
+                amenity, heatingCooling, builtYear, garageSize, utility, homeDescription, price, image);
+            command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
+            connect.DoUpdate(command);
+
+            //return the id of the house so that TP_AddRoom can use it
+            return int.Parse(command.Parameters["@@identity"].Value.ToString());
+        }
+
+        public Boolean UpdateHouse(int id, String seller, String agent, String address, String status, String city,
+            String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
+            String heatingCooling, String builtYear, String garageSize, String utility,
+            String homeDescription, int price, String image)
+        {
+            SetCommandTextAndClearParam("TP_UpdateHouse");
             command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@room", room);
-            command.Parameters.AddWithValue("@dimension", dimension);
+            AddHouseParams(seller, agent, address, status, city, propertyType, homeSize, bedroom, bathroom,
+                amenity, heatingCooling, builtYear, garageSize, utility, homeDescription, price, image);
             return UpdateDB();
         }
 
-        public Boolean UpdateHouse()
-        {
-            return false;
+        public Boolean ModifyRoomDB(String procedure, int id, String room, int width, int length)
+        {   //for TP_AddRoom and TP_UpdateRoom
+            SetCommandTextAndClearParam(procedure);
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@room", room);
+            command.Parameters.AddWithValue("@width", width);
+            command.Parameters.AddWithValue("@length", length);
+            return UpdateDB();
         }
 
         public Boolean DeleteHouse(int id)
         {   //delete all associated rooms 1st and then delete the house
-            command.CommandText = "TP_DeleteAllRooms";
-            command.Parameters.Clear();
+            SetCommandTextAndClearParam("TP_DeleteAllRooms");
             command.Parameters.AddWithValue("@id", id);
             int result = connect.DoUpdate(command);
 
@@ -84,14 +102,27 @@ namespace RealEstateClassLibary
             if (result >= 2) return true;
             return false;
         }
-        
+
         public Boolean DeleteRoom(int id, String room)
         {   //delete a single room
-            command.CommandText = "TP_DeleteRoom";
-            command.Parameters.Clear();
+            SetCommandTextAndClearParam("TP_DeleteRoom");
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@room", room);
             return UpdateDB();
+        }
+
+        public DataSet GetHouses(String procedure, String param, String value)
+        {   //for TP_GetHouseBySeller (@seller) and TP_GetHouseByAgent (@agent)
+            SetCommandTextAndClearParam(procedure);
+            command.Parameters.AddWithValue(param, value);
+            return connect.GetDataSet(command);
+        }
+
+        public DataSet GetRooms(int id)
+        {
+            SetCommandTextAndClearParam("TP_GetRooms");
+            command.Parameters.AddWithValue("@id", id);
+            return connect.GetDataSet(command);
         }
     }
 }
