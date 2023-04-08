@@ -15,6 +15,24 @@ namespace RealEstateSite
     {
 
         /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus;
+
+        /// <summary>
+        /// lblBuyer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuyer;
+
+        /// <summary>
         /// txtSeller control.
         /// </summary>
         /// <remarks>
@@ -78,24 +96,6 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.DropDownList ddlHeatingCooling;
 
         /// <summary>
-        /// txtBuiltYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuiltYear;
-
-        /// <summary>
-        /// ddlGarageSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGarageSize;
-
-        /// <summary>
         /// ddlUtility control.
         /// </summary>
         /// <remarks>
@@ -123,13 +123,31 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.TextBox txtKitchenLength;
 
         /// <summary>
-        /// txtDescription control.
+        /// ddlGarageSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGarageSize;
+
+        /// <summary>
+        /// fileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+
+        /// <summary>
+        /// txtBuiltYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuiltYear;
 
         /// <summary>
         /// txtPrice control.
@@ -141,13 +159,13 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
 
         /// <summary>
-        /// fileUpload control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
         /// imgBtnPlus control.
