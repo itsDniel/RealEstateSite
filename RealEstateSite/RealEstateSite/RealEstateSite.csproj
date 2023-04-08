@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddHouse.aspx" />
     <Content Include="BuyerFeedback.aspx" />
     <Content Include="BuyerOffer.aspx" />
     <Content Include="BuyerRequest.aspx" />
@@ -89,6 +90,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddHouse.aspx.cs">
+      <DependentUpon>AddHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddHouse.aspx.designer.cs">
+      <DependentUpon>AddHouse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuyerFeedback.aspx.cs">
       <DependentUpon>BuyerFeedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

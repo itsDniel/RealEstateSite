@@ -18,7 +18,8 @@
             </button>
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item"><a href="House.aspx" class="nav-link">House</a></li>
+                    <li class="nav-item"><a href="House.aspx" class="nav-link">House Profile</a></li>
+                    <li class="nav-item"><a href="AddHouse.aspx" class="nav-link">Add House</a></li>
                     <li class="nav-item"><a href="SellerRequest.aspx" class="nav-link">Request</a></li>
                     <li class="nav-item"><a href="SellerFeedback.aspx" class="nav-link">Feedback</a></li>
                     <li class="nav-item"><a href="SellerOffer.aspx" class="nav-link">Offer</a></li>
