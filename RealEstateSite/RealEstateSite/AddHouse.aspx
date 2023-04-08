@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSeller.Master" AutoEventWireup="true" CodeBehind="AddHouse.aspx.cs" Inherits="RealEstateSite.AddHouse" %>
+
+<%@ Register Src="~/HouseControl.ascx" TagPrefix="uc1" TagName="HouseControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +15,9 @@
             <div class="col">Buyer: <asp:Label ID="lblBuyer" runat="server" Text="None"></asp:Label></div>
         </div>
         <%-- user control starts........................................ --%>
-        <div class="row">
+        <%-- add house user control --%>
+        <uc1:HouseControl runat="server" ID="HouseControl" />
+        <%--<div class="row">
             <div class="col">Seller <asp:TextBox ID="txtSeller" runat="server"></asp:TextBox></div>
             <div class="col">Agent <asp:TextBox ID="txtAgent" runat="server"></asp:TextBox></div>
         </div>
@@ -84,12 +89,10 @@
         HomeDescription<br />
         <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
         
-        <%-- when user clicks this img btn, roomControls will be displayed (visible) --%>
         <asp:ImageButton ID="imgBtnPlus" runat="server" Height="100px" Width="100px"   
         ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" />
         
         <div id="roomControls" runat="server">
-            <%-- the program will calculate the total dimensions of the house, bedroom #, bathroom # --%>
             Room <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
             <div class="row">
                 <div class="col">Width <asp:TextBox ID="txtRoomWidth" runat="server" TextMode="Number"></asp:TextBox></div>
@@ -98,7 +101,7 @@
             <br />
             <asp:Button ID="btnAddRoom" runat="server" Text="Add Room" CssClass="btn btn-outline-primary"/>
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary"/>
-        </div>
+        </div>--%>
         <%-- -------------------------user control ends------------------- --%>
         <br />
         <div class="text-center"><asp:Button ID="btnAddHouse" runat="server" Text="Add House"/></div>

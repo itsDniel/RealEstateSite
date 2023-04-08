@@ -12,20 +12,19 @@ namespace RealEstateRestful.Controllers
     //[ApiController]
     public class HouseController : Controller//Base
     {
+        StoredProcedure storedProcedure = new StoredProcedure();
+
         [HttpPost]
-        public Boolean AddHouse([FromBody] House house)
+        public void AddHouse([FromBody] House house)
         {
-            return true;
+            int id = storedProcedure.AddHouse(house.Seller, house.Agent, house.Address, 
+                house.Status, house.City, house.PropertyType, house.HomeSize, house.Bedroom, 
+                house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear, 
+                house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
+
+            //storedProcedure.ModifyRoomDB("TP_AddRoom", id, );
+            //return true;
         }
 
-        public Boolean test()
-        {
-            return true;
-        }
-
-        public Boolean test2()
-        {
-            return true;
-        }
     }
 }

@@ -9,7 +9,7 @@ using Utilities;
 
 namespace RealEstateClassLibary
 {
-    class StoredProcedure
+    public class StoredProcedure
     {
         SqlCommand command = new SqlCommand();
         DBConnect connect = new DBConnect();
