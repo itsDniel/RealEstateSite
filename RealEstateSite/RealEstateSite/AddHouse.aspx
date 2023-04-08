@@ -11,6 +11,7 @@
             <div class="col">Status: <asp:Label ID="lblStatus" runat="server" Text="Listing"></asp:Label></div>
             <div class="col">Buyer: <asp:Label ID="lblBuyer" runat="server" Text="None"></asp:Label></div>
         </div>
+        <%-- user control starts........................................ --%>
         <div class="row">
             <div class="col">Seller <asp:TextBox ID="txtSeller" runat="server"></asp:TextBox></div>
             <div class="col">Agent <asp:TextBox ID="txtAgent" runat="server"></asp:TextBox></div>
@@ -87,15 +88,18 @@
         <asp:ImageButton ID="imgBtnPlus" runat="server" Height="100px" Width="100px"   
         ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" />
         
-        <div id="roomControls" runat="server" hidden="hidden">
+        <div id="roomControls" runat="server">
             <%-- the program will calculate the total dimensions of the house, bedroom #, bathroom # --%>
             Room <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
             <div class="row">
                 <div class="col">Width <asp:TextBox ID="txtRoomWidth" runat="server" TextMode="Number"></asp:TextBox></div>
                 <div class="col">Length <asp:TextBox ID="txtRoomLength" runat="server" TextMode="Number"></asp:TextBox></div>
             </div>
+            <br />
+            <asp:Button ID="btnAddRoom" runat="server" Text="Add Room" CssClass="btn btn-outline-primary"/>
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary"/>
         </div>
-
+        <%-- -------------------------user control ends------------------- --%>
         <br />
         <div class="text-center"><asp:Button ID="btnAddHouse" runat="server" Text="Add House"/></div>
         <br />

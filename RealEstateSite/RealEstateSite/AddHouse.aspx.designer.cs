@@ -213,6 +213,24 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.TextBox txtRoomLength;
 
         /// <summary>
+        /// btnAddRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddRoom;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+
+        /// <summary>
         /// btnAddHouse control.
         /// </summary>
         /// <remarks>
