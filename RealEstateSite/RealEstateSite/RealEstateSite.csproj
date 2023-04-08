@@ -76,6 +76,7 @@
     <Content Include="BuyerOffer.aspx" />
     <Content Include="BuyerRequest.aspx" />
     <Content Include="House.aspx" />
+    <Content Include="HouseControl.ascx" />
     <Content Include="RealEstateLogin.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="SellerFeedback.aspx" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="House.aspx.designer.cs">
       <DependentUpon>House.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HouseControl.ascx.cs">
+      <DependentUpon>HouseControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HouseControl.ascx.designer.cs">
+      <DependentUpon>HouseControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="MasterBuyer.Master.cs">
       <DependentUpon>MasterBuyer.Master</DependentUpon>
