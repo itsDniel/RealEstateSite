@@ -62,10 +62,11 @@ namespace RealEstateClassLibary
             AddHouseParams(seller, agent, address, status, city, propertyType, homeSize, bedroom, bathroom,
                 amenity, heatingCooling, builtYear, garageSize, utility, homeDescription, price, image);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
+            command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
             connect.DoUpdate(command);
 
             //return the id of the house so that TP_AddRoom can use it
-            return int.Parse(command.Parameters["@@identity"].Value.ToString());
+            return int.Parse(command.Parameters["@id"].Value.ToString());
         }
 
         public Boolean UpdateHouse(int id, String seller, String agent, String address, String status, String city,
