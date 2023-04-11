@@ -9,6 +9,7 @@ namespace RealEstateClassLibary
     public class House
     {
         public House() { }
+        public int Id { get; set; }
         public String Seller { get; set; }
         public String Agent { get; set; }
         public String Homebuyer { get; set; }

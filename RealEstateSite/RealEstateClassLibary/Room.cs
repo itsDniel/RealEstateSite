@@ -9,6 +9,7 @@ namespace RealEstateClassLibary
     public class Room
     {
         public Room() { }
+        public int Id { get; set; }
         public String RoomName { get; set; }
         public int Width { get; set; }
         public int Length { get; set; }
