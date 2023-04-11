@@ -123,6 +123,9 @@
                             <asp:Label ID="bathroomlbl" runat="server" Text='<%# "Bathroom: " + DataBinder.Eval(Container.DataItem, "Bathroom") %>'></asp:Label>
                         </p>
                         <p class="card-text">
+                            <asp:Button ID="roomDetail" Text="Room Dimension Detail" runat="server" OnClick="roomDimensionbtn_Click" />
+                        </p>
+                        <p class="card-text">
                             <asp:Label ID="amenity" runat="server" Text='<%# "Amenity: " + DataBinder.Eval(Container.DataItem, "Amenity") %>'></asp:Label>
                         </p>
                         <p class="card-text">
@@ -159,6 +162,29 @@
             </ItemTemplate>
         </asp:Repeater>
         <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
+    </asp:Panel>
+    <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">
+        <asp:Repeater ID="rprRoomDimension" runat="server">
+            <ItemTemplate>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h1 class="card-title">
+                            <asp:Label ID="roomNamelbl" runat="server" Text='<%# "Room name: " + DataBinder.Eval(Container.DataItem, "Room") %>'></asp:Label>
+                        </h1>
+                        <p class="card-text">
+                            <asp:Label ID="widthlbl" runat="server" Text='<%# "Width: " + DataBinder.Eval(Container.DataItem, "Width") %>'></asp:Label>
+                        </p>
+                        <p class="card-text">
+                            <asp:Label ID="propertylbl" runat="server" Text='<%# "Length: " + DataBinder.Eval(Container.DataItem, "Length") %>'></asp:Label>
+                        </p>
+                        <asp:Button ID="roomDimensionClosebtn" runat="server" Text="Close" OnClick="roomDimensionClosebtn_Click" />
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+        <asp:Button ID="roomDimensionHiddenbtn" runat="server" CssClass="hidden" />
+        <ajaxToolkit:ModalPopupExtender ID="roomDimensionModal" runat="server" TargetControlID="roomDimensionHiddenbtn" PopupControlID="roomDimensionPanel" OkControlID="roomDimensionClosebtn" >
+        </ajaxToolkit:ModalPopupExtender>
     </asp:Panel>
 
     <asp:Panel ID="visitRequestPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">

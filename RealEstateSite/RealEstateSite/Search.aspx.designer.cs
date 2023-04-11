@@ -267,6 +267,42 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Button visitHiddenbutton;
 
         /// <summary>
+        /// roomDimensionPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel roomDimensionPanel;
+
+        /// <summary>
+        /// rprRoomDimension control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rprRoomDimension;
+
+        /// <summary>
+        /// roomDimensionHiddenbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button roomDimensionHiddenbtn;
+
+        /// <summary>
+        /// roomDimensionModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender roomDimensionModal;
+
+        /// <summary>
         /// visitRequestPanel control.
         /// </summary>
         /// <remarks>

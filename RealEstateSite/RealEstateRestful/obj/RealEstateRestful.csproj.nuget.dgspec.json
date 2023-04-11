@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {}
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
         "projectName": "RealEstateClassLibary",
-        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
+        "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj",
         "frameworks": {
           "net46": {
             "projectReferences": {
-              "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\Utilities\\Utilities.csproj": {
-                "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\Utilities\\Utilities.csproj"
+              "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj": {
+                "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj"
               }
             }
           }
@@ -23,20 +23,17 @@
         "net46": {}
       }
     },
-    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
         "projectName": "RealEstateRestful",
-        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
-        "packagesPath": "C:\\Users\\jenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateRestful\\obj\\",
+        "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateRestful\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,8 +47,8 @@
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
-                "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj"
+              "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
+                "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj"
               }
             }
           }
@@ -94,15 +91,15 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.424\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\Utilities\\Utilities.csproj": {
+    "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\Utilities\\Utilities.csproj",
+        "projectUniqueName": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj",
         "projectName": "Utilities",
-        "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\RealEstate\\RealEstateSite\\Utilities\\Utilities.csproj",
+        "projectPath": "C:\\Users\\Daniel\\Documents\\GitHub\\RealEstateSite\\RealEstateSite\\Utilities\\Utilities.csproj",
         "frameworks": {
           "net46": {
             "projectReferences": {}
