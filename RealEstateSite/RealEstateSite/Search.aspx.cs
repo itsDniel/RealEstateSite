@@ -162,5 +162,24 @@ namespace RealEstateSite
                 }
             }
         }
+
+        protected void roomDimensionbtn_Click(object sender, EventArgs e)
+        {
+            Button roomHiddenButton = (Button)((sender as Button).NamingContainer.FindControl("roomDimensionHiddentbtn"));
+            roomHiddenbtn_Click(roomHiddenButton, EventArgs.Empty);
+        }
+
+        protected void roomHiddenbtn_Click(object sender, EventArgs e)
+        {
+            roomDimensionModal.Show();
+            ProfilePanel.Visible = false;
+            roomDimensionPanel.Visible = true;
+        }
+
+        protected void roomDimensionClosebtn_Click(object sender, EventArgs e)
+        {
+            roomDimensionPanel.Visible = false;
+            ProfilePanel.Visible = true;
+        }
     }
 }
