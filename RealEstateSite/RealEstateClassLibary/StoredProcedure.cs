@@ -53,7 +53,8 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@image", image);
         }
 
-        public int AddHouse(House house)//String seller, String agent, String address, String status, String city,
+        public int AddHouse(House house)
+            //String seller, String agent, String address, String status, String city,
             //String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
             //String heatingCooling, String builtYear, String garageSize, String utility,
             //String homeDescription, int price, String image)
@@ -69,7 +70,7 @@ namespace RealEstateClassLibary
             connect.DoUpdate(command);
 
             //return the id of the house so that TP_AddRoom can use it
-            return int.Parse(command.Parameters["@id"].Value.ToString());
+            return int.Parse(command.Parameters["@id"].Value.ToString()); //NULL??????????
         }
 
         public Boolean UpdateHouse(House house)//String seller, String agent, String address, String status, String city,

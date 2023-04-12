@@ -9,19 +9,20 @@ using System.Data;
 
 namespace RealEstateRestful.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //http://localhost:28769/api/house
     //[ApiController]
     public class HouseController : Controller//Base
     {
         StoredProcedure storedProcedure = new StoredProcedure();
 
-        [HttpPost] //http://localhost:28769/api/house
+        [HttpPost("AddHouse")] //api/house/addhouse
         public int AddHouse([FromBody] House house)
         {   //add a record to the TP_Home table and return the id of the record
-            return storedProcedure.AddHouse(house);//house.Seller, house.Agent, house.Address, 
-                                                   //house.Status, house.City, house.PropertyType, house.HomeSize, house.Bedroom, 
-                                                   //house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear, 
-                                                   //house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
+            return storedProcedure.AddHouse(house);
+            //house.Seller, house.Agent, house.Address, 
+            //house.Status, house.City, house.PropertyType, house.HomeSize, house.Bedroom, 
+            //house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear, 
+            //house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
         }
 
         [HttpPost]
@@ -37,8 +38,8 @@ namespace RealEstateRestful.Controllers
             else return false;
         }
 
-        [HttpPut]
-        public Boolean UpdateHouse([FromBody] House house)
+        [HttpPut("UpdateHouse")]
+        public Boolean UpdateHouse([FromBody]House house)
         {
             return storedProcedure.UpdateHouse(house);
         }
@@ -49,31 +50,31 @@ namespace RealEstateRestful.Controllers
             return storedProcedure.ModifyRoomDB("TP_UpdateRoom", room.Id, room.RoomName, room.Width, room.Length);
         }
 
-        [HttpDelete("DeleteHouse/{id}")]
+        [HttpDelete("DeleteHouse/{id}")]            //api/house/13
         public Boolean DeleteHouse(int id)
         {
             return storedProcedure.DeleteHouse(id);
         }
 
-        [HttpDelete("DeleteRoom/{id}/{roomName}")]
+        [HttpDelete("DeleteRoom/{id}/{roomName}")]  //api/house/13/kitchen
         public Boolean DeleteRoom(int id, String roomName)
         {
             return storedProcedure.DeleteRoom(id, roomName);
         }
         
-        [HttpGet("GetHouseBySeller/{username}")] //api/house/GetHouseBySeller/jenny
+        [HttpGet("GetHouseBySeller/{username}")]    //api/house/GetHouseBySeller/jenny
         public DataSet GetHouseBySeller(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseBySeller", "@seller", username);
         }
 
-        [HttpGet("GetHouseByAgent/{username}")] //api/house/GetHouseByAgent/jenny
+        [HttpGet("GetHouseByAgent/{username}")]     //api/house/GetHouseByAgent/jenny
         public DataSet GetHouseByAgent(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseByAgent", "@agent", username);
         }
 
-        [HttpGet("GetRooms/{id}")] //api/house/GetRooms
+        [HttpGet("GetRooms/{id}")]                  //api/house/GetRooms
         public DataSet GetRooms(int id)
         {
             return storedProcedure.GetRooms(id);

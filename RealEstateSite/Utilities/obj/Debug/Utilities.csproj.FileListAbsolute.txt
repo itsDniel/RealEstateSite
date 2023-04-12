@@ -15,3 +15,9 @@ C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\Utilities\obj\Debug\Ut
 C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\Utilities\obj\Debug\Utilities.dll
 C:\Users\jenny\OneDrive\Desktop\RealEstate\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\bin\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\bin\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
