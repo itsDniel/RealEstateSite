@@ -11,6 +11,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Mail;
 using System.Data;
+using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace RealEstateSite
 {
@@ -22,9 +25,19 @@ namespace RealEstateSite
         public static string role { get; set; }
         public static string question { get; set; }
         public static string answer { get; set; }
+        private Byte[] key = { 53, 215, 97, 18, 244, 76, 131, 212, 63, 99, 12, 20, 132, 190, 45, 220  };
+
+        private Byte[] vector = { 162, 50, 228, 9, 73, 184, 37, 99, 215, 138, 102, 120, 125, 152, 220, 180 };
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                if(Request.Cookies["LoginUser"] != null && Request.Cookies["LoginPassword"] != null)
+                {
+                    usernametxt.Text = Request.Cookies["LoginUser"].Value.ToString();
+                    passwordtxt.Text = Request.Cookies["LoginPassword"].Value.ToString();
+                }
+            }
         }
 
         protected void loginbtn_Click(object sender, EventArgs e)
@@ -34,24 +47,69 @@ namespace RealEstateSite
             {
                 User user = new User();
                 user.Username = usernametxt.Text;
-                user.Password = passwordtxt.Text;
+                string Password = passwordtxt.Text;
+                Byte[] textBytes;
+                string encryptedPass;
+                UTF8Encoding encoder = new UTF8Encoding();
+                textBytes = encoder.GetBytes(Password);
+                RijndaelManaged rmEncryption = new RijndaelManaged();
+                MemoryStream stream = new MemoryStream();
+                CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+                encryptionStream.Write(textBytes, 0, textBytes.Length);
+                encryptionStream.FlushFinalBlock();
+                stream.Position = 0;
+                Byte[] encryptedBytes = new Byte[stream.Length];
+                stream.Read(encryptedBytes, 0, encryptedBytes.Length);
+                encryptionStream.Close();
+                stream.Close();
+                encryptedPass = Convert.ToBase64String(encryptedBytes);
+                user.Password = encryptedPass;
                 int userCount = pxy.scalarLogin(user);
                 if(userCount > 0)
                 {
-                    loginmsg.Visible = true;
-                    loginmsg.Text = "Login Success";
-                    HttpCookie username = new HttpCookie("Username");
-                    username.Value = usernametxt.Text;
-                    Response.Cookies.Add(username);
-                    string role = pxy.getRole(usernametxt.Text);
-                    string buyer = "Buyer";
-                    if(role.Equals(buyer))
+                    if (rememberMe.Checked)
                     {
-                        Response.Redirect("Search.aspx");
+                        loginmsg.Visible = true;
+                        loginmsg.Text = "Login Success";
+                        HttpCookie username = new HttpCookie("Username");
+                        HttpCookie loginuser = new HttpCookie("LoginUser");
+                        HttpCookie loginPass = new HttpCookie("LoginPassword");
+                        loginuser.Value = usernametxt.Text;
+                        loginuser.Expires = DateTime.MaxValue;
+                        loginPass.Value = passwordtxt.Text;
+                        loginPass.Expires = DateTime.MaxValue;
+                        username.Value = usernametxt.Text;
+                        Response.Cookies.Add(username);
+                        Response.Cookies.Add(loginuser);
+                        Response.Cookies.Add(loginPass);
+                        string role = pxy.getRole(usernametxt.Text);
+                        string buyer = "Buyer";
+                        if (role.Equals(buyer))
+                        {
+                            Response.Redirect("Search.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("House.aspx");
+                        }
                     }
                     else
                     {
-                        Response.Redirect("House.aspx");
+                        loginmsg.Visible = true;
+                        loginmsg.Text = "Login Success";
+                        HttpCookie username = new HttpCookie("Username");
+                        username.Value = usernametxt.Text;
+                        Response.Cookies.Add(username);
+                        string role = pxy.getRole(usernametxt.Text);
+                        string buyer = "Buyer";
+                        if (role.Equals(buyer))
+                        {
+                            Response.Redirect("Search.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("House.aspx");
+                        }
                     }
                 }
                 else
@@ -66,6 +124,7 @@ namespace RealEstateSite
                 loginmsg.Text = "You must enter your credential!";
             }
         }
+
 
         protected void accountbtn_Click(object sender, EventArgs e)
         {
@@ -87,7 +146,6 @@ namespace RealEstateSite
             user.Role = AccountRoleddl.Text;
             user.FullName = AccountFullnametxt.Text;
             user.Email = AccountEmailtxt.Text;
-            user.Password = AccountPasswordtxt.Text;
             user.Phone = AccountPhonetxt.Text;
             user.Q1 = Q1lbl.Text;
             user.Q2 = Q2lbl.Text;
@@ -95,6 +153,23 @@ namespace RealEstateSite
             user.A1 = A1txt.Text;
             user.A2 = A2txt.Text;
             user.A3 = A3txt.Text;
+            string Password = AccountPasswordtxt.Text;
+            Byte[] textBytes;
+            string encryptedPass;
+            UTF8Encoding encoder = new UTF8Encoding();
+            textBytes = encoder.GetBytes(Password);
+            RijndaelManaged rmEncryption = new RijndaelManaged();
+            MemoryStream stream = new MemoryStream();
+            CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+            encryptionStream.Write(textBytes, 0, textBytes.Length);
+            encryptionStream.FlushFinalBlock();
+            stream.Position = 0;
+            Byte[] encryptedBytes = new Byte[stream.Length];
+            stream.Read(encryptedBytes, 0, encryptedBytes.Length);
+            encryptionStream.Close();
+            stream.Close();
+            encryptedPass = Convert.ToBase64String(encryptedBytes);
+            user.Password = encryptedPass;
             foreach (Control control in AccountPanel.Controls)
             {
                 if (control is TextBox)

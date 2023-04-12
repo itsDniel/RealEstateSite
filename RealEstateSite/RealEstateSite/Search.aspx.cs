@@ -21,7 +21,7 @@ namespace RealEstateSite
             //why not just do if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
             if (Request.Cookies["Username"] != null)
             {
-
+                //This is a placeholder just in case (Daniel)
             }
             else
             {
