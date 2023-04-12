@@ -28,3 +28,7 @@
     width: 18%;
     position: absolute
 }
+
+.hidden{
+    display:none;
+}
