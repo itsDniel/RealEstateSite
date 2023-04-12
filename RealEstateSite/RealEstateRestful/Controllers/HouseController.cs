@@ -49,30 +49,31 @@ namespace RealEstateRestful.Controllers
             return storedProcedure.ModifyRoomDB("TP_UpdateRoom", room.Id, room.RoomName, room.Width, room.Length);
         }
 
-        [HttpDelete]
+        [HttpDelete("DeleteHouse/{id}")]
         public Boolean DeleteHouse(int id)
         {
             return storedProcedure.DeleteHouse(id);
         }
 
-        [HttpDelete]
+        [HttpDelete("DeleteRoom/{id}/{roomName}")]
         public Boolean DeleteRoom(int id, String roomName)
         {
             return storedProcedure.DeleteRoom(id, roomName);
         }
         
-        [HttpGet("GetHouseBySeller")]
+        [HttpGet("GetHouseBySeller/{username}")] //api/house/GetHouseBySeller/jenny
         public DataSet GetHouseBySeller(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseBySeller", "@seller", username);
         }
 
-        [HttpGet("GetHouseByAgent")]
+        [HttpGet("GetHouseByAgent/{username}")] //api/house/GetHouseByAgent/jenny
         public DataSet GetHouseByAgent(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseByAgent", "@agent", username);
         }
 
+        [HttpGet("GetRooms/{id}")] //api/house/GetRooms
         public DataSet GetRooms(int id)
         {
             return storedProcedure.GetRooms(id);
