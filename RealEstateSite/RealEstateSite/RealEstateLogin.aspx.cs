@@ -34,8 +34,17 @@ namespace RealEstateSite
             {
                 if(Request.Cookies["LoginUser"] != null && Request.Cookies["LoginPassword"] != null)
                 {
-                    usernametxt.Text = Request.Cookies["LoginUser"].Value.ToString();
-                    passwordtxt.Text = Request.Cookies["LoginPassword"].Value.ToString();
+                    if (Request.QueryString["logout"] == "true")
+                    {
+                        usernametxt.Text = Request.Cookies["LoginUser"].Value.ToString();
+                        passwordtxt.Text = Request.Cookies["LoginPassword"].Value.ToString();
+                    }
+                    else
+                    {
+                        usernametxt.Text = Request.Cookies["LoginUser"].Value.ToString();
+                        passwordtxt.Text = Request.Cookies["LoginPassword"].Value.ToString();
+                        loginbtn_Click(sender, e);
+                    }
                 }
             }
         }
