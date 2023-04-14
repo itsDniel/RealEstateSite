@@ -19,13 +19,9 @@ namespace RealEstateRestful.Controllers
         public int AddHouse([FromBody] House house)
         {   //add a record to the TP_Home table and return the id of the record
             return storedProcedure.AddHouse(house);
-            //house.Seller, house.Agent, house.Address, 
-            //house.Status, house.City, house.PropertyType, house.HomeSize, house.Bedroom, 
-            //house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear, 
-            //house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
         }
 
-        [HttpPost]
+        [HttpPost("AddRoom")]
         public Boolean AddRoom([FromBody] List<Room> rooms)
         {
             int result = 0;

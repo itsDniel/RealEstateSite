@@ -29,6 +29,7 @@ namespace RealEstateClassLibary
             else return false;
         }
 
+        //this method is used for both updating and adding house
         private void AddHouseParams(String seller, String agent, String address, String status, String city,
             String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
             String heatingCooling, String builtYear, String garageSize, String utility,
@@ -54,37 +55,26 @@ namespace RealEstateClassLibary
         }
 
         public int AddHouse(House house)
-            //String seller, String agent, String address, String status, String city,
-            //String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
-            //String heatingCooling, String builtYear, String garageSize, String utility,
-            //String homeDescription, int price, String image)
         {
             SetCommandTextAndClearParam("TP_AddHouse");
             AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
                 house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
                 house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
-                //seller, agent, address, status, city, propertyType, homeSize, bedroom, bathroom,
-                //amenity, heatingCooling, builtYear, garageSize, utility, homeDescription, price, image);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
             command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
             connect.DoUpdate(command);
 
             //return the id of the house so that TP_AddRoom can use it
-            return int.Parse(command.Parameters["@id"].Value.ToString()); //NULL??????????
+            return int.Parse(command.Parameters["@id"].Value.ToString()); 
         }
 
-        public Boolean UpdateHouse(House house)//String seller, String agent, String address, String status, String city,
-            //String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
-            //String heatingCooling, String builtYear, String garageSize, String utility,
-            //String homeDescription, int price, String image)
+        public Boolean UpdateHouse(House house)
         {
             SetCommandTextAndClearParam("TP_UpdateHouse");
             command.Parameters.AddWithValue("@id", house.Id);
             AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
                 house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
                 house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
-                //seller, agent, address, status, city, propertyType, homeSize, bedroom, bathroom,
-                //amenity, heatingCooling, builtYear, garageSize, utility, homeDescription, price, image);
             return UpdateDB();
         }
 
