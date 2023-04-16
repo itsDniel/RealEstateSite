@@ -70,19 +70,3 @@
         
 HomeDescription<br />
 <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
-        
-<%-- when user clicks this img btn, roomControls will be displayed (visible) --%>
-<asp:ImageButton ID="imgBtnPlus" runat="server" Height="100px" Width="100px"   
-ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" />
-        
-<div id="roomControls" runat="server">
-    <%-- the program will calculate the total dimensions of the house, bedroom #, bathroom # --%>
-    Room <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
-    <div class="row">
-        <div class="col">Width <asp:TextBox ID="txtRoomWidth" runat="server" TextMode="Number"></asp:TextBox></div>
-        <div class="col">Length <asp:TextBox ID="txtRoomLength" runat="server" TextMode="Number"></asp:TextBox></div>
-    </div>
-    <br />
-    <asp:Button ID="btnAddRoom" runat="server" Text="Add Room" CssClass="btn btn-outline-primary"/>
-    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary"/>
-</div>

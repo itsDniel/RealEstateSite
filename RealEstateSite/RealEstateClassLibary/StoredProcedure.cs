@@ -31,7 +31,7 @@ namespace RealEstateClassLibary
 
         //this method is used for both updating and adding house
         private void AddHouseParams(String seller, String agent, String address, String status, String city,
-            String propertyType, int homeSize, int bedroom, int bathroom, String amenity,
+            String propertyType, String homeSize, int bedroom, int bathroom, String amenity,
             String heatingCooling, String builtYear, String garageSize, String utility,
             String homeDescription, int price, String image)
         {

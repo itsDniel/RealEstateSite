@@ -99,7 +99,7 @@ namespace RealEstateSite
                         }
                         else
                         {
-                            Response.Redirect("House.aspx");
+                            Response.Redirect("HouseProfile.aspx");
                         }
                     }
                     else
@@ -117,7 +117,7 @@ namespace RealEstateSite
                         }
                         else
                         {
-                            Response.Redirect("House.aspx");
+                            Response.Redirect("HouseProfile.aspx");
                         }
                     }
                 }

@@ -17,7 +17,7 @@ namespace RealEstateClassLibary
         public String Status { get; set; }
         public String City { get; set; }
         public String PropertyType { get; set; }
-        public int HomeSize { get; set; }   //Square footage
+        public String HomeSize { get; set; }   //Square footage
         public int Bedroom { get; set; }    //# of bedrooms
         public int Bathroom { get; set; }   //# of bathrooms
         public String Amenity { get; set; }

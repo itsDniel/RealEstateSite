@@ -76,9 +76,10 @@
     <Content Include="BuyerFeedback.aspx" />
     <Content Include="BuyerOffer.aspx" />
     <Content Include="BuyerRequest.aspx" />
-    <Content Include="House.aspx" />
+    <Content Include="HouseProfile.aspx" />
     <Content Include="HouseControl.ascx" />
     <Content Include="RealEstateLogin.aspx" />
+    <Content Include="RoomControl.ascx" />
     <Content Include="Search.aspx" />
     <Content Include="SellerFeedback.aspx" />
     <Content Include="SellerOffer.aspx" />
@@ -120,12 +121,12 @@
     <Compile Include="BuyerRequest.aspx.designer.cs">
       <DependentUpon>BuyerRequest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="House.aspx.cs">
-      <DependentUpon>House.aspx</DependentUpon>
+    <Compile Include="HouseProfile.aspx.cs">
+      <DependentUpon>HouseProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="House.aspx.designer.cs">
-      <DependentUpon>House.aspx</DependentUpon>
+    <Compile Include="HouseProfile.aspx.designer.cs">
+      <DependentUpon>HouseProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="HouseControl.ascx.cs">
       <DependentUpon>HouseControl.ascx</DependentUpon>
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="RealEstateLogin.aspx.designer.cs">
       <DependentUpon>RealEstateLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RoomControl.ascx.cs">
+      <DependentUpon>RoomControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RoomControl.ascx.designer.cs">
+      <DependentUpon>RoomControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>

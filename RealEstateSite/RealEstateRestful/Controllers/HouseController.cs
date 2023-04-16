@@ -15,13 +15,13 @@ namespace RealEstateRestful.Controllers
     {
         StoredProcedure storedProcedure = new StoredProcedure();
 
-        [HttpPost("AddHouse")] //api/house/addhouse
+        [HttpPost("AddHouse")]      //api/house/addhouse
         public int AddHouse([FromBody] House house)
         {   //add a record to the TP_Home table and return the id of the record
             return storedProcedure.AddHouse(house);
         }
 
-        [HttpPost("AddRoom")]
+        [HttpPost("AddRoom")]       //api/house/addroom
         public Boolean AddRoom([FromBody] List<Room> rooms)
         {
             int result = 0;
@@ -34,13 +34,13 @@ namespace RealEstateRestful.Controllers
             else return false;
         }
 
-        [HttpPut("UpdateHouse")]
+        [HttpPut("UpdateHouse")]    //api/house/updatehouse
         public Boolean UpdateHouse([FromBody]House house)
         {
             return storedProcedure.UpdateHouse(house);
         }
 
-        [HttpPut]
+        [HttpPut("UpdateRoom")]     //api/house/updateroom
         public Boolean UpdateRoom([FromBody] Room room)
         {
             return storedProcedure.ModifyRoomDB("TP_UpdateRoom", room.Id, room.RoomName, room.Width, room.Length);

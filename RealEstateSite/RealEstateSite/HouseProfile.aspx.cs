@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace RealEstateSite
 {
-    public partial class House : System.Web.UI.Page
+    public partial class HouseProfile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

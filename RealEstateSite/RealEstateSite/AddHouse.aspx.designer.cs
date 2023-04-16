@@ -15,31 +15,22 @@ namespace RealEstateSite
     {
 
         /// <summary>
-        /// lblStatus control.
+        /// lblInstruction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
+        protected global::System.Web.UI.WebControls.Label lblInstruction;
 
         /// <summary>
-        /// lblBuyer control.
+        /// hc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuyer;
-
-        /// <summary>
-        /// HouseControl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::RealEstateSite.HouseControl HouseControl;
+        protected global::RealEstateSite.HouseControl hc;
 
         /// <summary>
         /// btnAddHouse control.

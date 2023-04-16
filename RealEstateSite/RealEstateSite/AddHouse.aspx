@@ -9,14 +9,15 @@
 
     <div class="container w-75 bg-info bg-opacity-25">
         <br />
-        <div class="row">
-            <%-- status and buyer will be updated when user accepts an offer --%>
+        <asp:Label ID="lblInstruction" runat="server" Text="Label"></asp:Label>
+        <%-- status and buyer will be updated when user accepts an offer --%>
+        <%--<div class="row">
             <div class="col">Status: <asp:Label ID="lblStatus" runat="server" Text="Listing"></asp:Label></div>
             <div class="col">Buyer: <asp:Label ID="lblBuyer" runat="server" Text="None"></asp:Label></div>
-        </div>
+        </div>--%>
         <%-- user control starts........................................ --%>
         <%-- add house user control --%>
-        <uc1:HouseControl runat="server" ID="HouseControl" />
+        <uc1:HouseControl runat="server" ID="hc" />
         <%--<div class="row">
             <div class="col">Seller <asp:TextBox ID="txtSeller" runat="server"></asp:TextBox></div>
             <div class="col">Agent <asp:TextBox ID="txtAgent" runat="server"></asp:TextBox></div>
@@ -104,7 +105,7 @@
         </div>--%>
         <%-- -------------------------user control ends------------------- --%>
         <br />
-        <div class="text-center"><asp:Button ID="btnAddHouse" runat="server" Text="Add House"/></div>
+        <div class="text-center"><asp:Button ID="btnAddHouse" runat="server" Text="Add House" OnClick="btnAddHouse_Click"/></div>
         <br />
     </div>
 </asp:Content>

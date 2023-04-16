@@ -11,7 +11,7 @@ namespace RealEstateSite
 {
 
 
-    public partial class House
+    public partial class HouseProfile
     {
     }
 }
