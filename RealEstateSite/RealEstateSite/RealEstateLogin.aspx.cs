@@ -26,8 +26,8 @@ namespace RealEstateSite
         public static string question { get; set; }
         public static string answer { get; set; }
         private Byte[] key = { 53, 215, 97, 18, 244, 76, 131, 212, 63, 99, 12, 20, 132, 190, 45, 220  };
-
         private Byte[] vector = { 162, 50, 228, 9, 73, 184, 37, 99, 215, 138, 102, 120, 125, 152, 220, 180 };
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -49,6 +49,37 @@ namespace RealEstateSite
             }
         }
 
+        private void DirectingUserToTheRightPage()
+        {
+            if (pxy.GetRole(usernametxt.Text).Equals("Buyer")) Response.Redirect("Search.aspx");
+            else Response.Redirect("HouseProfile.aspx");
+        }
+
+        private void EncryptingPassword(String password, User user)
+        {
+            Byte[] textBytes;
+            string encryptedPass;
+
+            UTF8Encoding encoder = new UTF8Encoding();
+            textBytes = encoder.GetBytes(password);
+
+            RijndaelManaged rmEncryption = new RijndaelManaged();
+            MemoryStream stream = new MemoryStream();
+            CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+            encryptionStream.Write(textBytes, 0, textBytes.Length);
+            encryptionStream.FlushFinalBlock();
+
+            stream.Position = 0;
+            Byte[] encryptedBytes = new Byte[stream.Length];
+            stream.Read(encryptedBytes, 0, encryptedBytes.Length);
+
+            encryptionStream.Close();
+            stream.Close();
+
+            encryptedPass = Convert.ToBase64String(encryptedBytes);
+            user.Password = encryptedPass;
+        }
+
         protected void loginbtn_Click(object sender, EventArgs e)
         {
             loginmsg.Visible = false;
@@ -56,30 +87,16 @@ namespace RealEstateSite
             {
                 User user = new User();
                 user.Username = usernametxt.Text;
-                string Password = passwordtxt.Text;
-                Byte[] textBytes;
-                string encryptedPass;
-                UTF8Encoding encoder = new UTF8Encoding();
-                textBytes = encoder.GetBytes(Password);
-                RijndaelManaged rmEncryption = new RijndaelManaged();
-                MemoryStream stream = new MemoryStream();
-                CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
-                encryptionStream.Write(textBytes, 0, textBytes.Length);
-                encryptionStream.FlushFinalBlock();
-                stream.Position = 0;
-                Byte[] encryptedBytes = new Byte[stream.Length];
-                stream.Read(encryptedBytes, 0, encryptedBytes.Length);
-                encryptionStream.Close();
-                stream.Close();
-                encryptedPass = Convert.ToBase64String(encryptedBytes);
-                user.Password = encryptedPass;
+                EncryptingPassword(passwordtxt.Text, user);
                 int userCount = pxy.scalarLogin(user);
+
                 if(userCount > 0)
                 {
                     if (rememberMe.Checked)
                     {
                         loginmsg.Visible = true;
                         loginmsg.Text = "Login Success";
+
                         HttpCookie username = new HttpCookie("Username");
                         HttpCookie loginuser = new HttpCookie("LoginUser");
                         HttpCookie loginPass = new HttpCookie("LoginPassword");
@@ -88,37 +105,21 @@ namespace RealEstateSite
                         loginPass.Value = passwordtxt.Text;
                         loginPass.Expires = DateTime.MaxValue;
                         username.Value = usernametxt.Text;
+
                         Response.Cookies.Add(username);
                         Response.Cookies.Add(loginuser);
                         Response.Cookies.Add(loginPass);
-                        string role = pxy.getRole(usernametxt.Text);
-                        string buyer = "Buyer";
-                        if (role.Equals(buyer))
-                        {
-                            Response.Redirect("Search.aspx");
-                        }
-                        else
-                        {
-                            Response.Redirect("HouseProfile.aspx");
-                        }
+                        DirectingUserToTheRightPage();
                     }
                     else
                     {
                         loginmsg.Visible = true;
                         loginmsg.Text = "Login Success";
+
                         HttpCookie username = new HttpCookie("Username");
                         username.Value = usernametxt.Text;
                         Response.Cookies.Add(username);
-                        string role = pxy.getRole(usernametxt.Text);
-                        string buyer = "Buyer";
-                        if (role.Equals(buyer))
-                        {
-                            Response.Redirect("Search.aspx");
-                        }
-                        else
-                        {
-                            Response.Redirect("HouseProfile.aspx");
-                        }
+                        DirectingUserToTheRightPage();
                     }
                 }
                 else
@@ -149,7 +150,6 @@ namespace RealEstateSite
 
         protected void AccountSubmitBtn_Click(object sender, EventArgs e)
         {
-            EmailAddressAttribute em = new EmailAddressAttribute();
             User user = new User();
             user.Username = AccountUsernametxt.Text;
             user.Role = AccountRoleddl.Text;
@@ -162,52 +162,28 @@ namespace RealEstateSite
             user.A1 = A1txt.Text;
             user.A2 = A2txt.Text;
             user.A3 = A3txt.Text;
-            string Password = AccountPasswordtxt.Text;
-            Byte[] textBytes;
-            string encryptedPass;
-            UTF8Encoding encoder = new UTF8Encoding();
-            textBytes = encoder.GetBytes(Password);
-            RijndaelManaged rmEncryption = new RijndaelManaged();
-            MemoryStream stream = new MemoryStream();
-            CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
-            encryptionStream.Write(textBytes, 0, textBytes.Length);
-            encryptionStream.FlushFinalBlock();
-            stream.Position = 0;
-            Byte[] encryptedBytes = new Byte[stream.Length];
-            stream.Read(encryptedBytes, 0, encryptedBytes.Length);
-            encryptionStream.Close();
-            stream.Close();
-            encryptedPass = Convert.ToBase64String(encryptedBytes);
-            user.Password = encryptedPass;
+            EncryptingPassword(AccountPasswordtxt.Text, user);
+
             foreach (Control control in AccountPanel.Controls)
             {
                 if (control is TextBox)
                 {
                     TextBox tb = control as TextBox;
-                    if (string.IsNullOrEmpty(tb.Text))
-                    {
-                        accountmsg.Text = "You must enter all informmation!";
-                    }
+                    if (string.IsNullOrEmpty(tb.Text)) accountmsg.Text = "You must enter all informmation!";
                     else
                     {
-                        if (!em.IsValid(AccountEmailtxt.Text))
-                        {
+                        EmailAddressAttribute em = new EmailAddressAttribute();
+                        if (!em.IsValid(AccountEmailtxt.Text)) 
                             accountmsg.Text = "You must enter a valid email address!";
-                        }
                         else
                         {
                             int usernameCount = pxy.scalarUsername(user);
-                            if(usernameCount > 0)
-                            {
-                                accountmsg.Text = "Username already exist!";
-                            }
+                            if(usernameCount > 0) accountmsg.Text = "Username already exist!";
                             else
                             {
                                 int emailCount = pxy.scalarEmail(user);
                                 if (emailCount > 0)
-                                {
                                     accountmsg.Text = "A " + AccountRoleddl.Text + " account with this email already exists";
-                                }
                                 else
                                 {
                                     pxy.accountUpdate(user);
@@ -218,7 +194,6 @@ namespace RealEstateSite
                         }
                     }
                 }
-                
             }
         }
 
@@ -239,37 +214,34 @@ namespace RealEstateSite
             EmailAddressAttribute em = new EmailAddressAttribute();
             if (!string.IsNullOrEmpty(PasswordEmailtxt.Text))
             {
-                if (!em.IsValid(PasswordEmailtxt.Text))
-                {
-                    Passwordmsg.Text = "You must enter a valid email address";
-                }
+                if (!em.IsValid(PasswordEmailtxt.Text)) Passwordmsg.Text = "You must enter a valid email address";
                 else
                 {
                     User user = new User();
                     user.Email = PasswordEmailtxt.Text;
                     user.Role = passwordroleddl.Text;
+
                     PIN = TwoFactorPinGenerator.RNG();
                     string to = PasswordEmailtxt.Text;
                     string from = "huydoan2306@gmail.com";
                     MailMessage message = new MailMessage(from, to);
+
                     string mailBody = "Here is your PIN number that you requested" + "<br>" + PIN;
                     message.Subject = "BlueFin PIN Code";
                     message.Body = mailBody;
                     message.BodyEncoding = System.Text.Encoding.UTF8;
                     message.IsBodyHtml = true;
+
                     SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                     System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("huydoan2306@gmail.com", "qhmw coal qjpb hqqk");
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
                     client.Credentials = basicCredential1;
+
                     int emailCount = pxy.scalarEmail(user);
-                    if (emailCount == 0)
-                    {
-                        Passwordmsg.Text = "There's no account associated with this email";
-                    }
+                    if (emailCount == 0) Passwordmsg.Text = "There's no account associated with this email";
                     else
                     {
-                        
                         client.Send(message);
                         PasswordPanel.Visible = false;
                         PINPanel.Visible = true;
@@ -278,10 +250,7 @@ namespace RealEstateSite
                     }
                 }
             }
-            else
-            {
-                Passwordmsg.Text = "You must enter your email";
-            }
+            else Passwordmsg.Text = "You must enter your email";
         }
 
         protected void PinBackbtn_Click(object sender, EventArgs e)
@@ -292,13 +261,9 @@ namespace RealEstateSite
 
         protected void PinSubmitbtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Pintxt.Text))
-            {
-                Pinmsg.Text = "Please enter the PIN number in your email";
-            }
+            if (string.IsNullOrEmpty(Pintxt.Text)) Pinmsg.Text = "Please enter the PIN number in your email";
             else
             {
-                
                 int input = int.Parse(Pintxt.Text);
                 if(input == PIN)
                 {
@@ -314,25 +279,18 @@ namespace RealEstateSite
                     SQPQuestionlbl.Text = question;
 
                 }
-                else
-                {
-                    Pinmsg.Text = "Incorrect PIN";
-                }
+                else Pinmsg.Text = "Incorrect PIN";
             }
         }
 
         protected void SQPSubmitbtn_Click(object sender, EventArgs e)
         {
             string InputAnswer = SQPAnswertxt.Text.ToUpper();
-            if (string.IsNullOrEmpty(SQPAnswertxt.Text)){
+            if (string.IsNullOrEmpty(SQPAnswertxt.Text))
                 SQPmsg.Text = "You Must Answer The Security Question To Proceed!";
-            }
             else
             {
-                if(InputAnswer != answer)
-                {
-                    SQPmsg.Text = "Incorrect Answer";
-                }
+                if(InputAnswer != answer) SQPmsg.Text = "Incorrect Answer";
                 else
                 {
                     SQPmsg.Text = "Please enter a new password for your account";
@@ -353,16 +311,12 @@ namespace RealEstateSite
 
         protected void SQPChangePassbtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(SQPAnswertxt.Text))
-            {
-                SQPmsg.Text = "You must enter a new password";
-            }
+            if (string.IsNullOrEmpty(SQPAnswertxt.Text)) SQPmsg.Text = "You must enter a new password";
             else
             {
                 string password = SQPAnswertxt.Text;
                 pxy.updatePassword(email, role, password);
             }
-
         }
     }
 }

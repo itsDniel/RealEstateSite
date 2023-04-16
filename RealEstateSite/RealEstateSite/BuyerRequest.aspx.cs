@@ -10,23 +10,15 @@ namespace RealEstateSite
     public partial class BuyerRequest : System.Web.UI.Page
     {
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
-        protected void Page_Load(object sender, EventArgs e)
-        {   //jenny's comment
-            //eh...if there's nothing to do for the if statement
-            //why not just do if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
-            if (Request.Cookies["Username"] != null)
-            {
 
-            }
-            else
-            {
-                Response.Redirect("RealEstateLogin.aspx");
-            }
+        protected void Page_Load(object sender, EventArgs e)
+        {   
+            if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
         }
 
         protected void Searchbtn_Click(object sender, EventArgs e)
         {
-            string buyer = Request.Cookies["Username"].Value.ToString();
+            string buyer = Request.Cookies["Username"].Value.ToString();//can this line be deleted cuz it's not used? - jenny........
             string status = "";
             if(statusddl.Text == "Pending")
             {

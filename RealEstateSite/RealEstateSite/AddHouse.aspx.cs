@@ -14,11 +14,23 @@ namespace RealEstateSite
     public partial class AddHouse : System.Web.UI.Page
     {
         const String ADD_HOUSE_DIRECTION = "Fill out the following form to add a house.";
+        RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblInstruction.Text = ADD_HOUSE_DIRECTION;
-            //prefill seller and agent textboxes according to the role of user - jenny...............
-            //set seller and agent textboxes to read only in HouseControl - jenny.................
+            if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
+            else
+            {
+                if(!IsPostBack)
+                {
+                    lblInstruction.Text = ADD_HOUSE_DIRECTION;
+                    String user = Request.Cookies["Username"].Value;
+                    
+                    //prefill seller or agent textbox according to the role
+                    if (pxy.GetRole(user).Equals("Seller")) hc.Seller = user;
+                    else hc.Agent = user;
+                }
+            }
         }
 
         protected void btnAddHouse_Click(object sender, EventArgs e)

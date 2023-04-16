@@ -22,29 +22,20 @@ namespace RealEstateSite
                     rprDisplay.DataBind();
                 }
             }
-            else
-            {
-                Response.Redirect("RealEstateLogin.aspx");
-            }
+            else Response.Redirect("RealEstateLogin.aspx");
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
-
         {
-
-            
             int rowIndex = e.Item.ItemIndex;
             Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
             homeidplaceholder.Text = myLabel.Text;
-            
         }
 
         protected void feedbackbtn_Click(object sender, EventArgs e)
         {
-
             Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("feedbackHiddenbutton"));
             feedbackHiddenbutton_click(hiddenButton, EventArgs.Empty);
-
         }
 
         protected void feedbackHiddenbutton_click(object sender, EventArgs e)
@@ -66,7 +57,6 @@ namespace RealEstateSite
         {
             foreach (Control control in FeedbackPanel.Controls)
             {
-
                 if (control is TextBox)
                 {
                     TextBox tb = control as TextBox;

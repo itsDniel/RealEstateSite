@@ -85,16 +85,6 @@ namespace RealEstateClassLibary
             return command;
         }
 
-        //Command to get the role of the given username
-        //Daniel
-        public SqlCommand getRole(string username)
-        {
-            SqlCommand command = new SqlCommand("TP_GetRole");
-            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-            command.CommandType = CommandType.StoredProcedure;
-            return command;
-        }
-
         //Command to get home based on search filter
         //Daniel
         public SqlCommand searchHome(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility, string username)

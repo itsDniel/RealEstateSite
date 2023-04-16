@@ -20,6 +20,7 @@ namespace RealEstateSoap
     // [System.Web.Script.Services.ScriptService]
     public class RealEstateAPI : System.Web.Services.WebService
     {
+        StoredProcedure storedProcedure = new StoredProcedure();
 
         [WebMethod] //This method check if user exist in TP_Account table
         public int scalarLogin(User user)
@@ -28,14 +29,9 @@ namespace RealEstateSoap
             StoredProceduralCommand command = new StoredProceduralCommand();
             int userCount = (int)objDB.ExecuteScalarFunction(command.checkLogin(user.Username, user.Password));
             objDB.CloseConnection();
-            if(userCount > 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+
+            if(userCount > 0) return 1;
+            else return 0;
         }
 
         [WebMethod] //This method check if username already exist in TP_Account table
@@ -45,14 +41,9 @@ namespace RealEstateSoap
             StoredProceduralCommand command = new StoredProceduralCommand();
             int usernameCount = (int)objDB.ExecuteScalarFunction(command.checkUsername(user.Username));
             objDB.CloseConnection();
-            if(usernameCount > 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+
+            if(usernameCount > 0) return 1;
+            else return 0;
         }
 
         [WebMethod] //This method check if the email already exist with this given role
@@ -62,14 +53,9 @@ namespace RealEstateSoap
             StoredProceduralCommand command = new StoredProceduralCommand();
             int emailCount = (int)objDB.ExecuteScalarFunction(command.checkEmail(user));
             objDB.CloseConnection();
-            if(emailCount > 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
+
+            if(emailCount > 0) return 1;
+            else return 0;
         }
 
         [WebMethod] //This method update a new user into TP_Account table
@@ -99,14 +85,9 @@ namespace RealEstateSoap
         }
 
         [WebMethod] //This method get the role of the given username
-        public string getRole(string username)
+        public string GetRole(string username)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
-            DataSet ds = new DataSet();
-            ds = objDB.GetDataSet(command.getRole(username));
-            string role = ds.Tables[0].Rows[0][0].ToString();
-            return role;
+            return storedProcedure.GetRole(username).Tables[0].Rows[0][0].ToString(); 
         }
 
         [WebMethod] //This retrieve all the houses based on the user defined search filter

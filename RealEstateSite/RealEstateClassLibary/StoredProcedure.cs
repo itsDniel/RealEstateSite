@@ -122,5 +122,12 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@id", id);
             return connect.GetDataSet(command);
         }
+
+        public DataSet GetRole(String user) 
+        {
+            SetCommandTextAndClearParam("TP_GetRole");
+            command.Parameters.AddWithValue("@username", user);
+            return connect.GetDataSet(command);
+        }
     }
 }

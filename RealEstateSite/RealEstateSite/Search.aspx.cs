@@ -16,17 +16,12 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //jenny's comment
-            //eh...if there's nothing to do for the if statement
-            //why not just do if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
-            if (Request.Cookies["Username"] != null)
-            {
-                //This is a placeholder just in case (Daniel)
-            }
-            else
-            {
-                Response.Redirect("RealEstateLogin.aspx");
-            }
+            if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
+            //if (Request.Cookies["Username"] != null) {}
+            //else
+            //{
+            //    Response.Redirect("RealEstateLogin.aspx");
+            //}
         }
 
         protected void Searchbtn_Click(object sender, EventArgs e)
@@ -46,7 +41,7 @@ namespace RealEstateSite
             //minHouse = houseSize.minSize(houseSizeddl.SelectedValue);
             //maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
 
-            //do we need this? this var is not used anywhere else in the code - jenny
+            //do we need this? this var is not used anywhere else in the code - jenny........................................
             searchHouse getHome = new searchHouse(); 
             getHome.location = location;
             getHome.minPrice = minPrice;
@@ -60,7 +55,7 @@ namespace RealEstateSite
 
             rprDisplay.Visible = true;
             rprDisplay.DataSource = pxy.getHouse(location, minPrice, maxPrice, property, garage, minHouse,
-                maxHouse, amenity, utility, buyer);
+                                                    maxHouse, amenity, utility, buyer);
             rprDisplay.DataBind();
             SearchPanel.Visible = true;
             SearchFilterPanel.Visible = false;
