@@ -72,7 +72,7 @@ namespace RealEstateSite
                 try 
                 {   // adding house and getting result
                     RestfulWebRequest rwr = new RestfulWebRequest();
-                    String isAdded= rwr.PostWebRequest("http://localhost:28769/api/house/addhouse", jsonHouse);   
+                    String isAdded= rwr.PostWebRequest("POST", "http://localhost:28769/api/house/addhouse", jsonHouse);   
                     if (bool.Parse(isAdded))
                     {
                         lblInstruction.Text = ADD_HOUSE_DIRECTION;

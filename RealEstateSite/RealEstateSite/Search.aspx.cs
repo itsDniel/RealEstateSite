@@ -32,8 +32,8 @@ namespace RealEstateSite
             int maxPrice = housePrice.maxPrice(priceddl.SelectedValue); ;
             string property = propertyddl.Text;
             string garage = garageddl.Text;
-            int minHouse = houseSize.minSize(houseSizeddl.SelectedValue);//jenny
-            int maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
+            int minHouse = HouseSize.MinSize(houseSizeddl.SelectedValue);
+            int maxHouse = HouseSize.MaxSize(houseSizeddl.SelectedValue);
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
             //minPrice = housePrice.minPrice(priceddl.SelectedValue);

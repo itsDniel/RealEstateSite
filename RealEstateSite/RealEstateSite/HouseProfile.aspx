@@ -6,8 +6,6 @@
     <h1 class="text-center">House Profile</h1>
 
     <div class="container w-75 bg-info bg-opacity-25 px-4" id="houseContainer" runat="server">
-        <%--<asp:Label ID="lblHomeId" runat="server" Text="Label" Visible="False"></asp:Label>--%>
-        <%-- add house user control --%>
-        <%-- create another user control for updating and deleting room  --%>
+        <%-- HouseProfileCtrl (custom control) will be dynamically added to this page for each house record --%>
     </div>
 </asp:Content>

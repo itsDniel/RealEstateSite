@@ -63,7 +63,14 @@ namespace RealEstateRestful.Controllers
             return storedProcedure.GetHouses("TP_GetHouseByAgent", "@agent", username);
         }
 
-        [HttpGet("GetRooms/{id}")]                  //api/house/GetRooms
+        [HttpGet("GetRooms/{id}")]                  //api/house/GetRooms/13
         public List<Room> GetRooms(int id) { return storedProcedure.GetRooms(id); }
+
+        [HttpGet("GetHouseSizeInfo/{id}")]          //api/house/GetHouseSizeInfo/13
+        public HouseSize GetHouseSizeInfo(int id) { return storedProcedure.GetHouseSizeInfo(id); }
+
+        [HttpPut("UpdateHomeSizeInfo")]             //api/house/UpdateHomeSizeInfo
+        public Boolean UpdateHouseSizeInfo([FromBody] HouseSize houseSize) 
+        { return storedProcedure.UpdateHomeSizeInfo(houseSize); }
     }
 }

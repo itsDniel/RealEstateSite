@@ -168,10 +168,33 @@ namespace RealEstateClassLibary
         }
 
         public DataSet GetRole(String user) 
-        {
+        {   //used in SOAP
             SetCommandTextAndClearParam("TP_GetRole");
             command.Parameters.AddWithValue("@username", user);
             return connect.GetDataSet(command);
+        }
+
+        public HouseSize GetHouseSizeInfo(int id)
+        {
+            SetCommandTextAndClearParam("TP_GetHomeSizeInfo");
+            command.Parameters.AddWithValue("@id", id);
+            DataRow row = connect.GetDataSet(command).Tables[0].Rows[0];
+
+            HouseSize houseSize = new HouseSize();
+            houseSize.Bedroom = int.Parse(row["Bedroom"].ToString());
+            houseSize.Bathroom = int.Parse(row["Bathroom"].ToString());
+            houseSize.HomeSize = row["Bathroom"].ToString();
+            return houseSize;
+        }
+
+        public Boolean UpdateHomeSizeInfo(HouseSize houseSize)
+        {
+            SetCommandTextAndClearParam("TP_UpdateHomeSizeInfo");
+            command.Parameters.AddWithValue("@id", houseSize.Id);
+            command.Parameters.AddWithValue("@bedroom", houseSize.Bedroom);
+            command.Parameters.AddWithValue("@bathroom", houseSize.Bathroom);
+            command.Parameters.AddWithValue("@homeSize", houseSize.HomeSize);
+            return UpdateDB();
         }
     }
 }

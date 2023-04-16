@@ -71,26 +71,50 @@ namespace RealEstateSite
             room.Id = int.Parse(lblId.Text);
             room.RoomName = txtRoomName.Text;
             room.Length = int.Parse(txtRoomLength.Text);
-            room.Width = int.Parse(txtRoomWidth.Text); ;
+            room.Width = int.Parse(txtRoomWidth.Text); 
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             String jsonRoom = js.Serialize(room); //Serialize a room object into a JSON string.
 
             try
-            {   // adding house and getting result
-                String isAdded = rwr.PostWebRequest(URL + "addroom", jsonRoom);
-                if (bool.Parse(isAdded))
-                {
-                    lblInstruction.Text = ADD_ROOM_DIR;
-                    ClearText();
-                    ChangeVisibilities(false, true);
+            {   // adding room to the DB and getting result
+                String isAdded = rwr.PostWebRequest("POST", URL + "addroom", jsonRoom);
 
-                    //calculate the # of bedroom and bathroom txtBedroom.text.contains("...")
-                    //int bedroomNum = house.Bedroom;
-                    //int bathroomNum = house.Bedroom;
-                    //if (txtRoomName.Text.ToLower().Contains("bedroom")) bedroomNum++;
-                    //if (txtRoomName.Text.ToLower().Contains("bathroom")) bathroomNum++;
-                    //calculate the size of the house
+                //if successfully added the new room, calculate the total home size, bedroom, and bathroom
+                if (bool.Parse(isAdded)) 
+                {   //get the # of bedroom and bathroom and the total house size from the DB
+                    HouseSize hs = rwr.GetHouseSizeInfo(URL + "GetHouseSizeInfo/" + lblId.Text);
+                    int bedroomNum = hs.Bedroom;
+                    int bathroomNum = hs.Bathroom;
+                    int totalHomeSize;
+                    if (hs.HomeSize.Equals("Unknown")) totalHomeSize = 0;
+                    else totalHomeSize = int.Parse(hs.HomeSize);
+
+                    //calculate the # of bedroom and bathroom and the total house size
+                    if (txtRoomName.Text.ToLower().Contains("bedroom")) bedroomNum++;
+                    if (txtRoomName.Text.ToLower().Contains("bathroom")) bathroomNum++;
+                    totalHomeSize += int.Parse(txtRoomLength.Text) * int.Parse(txtRoomWidth.Text);
+
+                    hs.Bedroom = bedroomNum;
+                    hs.Bathroom = bathroomNum;
+                    hs.HomeSize = totalHomeSize.ToString();
+                    hs.Id = int.Parse(lblId.Text);
+
+                    //update # of bedroom and bathroom and total house size in DB
+                    String jsonHouseSize = js.Serialize(hs);
+                    String isUpdated = rwr.PutWebRequest("PUT", URL + "UpdateHomeSizeInfo", jsonHouseSize);
+
+                    if (Boolean.Parse(isUpdated))
+                    {
+                        lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
+                        lblBathroom.Text = bathroomNum.ToString();
+                        lblBedroom.Text = bedroomNum.ToString();
+                        lblInstruction.Text = ADD_ROOM_DIR;
+                        ClearText();
+                        ChangeVisibilities(false, true);
+                    }
+                    else lblInstruction.Text = "Room is added, but the total house size, " +
+                                                "# of bedroom, or # of bathroom is not updated.";
                 }
                 else lblInstruction.Text = "Failed to add room.";
             }

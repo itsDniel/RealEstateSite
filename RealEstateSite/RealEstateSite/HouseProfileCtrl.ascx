@@ -13,7 +13,7 @@
 <div class="row">
     <%-- Buyer will be updated when user accepts an offer --%>
     <div class="col">Buyer: <asp:Label ID="lblBuyer" runat="server" Text="Label"></asp:Label></div>
-    <div class="col">Houe Size: <asp:Label ID="lblHomeSize" runat="server" Text="Label"></asp:Label></div>
+    <div class="col">House Size (sq ft): <asp:Label ID="lblHomeSize" runat="server" Text="Label"></asp:Label></div>
 </div>
 
 <uc1:HouseControl runat="server" ID="houseCtrl" />
