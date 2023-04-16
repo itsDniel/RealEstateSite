@@ -33,7 +33,7 @@ namespace RealEstateClassLibary
         private void AddHouseParams(String seller, String agent, String address, String status, String city,
             String propertyType, String homeSize, int bedroom, int bathroom, String amenity,
             String heatingCooling, String builtYear, String garageSize, String utility,
-            String homeDescription, int price, String image)
+            String homeDescription, int price)//, String image)
         {
             command.Parameters.AddWithValue("@seller", seller);
             command.Parameters.AddWithValue("@agent", agent);
@@ -51,7 +51,7 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@utility", utility);
             command.Parameters.AddWithValue("@homeDescription", homeDescription);
             command.Parameters.AddWithValue("@price", price);
-            command.Parameters.AddWithValue("@image", image);
+            //command.Parameters.AddWithValue("@image", image);
         }
 
         public Boolean AddHouse(House house)
@@ -59,8 +59,9 @@ namespace RealEstateClassLibary
             SetCommandTextAndClearParam("TP_AddHouse");
             AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
                 house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
-                house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
+                house.GarageSize, house.Utility, house.HomeDescription, house.Price);//, house.Image);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
+            command.Parameters.AddWithValue("@image", house.Image);
             //command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
             return UpdateDB();//connect.DoUpdate(command);
 
@@ -74,7 +75,7 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@id", house.Id);
             AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
                 house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
-                house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
+                house.GarageSize, house.Utility, house.HomeDescription, house.Price);//, house.Image);
             return UpdateDB();
         }
 

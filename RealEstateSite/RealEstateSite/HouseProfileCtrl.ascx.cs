@@ -84,6 +84,13 @@ namespace RealEstateSite
                     lblInstruction.Text = ADD_ROOM_DIR;
                     ClearText();
                     ChangeVisibilities(false, true);
+
+                    //calculate the # of bedroom and bathroom txtBedroom.text.contains("...")
+                    //int bedroomNum = house.Bedroom;
+                    //int bathroomNum = house.Bedroom;
+                    //if (txtRoomName.Text.ToLower().Contains("bedroom")) bedroomNum++;
+                    //if (txtRoomName.Text.ToLower().Contains("bathroom")) bathroomNum++;
+                    //calculate the size of the house
                 }
                 else lblInstruction.Text = "Failed to add room.";
             }
@@ -145,7 +152,24 @@ namespace RealEstateSite
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            //House house = new House();
+            //house.Seller = hc.Seller;
+            //house.Agent = hc.Agent;
+            //house.Address = hc.Address;
+            //house.Status = "Listing";
+            //house.City = hc.City;
+            //house.PropertyType = hc.PropertyType;
+            //house.HomeSize = "Unknown";   //calculate and update in AddRoomToDB(), so delete this later and in Stored procedure
+            //house.Bedroom = 0;            //calculate and update in AddRoomToDB(), so delete this later
+            //house.Bathroom = 0;           //calculate and update in AddRoomToDB(), so delete this later
+            //house.Amenity = hc.Amenities;
+            //house.HeatingCooling = hc.HeatingCooling;
+            //house.BuiltYear = hc.BuiltYear;
+            //house.GarageSize = hc.GarageSize;
+            //house.Utility = hc.Utility;
+            //house.HomeDescription = hc.Description;
+            //house.Price = int.Parse(hc.Price);
+            //rwr.PutWebRequest(URL + "updatehouse", );
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)

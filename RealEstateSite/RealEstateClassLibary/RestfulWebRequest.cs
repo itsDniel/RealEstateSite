@@ -31,6 +31,7 @@ namespace RealEstateClassLibary
             String data = ReadData(request.GetResponse());
             return js.Deserialize<List<House>>(data);
         }
+       
         public List<Room> GetRoomWR(String url)
         {   // Read the data from the Web Response, which requires working with streams.
             request = WebRequest.Create(url);
@@ -39,9 +40,33 @@ namespace RealEstateClassLibary
         }
 
         public String PostWebRequest(String url, String jsonObj)
-        {
+        {   //this method can be used for adding houses and adding rooms
             request = WebRequest.Create(url);
             request.Method = "POST";
+            request.ContentLength = jsonObj.Length;
+            request.ContentType = "application/json";
+
+            // Write the JSON data to the Web Request
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(jsonObj);
+            writer.Flush();
+            writer.Close();
+
+            // Read the data from the Web Response, which requires working with streams.
+            response = request.GetResponse();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+
+            return data;
+        }
+
+        public String PutWebRequest(String url, String jsonObj)
+        {
+            request = WebRequest.Create(url);
+            request.Method = "PUT";
             request.ContentLength = jsonObj.Length;
             request.ContentType = "application/json";
 
