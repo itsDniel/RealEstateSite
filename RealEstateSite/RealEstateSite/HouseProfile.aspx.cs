@@ -18,18 +18,9 @@ namespace RealEstateSite
 
         private void DisplayHouses(String url)
         {   //create a web request and get the response
-            WebRequest request = WebRequest.Create(url);
-            WebResponse response = request.GetResponse();
+            RestfulWebRequest rwr = new RestfulWebRequest();
+            List<House> houseList = rwr.GetHouseWR(url);
 
-            // Read the data from the Web Response, which requires working with streams.
-            Stream theDataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(theDataStream);
-            String data = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            List<House> houseList = js.Deserialize<List<House>>(data); 
             if(houseList != null)
             {
                 foreach (House house in houseList)
@@ -63,12 +54,6 @@ namespace RealEstateSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //for each record of house, create a house profile control, which includes
-            //home id label (hidden), picture box, house control, and dynamically added room controls
-            //-pass in data that the house profile control will need
-            //-house dataset for house control and home id label (databind)
-            //-room dataset for room control to update and delete (databind)
-
             if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
             else
             {

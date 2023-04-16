@@ -49,8 +49,8 @@ namespace RealEstateSite
         public HouseControl HouseCtrl{ get { return houseCtrl; } }
 
         const String ADD_ROOM_DIR = "Click the plus sign to add room.";
-        const String ERROR_DUPLICATE_ROOM = "Failed to add room. A room with this name already exists.";
         const String URL = "http://localhost:28769/api/house/";
+        RestfulWebRequest rwr = new RestfulWebRequest();
 
         private void ChangeVisibilities(bool canViewRoomCtrl, bool canViewImgBtn)
         {
@@ -65,12 +65,40 @@ namespace RealEstateSite
             txtRoomLength.Text = "";
         }
 
+        private void AddRoomToDB()
+        {
+            Room room = new Room();
+            room.Id = int.Parse(lblId.Text);
+            room.RoomName = txtRoomName.Text;
+            room.Length = int.Parse(txtRoomLength.Text);
+            room.Width = int.Parse(txtRoomWidth.Text); ;
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonRoom = js.Serialize(room); //Serialize a room object into a JSON string.
+
+            try
+            {   // adding house and getting result
+                String isAdded = rwr.PostWebRequest(URL + "addroom", jsonRoom);
+                if (bool.Parse(isAdded))
+                {
+                    lblInstruction.Text = ADD_ROOM_DIR;
+                    ClearText();
+                    ChangeVisibilities(false, true);
+                }
+                else lblInstruction.Text = "Failed to add room.";
+            }
+            catch (Exception ex) { lblInstruction.Text = "Error: " + ex.Message; }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
                 lblInstruction.Text = ADD_ROOM_DIR;
                 roomControls.Visible = false;
+
+                //use gv to display rooms???.................................
+                //each row has a delete and update room btn
             }
         }
 
@@ -94,32 +122,24 @@ namespace RealEstateSite
             else if (int.Parse(txtRoomWidth.Text) <= 0 || int.Parse(txtRoomLength.Text) <= 0)
                 lblInstruction.Text = "Width and length can't be 0 or negative.";
             else
-            {   //check if there's a room with the same name for the same house in the DB
-
-
-
-                Room room = new Room();
-                room.Id = int.Parse(lblId.Text);
-                room.RoomName = txtRoomName.Text;
-                room.Length = int.Parse(txtRoomLength.Text);
-                room.Width = int.Parse(txtRoomWidth.Text); ;
-
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                String jsonRoom = js.Serialize(room); //Serialize a room object into a JSON string.
-
-                try
-                {   // adding house and getting result
-                    RestfulWebRequest rwr = new RestfulWebRequest();
-                    String isAdded = rwr.PostWebRequest(URL + "addroom", jsonRoom);
-                    if (bool.Parse(isAdded))
+            {   //check if there's a room with the same name for the same house in the DB (duplicate)
+                List<Room> rooms = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
+                if(rooms != null)
+                {
+                    bool noDuplicate = true;
+                    foreach(Room room in rooms)
                     {
-                        lblInstruction.Text = ADD_ROOM_DIR;
-                        ClearText();
-                        ChangeVisibilities(false, true);
+                        if (room.RoomName.Equals(txtRoomName.Text))
+                        {   //can't have duplicate room
+                            lblInstruction.Text = "Failed to add room. A room with this name already exists for this house.";
+                            noDuplicate = false;
+                            break;
+                        }
                     }
-                    else lblInstruction.Text = "Failed to add room.";
+                    if(noDuplicate) AddRoomToDB();
                 }
-                catch (Exception ex) { lblInstruction.Text = "Error: " + ex.Message; }
+                //this house has no room data, so no duplicate room for the same house
+                else AddRoomToDB();
             }
         }
 

@@ -27,7 +27,7 @@
 <asp:ImageButton ID="imgBtnPlus" runat="server" Height="100px" Width="100px"   
 ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" OnClick="imgBtnPlus_Click" />
         
-<div id="roomControls" runat="server">
+<div id="roomControls" runat="server" class="bg-light">
     <%-- the program will calculate the total dimensions of the house, bedroom #, bathroom # --%>
     Room <asp:TextBox ID="txtRoomName" runat="server"></asp:TextBox>
     <div class="row">
