@@ -10,11 +10,6 @@
     <div class="container w-75 bg-info bg-opacity-25">
         <br />
         <asp:Label ID="lblInstruction" runat="server" Text="Label"></asp:Label>
-        <%-- status and buyer will be updated when user accepts an offer --%>
-        <%--<div class="row">
-            <div class="col">Status: <asp:Label ID="lblStatus" runat="server" Text="Listing"></asp:Label></div>
-            <div class="col">Buyer: <asp:Label ID="lblBuyer" runat="server" Text="None"></asp:Label></div>
-        </div>--%>
         <uc1:HouseControl runat="server" ID="hc" />
         <br />
         <div class="text-center"><asp:Button ID="btnAddHouse" runat="server" Text="Add House" OnClick="btnAddHouse_Click"/></div>

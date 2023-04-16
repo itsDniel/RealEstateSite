@@ -11,124 +11,169 @@ namespace RealEstateSite
 {
 
 
-    public partial class HouseControl
+    public partial class HouseProfileCtrl
     {
 
         /// <summary>
-        /// txtSeller control.
+        /// img control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSeller;
+        protected global::System.Web.UI.WebControls.Image img;
 
         /// <summary>
-        /// txtAgent control.
+        /// lblId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAgent;
+        protected global::System.Web.UI.WebControls.Label lblId;
 
         /// <summary>
-        /// txtAddress control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
 
         /// <summary>
-        /// txtCity control.
+        /// lblBuyer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        protected global::System.Web.UI.WebControls.Label lblBuyer;
 
         /// <summary>
-        /// ddlPropertyType control.
+        /// lblHomeSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPropertyType;
+        protected global::System.Web.UI.WebControls.Label lblHomeSize;
 
         /// <summary>
-        /// ddlAmenities control.
+        /// houseCtrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAmenities;
+        protected global::RealEstateSite.HouseControl houseCtrl;
 
         /// <summary>
-        /// ddlHeatingCooling control.
+        /// lblBedroom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHeatingCooling;
+        protected global::System.Web.UI.WebControls.Label lblBedroom;
 
         /// <summary>
-        /// ddlUtility control.
+        /// lblBathroom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUtility;
+        protected global::System.Web.UI.WebControls.Label lblBathroom;
 
         /// <summary>
-        /// ddlGarageSize control.
+        /// lblInstruction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGarageSize;
+        protected global::System.Web.UI.WebControls.Label lblInstruction;
 
         /// <summary>
-        /// fileUpload control.
+        /// imgBtnPlus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnPlus;
 
         /// <summary>
-        /// txtBuiltYear control.
+        /// roomControls control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuiltYear;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl roomControls;
 
         /// <summary>
-        /// txtPrice control.
+        /// txtRoomName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        protected global::System.Web.UI.WebControls.TextBox txtRoomName;
 
         /// <summary>
-        /// txtDescription control.
+        /// txtRoomWidth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtRoomWidth;
+
+        /// <summary>
+        /// txtRoomLength control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRoomLength;
+
+        /// <summary>
+        /// btnAddRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddRoom;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

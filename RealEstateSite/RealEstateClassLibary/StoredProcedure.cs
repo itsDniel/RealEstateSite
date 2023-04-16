@@ -54,18 +54,18 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@image", image);
         }
 
-        public int AddHouse(House house)
+        public Boolean AddHouse(House house)
         {
             SetCommandTextAndClearParam("TP_AddHouse");
             AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
                 house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
                 house.GarageSize, house.Utility, house.HomeDescription, house.Price, house.Image);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
-            command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
-            connect.DoUpdate(command);
+            //command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+            return UpdateDB();//connect.DoUpdate(command);
 
             //return the id of the house so that TP_AddRoom can use it
-            return int.Parse(command.Parameters["@id"].Value.ToString()); 
+            //return int.Parse(command.Parameters["@id"].Value.ToString()); 
         }
 
         public Boolean UpdateHouse(House house)
@@ -109,18 +109,61 @@ namespace RealEstateClassLibary
             return UpdateDB();
         }
 
-        public DataSet GetHouses(String procedure, String param, String value)
+        public List<House> GetHouses(String procedure, String param, String value)
         {   //for TP_GetHouseBySeller (@seller) and TP_GetHouseByAgent (@agent)
             SetCommandTextAndClearParam(procedure);
             command.Parameters.AddWithValue(param, value);
-            return connect.GetDataSet(command);
+            DataTable houseTable = connect.GetDataSet(command).Tables[0]; //execute the stored procedure and get the data
+            List<House> houses = new List<House>();
+
+            foreach(DataRow row in houseTable.Rows)
+            {
+                House house = new House();
+                house.Id = int.Parse(row["HomeID"].ToString());
+                house.Seller = row["Seller"].ToString();
+                house.Agent = row["Agent"].ToString();
+                house.Homebuyer = row["Homebuyer"].ToString();
+                house.Address = row["Address"].ToString();
+                house.Status = row["Status"].ToString();
+                house.City = row["City"].ToString();
+                house.PropertyType = row["PropertyType"].ToString();
+                house.HomeSize = row["HomeSize"].ToString();
+                house.Bedroom = int.Parse(row["Bedroom"].ToString());
+                house.Bathroom = int.Parse(row["Bathroom"].ToString());
+                house.Amenity = row["Amenity"].ToString();
+                house.HeatingCooling = row["Heating/Cooling"].ToString();
+                house.BuiltYear = row["BuiltYear"].ToString();
+                house.Utility = row["Utility"].ToString();
+                house.HomeDescription = row["HomeDescription"].ToString();
+                house.GarageSize = row["GarageSize"].ToString();
+                house.Price = int.Parse(row["Price"].ToString());
+                house.Image = row["Image"].ToString();
+                house.FullName = row["FullName"].ToString();
+                house.PhoneNumber = row["Phone"].ToString();
+                house.Email = row["Email"].ToString();
+                houses.Add(house);
+            }
+
+            return houses;
         }
 
-        public DataSet GetRooms(int id)
+        public List<Room> GetRooms(int id)
         {
             SetCommandTextAndClearParam("TP_GetRooms");
             command.Parameters.AddWithValue("@id", id);
-            return connect.GetDataSet(command);
+            DataTable roomTable = connect.GetDataSet(command).Tables[0];
+            List<Room> rooms = new List<Room>();
+
+            foreach(DataRow row in roomTable.Rows)
+            {
+                Room room = new Room();
+                room.Id = int.Parse(row["HomeID"].ToString());
+                room.RoomName = row["Room"].ToString();
+                room.Width = int.Parse(row["Width"].ToString());
+                room.Length = int.Parse(row["Length"].ToString());
+                rooms.Add(room);
+            }
+            return rooms;
         }
 
         public DataSet GetRole(String user) 

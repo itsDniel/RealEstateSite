@@ -16,22 +16,15 @@ namespace RealEstateRestful.Controllers
         StoredProcedure storedProcedure = new StoredProcedure();
 
         [HttpPost("AddHouse")]      //api/house/addhouse
-        public int AddHouse([FromBody] House house)
+        public Boolean AddHouse([FromBody] House house)
         {   //add a record to the TP_Home table and return the id of the record
             return storedProcedure.AddHouse(house);
         }
 
         [HttpPost("AddRoom")]       //api/house/addroom
-        public Boolean AddRoom([FromBody] List<Room> rooms)
+        public Boolean AddRoom([FromBody] Room room)
         {
-            int result = 0;
-            foreach (Room room in rooms)
-            {
-                bool added = storedProcedure.ModifyRoomDB("TP_AddRoom", room.Id, room.RoomName, room.Width, room.Length);
-                if (added) result++;
-            }
-            if (result == rooms.Count) return true;
-            else return false;
+            return storedProcedure.ModifyRoomDB("TP_AddRoom", room.Id, room.RoomName, room.Width, room.Length);
         }
 
         [HttpPut("UpdateHouse")]    //api/house/updatehouse
@@ -59,21 +52,18 @@ namespace RealEstateRestful.Controllers
         }
         
         [HttpGet("GetHouseBySeller/{username}")]    //api/house/GetHouseBySeller/jenny
-        public DataSet GetHouseBySeller(String username)
+        public List<House> GetHouseBySeller(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseBySeller", "@seller", username);
         }
 
         [HttpGet("GetHouseByAgent/{username}")]     //api/house/GetHouseByAgent/jenny
-        public DataSet GetHouseByAgent(String username)
+        public List<House> GetHouseByAgent(String username)
         {
             return storedProcedure.GetHouses("TP_GetHouseByAgent", "@agent", username);
         }
 
         [HttpGet("GetRooms/{id}")]                  //api/house/GetRooms
-        public DataSet GetRooms(int id)
-        {
-            return storedProcedure.GetRooms(id);
-        }
+        public List<Room> GetRooms(int id) { return storedProcedure.GetRooms(id); }
     }
 }

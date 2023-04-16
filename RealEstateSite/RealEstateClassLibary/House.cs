@@ -29,5 +29,9 @@ namespace RealEstateClassLibary
         public int Price { get; set; }
         public String Image { get; set; }
 
+        //email, phone #, and full name of Seller OR Agent - used for GetHouseBySeller and GetHouseByAgent
+        public String Email { get; set; }
+        public String PhoneNumber { get; set; }
+        public String FullName { get; set; }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="housePrice.cs" />
     <Compile Include="houseSize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestfulWebRequest.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="searchHouse.cs" />
     <Compile Include="StoredProceduralCommand.cs" />

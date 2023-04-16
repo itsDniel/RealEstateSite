@@ -9,10 +9,7 @@ namespace RealEstateSite
 {
     public partial class HouseControl : System.Web.UI.UserControl
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
-        }
+        protected void Page_Load(object sender, EventArgs e) { }
         
         public String Seller { 
             get { return txtSeller.Text; }
@@ -52,16 +49,6 @@ namespace RealEstateSite
         {
             get { return ddlUtility.SelectedValue; }
             set { ddlUtility.SelectedValue = value; }
-        }
-        public String KitchenWidth
-        {
-            get { return txtKitchenWidth.Text; }
-            set { txtKitchenWidth.Text = value; }
-        }
-        public String KitchenLength
-        {
-            get { return txtKitchenLength.Text; }
-            set { txtKitchenLength.Text = value; }
         }
         public String GarageSize
         {

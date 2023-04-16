@@ -49,10 +49,6 @@
     </div>
 </div>
 <div class="row">
-    <div class="col">Kitchen's width <asp:TextBox ID="txtKitchenWidth" runat="server" TextMode="Number"></asp:TextBox></div>
-    <div class="col">Kitchen's length <asp:TextBox ID="txtKitchenLength" runat="server" TextMode="Number"></asp:TextBox></div>
-</div>
-<div class="row">
     <div class="col">
         GarageSize
         <asp:DropDownList ID="ddlGarageSize" runat="server">
