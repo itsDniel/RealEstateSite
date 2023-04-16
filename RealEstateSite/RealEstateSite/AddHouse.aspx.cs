@@ -17,8 +17,8 @@ namespace RealEstateSite
         protected void Page_Load(object sender, EventArgs e)
         {
             lblInstruction.Text = ADD_HOUSE_DIRECTION;
-            //prefill seller and agent textboxes according to the role of user
-            //set seller and agent textboxes to read only in HouseControl
+            //prefill seller and agent textboxes according to the role of user - jenny...............
+            //set seller and agent textboxes to read only in HouseControl - jenny.................
         }
 
         protected void btnAddHouse_Click(object sender, EventArgs e)
