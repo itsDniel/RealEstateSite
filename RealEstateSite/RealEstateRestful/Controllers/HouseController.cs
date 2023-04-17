@@ -35,9 +35,7 @@ namespace RealEstateRestful.Controllers
 
         [HttpPut("UpdateRoom")]     //api/house/updateroom
         public Boolean UpdateRoom([FromBody] Room room)
-        {
-            return storedProcedure.ModifyRoomDB("TP_UpdateRoom", room.Id, room.RoomName, room.Width, room.Length);
-        }
+        { return storedProcedure.ModifyRoomDB("TP_UpdateRoom", room.Id, room.RoomName, room.Width, room.Length); }
 
         [HttpDelete("DeleteHouse/{id}")]            //api/house/13
         public Boolean DeleteHouse(int id)
@@ -66,8 +64,8 @@ namespace RealEstateRestful.Controllers
         [HttpGet("GetRooms/{id}")]                  //api/house/GetRooms/13
         public List<Room> GetRooms(int id) { return storedProcedure.GetRooms(id); }
 
-        [HttpGet("GetHouseSizeInfo/{id}")]          //api/house/GetHouseSizeInfo/13
-        public HouseSize GetHouseSizeInfo(int id) { return storedProcedure.GetHouseSizeInfo(id); }
+        //[HttpGet("GetHouseSizeInfo/{id}")]          //api/house/GetHouseSizeInfo/13
+        //public HouseSize GetHouseSizeInfo(int id) { return storedProcedure.GetHouseSizeInfo(id); }
 
         [HttpPut("UpdateHomeSizeInfo")]             //api/house/UpdateHomeSizeInfo
         public Boolean UpdateHouseSizeInfo([FromBody] HouseSize houseSize) 

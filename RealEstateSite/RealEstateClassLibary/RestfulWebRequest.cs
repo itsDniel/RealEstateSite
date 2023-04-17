@@ -30,11 +30,21 @@ namespace RealEstateClassLibary
             return ReadData(request.GetResponse());
         }
 
+        private String WriteData(String inputData)
+        {
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(inputData);
+            writer.Flush();
+            writer.Close();
+
+            return ReadData(request.GetResponse());
+        }
+
         public List<House> GetHouseWR(String url) { return js.Deserialize<List<House>>(GetResponse(url)); }
        
         public List<Room> GetRoomWR(String url) { return js.Deserialize<List<Room>>(GetResponse(url)); }
 
-        public HouseSize GetHouseSizeInfo(String url) { return js.Deserialize<HouseSize>(GetResponse(url)); }
+        //public HouseSize GetHouseSizeInfo(String url) { return js.Deserialize<HouseSize>(GetResponse(url)); }
 
         private String PostOrPut(String method, String url, String jsonObj)
         {   //this method can be used for adding houses and adding rooms
@@ -44,12 +54,13 @@ namespace RealEstateClassLibary
             request.ContentType = "application/json";
 
             // Write the JSON data to the Web Request
-            StreamWriter writer = new StreamWriter(request.GetRequestStream());
-            writer.Write(jsonObj);
-            writer.Flush();
-            writer.Close();
+            //StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            //writer.Write(jsonObj);
+            //writer.Flush();
+            //writer.Close();
 
-            return ReadData(request.GetResponse());
+            //return ReadData(request.GetResponse());
+            return WriteData(jsonObj);
         }
 
         public String PostWebRequest(String method, String url, String jsonObj)
@@ -57,5 +68,12 @@ namespace RealEstateClassLibary
 
         public String PutWebRequest(String method, String url, String jsonObj) 
         { return PostOrPut(method, url, jsonObj); }
+
+        public String DeleteWebRequest(String url)
+        {
+            request = WebRequest.Create(url);
+            request.Method = "DELETE";
+            return ReadData(request.GetResponse()); //boolean in string
+        }
     }
 }

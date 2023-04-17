@@ -87,6 +87,15 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Label lblBathroom;
 
         /// <summary>
+        /// gvRooms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvRooms;
+
+        /// <summary>
         /// lblInstruction control.
         /// </summary>
         /// <remarks>

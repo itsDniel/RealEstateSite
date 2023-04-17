@@ -54,7 +54,7 @@ namespace RealEstateSite
                 house.Status = "Listing";
                 house.City = hc.City;
                 house.PropertyType = hc.PropertyType;
-                house.HomeSize = "Unknown";
+                house.HomeSize = "0";
                 house.Bedroom = 0;
                 house.Bathroom = 0;
                 house.Amenity = hc.Amenities;

@@ -174,18 +174,18 @@ namespace RealEstateClassLibary
             return connect.GetDataSet(command);
         }
 
-        public HouseSize GetHouseSizeInfo(int id)
-        {
-            SetCommandTextAndClearParam("TP_GetHomeSizeInfo");
-            command.Parameters.AddWithValue("@id", id);
-            DataRow row = connect.GetDataSet(command).Tables[0].Rows[0];
+        //public HouseSize GetHouseSizeInfo(int id)
+        //{
+        //    SetCommandTextAndClearParam("TP_GetHomeSizeInfo"); //delete this procedure?........................
+        //    command.Parameters.AddWithValue("@id", id);
+        //    DataRow row = connect.GetDataSet(command).Tables[0].Rows[0];
 
-            HouseSize houseSize = new HouseSize();
-            houseSize.Bedroom = int.Parse(row["Bedroom"].ToString());
-            houseSize.Bathroom = int.Parse(row["Bathroom"].ToString());
-            houseSize.HomeSize = row["Bathroom"].ToString();
-            return houseSize;
-        }
+        //    HouseSize houseSize = new HouseSize();
+        //    houseSize.Bedroom = int.Parse(row["Bedroom"].ToString());
+        //    houseSize.Bathroom = int.Parse(row["Bathroom"].ToString());
+        //    houseSize.HomeSize = row["Bathroom"].ToString();
+        //    return houseSize;
+        //}
 
         public Boolean UpdateHomeSizeInfo(HouseSize houseSize)
         {

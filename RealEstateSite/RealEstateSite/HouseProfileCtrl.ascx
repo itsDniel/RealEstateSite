@@ -23,7 +23,30 @@
     <div class="col">Number of bathroom: <asp:Label ID="lblBathroom" runat="server" Text="Label"></asp:Label></div>
 </div>
 <br />
-
+<div class="text-center">
+    <asp:GridView ID="gvRooms" runat="server" AutoGenerateColumns="False" OnRowCommand="gvRooms_RowCommand">
+        <Columns>
+            <asp:BoundField DataField="RoomName" HeaderText="Room" />
+            <asp:TemplateField HeaderText="Length">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtLength" runat="server" Text='<%# Bind("Length") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Width">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtWidth" runat="server" Text='<%# Bind("Width") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:ButtonField HeaderText="Update" Text="Update" CommandName="UpdateRoom">
+                <ControlStyle CssClass="btn btn-outline-primary" />
+            </asp:ButtonField>
+            <asp:ButtonField HeaderText="Delete" Text="Delete" CommandName="DeleteRoom">
+                <ControlStyle CssClass="btn btn-outline-danger" />
+            </asp:ButtonField>
+        </Columns>
+    </asp:GridView>
+</div>
+<br />
 <asp:Label ID="lblInstruction" runat="server" Text="Label"></asp:Label><br />
 
 <%-- when user clicks this img btn, roomControls will be displayed (visible) --%>
