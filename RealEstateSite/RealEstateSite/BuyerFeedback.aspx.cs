@@ -71,8 +71,12 @@ namespace RealEstateSite
                         string a2 = A2ddl.Text;
                         string a3 = A3txt.Text;
                         string a4 = A4txt.Text;
+
+
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
+
+
                         pxy.addFeedback(homeid, buyer, a1, a2, a3, a4);
                         pxy.updateVisit(buyer, status, homeid.ToString());
                         requestlbl.Text = "Great You Left A Feedback, Head On To The Offer Page If You Would Like To Make An Offer";

@@ -18,9 +18,8 @@ namespace RealEstateSite
 
         }
 
-        public void DataBind(string status)
+        public void DataBind(string status, string username)
         {
-            string username = Request.Cookies["Username"].Value.ToString();
             visitddl.DataSource = pxy.getVisit(username, status);
             visitddl.DataBind();
         }

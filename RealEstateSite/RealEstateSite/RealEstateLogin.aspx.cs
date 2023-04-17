@@ -97,9 +97,12 @@ namespace RealEstateSite
                         loginmsg.Visible = true;
                         loginmsg.Text = "Login Success";
 
+                        //Creating cookie for username, and cookies for login credential
                         HttpCookie username = new HttpCookie("Username");
                         HttpCookie loginuser = new HttpCookie("LoginUser");
                         HttpCookie loginPass = new HttpCookie("LoginPassword");
+
+
                         loginuser.Value = usernametxt.Text;
                         loginuser.Expires = DateTime.MaxValue;
                         loginPass.Value = passwordtxt.Text;
@@ -162,6 +165,7 @@ namespace RealEstateSite
             user.A1 = A1txt.Text;
             user.A2 = A2txt.Text;
             user.A3 = A3txt.Text;
+
             EncryptingPassword(AccountPasswordtxt.Text, user);
 
             foreach (Control control in AccountPanel.Controls)

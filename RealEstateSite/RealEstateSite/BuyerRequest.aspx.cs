@@ -18,19 +18,19 @@ namespace RealEstateSite
 
         protected void Searchbtn_Click(object sender, EventArgs e)
         {
-            string buyer = Request.Cookies["Username"].Value.ToString();//can this line be deleted cuz it's not used? - jenny........
+            string buyer = Request.Cookies["Username"].Value.ToString();
             string status = "";
             if(statusddl.Text == "Pending")
             {
                 status = "Pending";
-                requestdtl.DataBind(status);
+                requestdtl.DataBind(status, buyer);
                 requestdtl.Visible = true;
                 requestdtl.hidebutton();
             }
             else if(statusddl.Text == "Approved")
             {
                 status = "Approved";
-                requestdtl.DataBind(status);
+                requestdtl.DataBind(status, buyer);
                 requestdtl.Visible = true;
                 requestdtl.showButton();
                 
@@ -38,7 +38,7 @@ namespace RealEstateSite
             else
             {
                 status = "Denied";
-                requestdtl.DataBind(status);
+                requestdtl.DataBind(status, buyer);
                 requestdtl.Visible = true;
                 requestdtl.hidebutton();
             }

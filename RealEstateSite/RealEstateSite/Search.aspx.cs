@@ -16,12 +16,11 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
-            //if (Request.Cookies["Username"] != null) {}
-            //else
-            //{
-            //    Response.Redirect("RealEstateLogin.aspx");
-            //}
+            if (Request.Cookies["Username"] == null)
+            {
+                Response.Redirect("RealEstateLogin.aspx");
+            }
+
         }
 
         protected void Searchbtn_Click(object sender, EventArgs e)
@@ -36,10 +35,7 @@ namespace RealEstateSite
             int maxHouse = HouseSize.MaxSize(houseSizeddl.SelectedValue);
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
-            //minPrice = housePrice.minPrice(priceddl.SelectedValue);
-            //maxPrice = housePrice.maxPrice(priceddl.SelectedValue);
-            //minHouse = houseSize.minSize(houseSizeddl.SelectedValue);
-            //maxHouse = houseSize.maxSize(houseSizeddl.SelectedValue);
+
 
             //do we need this? this var is not used anywhere else in the code - jenny........................................
             searchHouse getHome = new searchHouse(); 
@@ -134,26 +130,34 @@ namespace RealEstateSite
                 else
                 {
                     string status = "Pending";
+                    
+
+                    //Creating object for visit request with status pending and visit request with status denied
                     visitRequest request = new visitRequest();
+                  
                     string buyer = Request.Cookies["Username"].Value.ToString();
+                    
+                    //Pending vist request
                     request.homeid = int.Parse(homeidplaceholder.Text);
                     request.buyer = buyer;
                     request.date = visitDatetxt.Text;
                     request.time = visitTimetxt.Text;
                     request.status = status;
+
                     int check = pxy.checkVisit(request);
-                    if (check > 0)
-                    {
-                        Visitmsg.Text = "You already have a visit request with this specific home";
-                    }
-                    else
-                    {
+                        if (check > 0)
+                        {
+                            Visitmsg.Text = "You already have a visit request with this specific home";
+                        }
+                        else
+                        {
                         pxy.insertVisit(request);
-                        searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
-                        visitRequestPanel.Visible = false;
-                        SearchPanel.Visible = true;
-                        OverlayPanel.Visible = false;
-                    }
+                            searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
+                            visitRequestPanel.Visible = false;
+                            SearchPanel.Visible = true;
+                            OverlayPanel.Visible = false;
+                        }
+                    
                 }
             }
         }
