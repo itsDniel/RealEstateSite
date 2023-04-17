@@ -72,11 +72,17 @@ namespace RealEstateSite
                         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
                         string status = "Pending";
                         string statusFeedback = "Offered";
+
+
                         int a1 = int.Parse(A1txt.Text);
                         string a2 = A2ddl.Text;
                         string a3 = A3txt.Text;
+
+
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
+
+
                         pxy.addOffer(homeid, buyer, a1, a2, a3, status);
                         pxy.updateFeedback(homeid, buyer, statusFeedback);
                         offerlbl.Text = "Great You Submitted An Offer";
