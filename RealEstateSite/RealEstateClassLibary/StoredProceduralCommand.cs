@@ -266,7 +266,7 @@ namespace RealEstateClassLibary
         //Command to check for the count of new notification for the seller
         public SqlCommand GetSellerNoti(string username, string status, int sellerstatus)
         {
-            SqlCommand command = new SqlCommand("TP_BuyerNotification");
+            SqlCommand command = new SqlCommand("TP_SellerNotification");
             command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
             command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
             command.Parameters.Add("@sellerstatus", SqlDbType.Bit).Value = sellerstatus;

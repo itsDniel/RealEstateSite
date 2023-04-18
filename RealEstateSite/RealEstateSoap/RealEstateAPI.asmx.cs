@@ -232,7 +232,7 @@ namespace RealEstateSoap
         {
             DBConnect objDB = new DBConnect();
             StoredProceduralCommand command = new StoredProceduralCommand();
-            int count = (int)objDB.ExecuteScalarFunction(command.GetBuyerNoti(username, status, sellerstatus));
+            int count = (int)objDB.ExecuteScalarFunction(command.GetSellerNoti(username, status, sellerstatus));
             objDB.CloseConnection();
             return count;
         }
