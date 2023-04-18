@@ -29,12 +29,12 @@
             <asp:BoundField DataField="RoomName" HeaderText="Room" />
             <asp:TemplateField HeaderText="Length">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtLength" runat="server" Text='<%# Bind("Length") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtLength"  TextMode="Number" runat="server" Text='<%# Bind("Length") %>'></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Width">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtWidth" runat="server" Text='<%# Bind("Width") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtWidth" TextMode="Number" runat="server" Text='<%# Bind("Width") %>'></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:ButtonField HeaderText="Update" Text="Update" CommandName="UpdateRoom">
@@ -65,7 +65,7 @@ ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" OnClick="imgB
     <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary" OnClick="btnCancel_Click"/>
 </div>
 <div class="text-center">
-    <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-outline-primary" OnClick="btnUpdate_Click"/>
-    <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn btn-outline-danger" OnClick="btnDelete_Click"/>
+    <asp:Button ID="btnUpdate" runat="server" Text="Update House" CssClass="btn btn-outline-primary" OnClick="btnUpdate_Click"/>
+    <asp:Button ID="btnDelete" runat="server" Text="Delete House" CssClass="btn btn-outline-danger" OnClick="btnDelete_Click"/>
 </div>
 <hr/>

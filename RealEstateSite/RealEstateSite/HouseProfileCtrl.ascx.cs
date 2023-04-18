@@ -46,7 +46,7 @@ namespace RealEstateSite
             get { return img.ImageUrl; }
             set { img.ImageUrl = value; }
         }
-        public HouseControl HouseCtrl{ get { return houseCtrl; } }
+        public HouseControl HouseCtrl { get { return houseCtrl; } }
 
         const String ADD_ROOM_DIR = "Click the plus sign to add room.";
         const String URL = "http://localhost:28769/api/house/";
@@ -70,8 +70,8 @@ namespace RealEstateSite
         {
             Room room = new Room();
             room.RoomName = roomName;
-            room.Width = width; 
-            room.Length = length; 
+            room.Width = width;
+            room.Length = length;
             room.Id = int.Parse(lblId.Text);
             return js.Serialize(room);
         }
@@ -90,14 +90,15 @@ namespace RealEstateSite
 
         private void AddRoomToDB()
         {
-            String jsonRoom = SerializeRoom(txtRoomName.Text, int.Parse(txtRoomWidth.Text), 
+            Application.Lock();
+            String jsonRoom = SerializeRoom(txtRoomName.Text, int.Parse(txtRoomWidth.Text),
                                             int.Parse(txtRoomLength.Text));
             try
             {   // adding room to the DB and getting result
                 String isAdded = rwr.PostWebRequest("POST", URL + "addroom", jsonRoom);
 
                 //if successfully added the new room, calculate the total home size, bedroom, and bathroom
-                if (bool.Parse(isAdded)) 
+                if (bool.Parse(isAdded))
                 {   //get the # of bedroom and bathroom and the total house size from the DB
                     int bedroomNum = int.Parse(lblBedroom.Text);
                     int bathroomNum = int.Parse(lblBathroom.Text);
@@ -108,17 +109,7 @@ namespace RealEstateSite
                     else if (txtRoomName.Text.ToLower().Contains("bathroom")) bathroomNum++;
                     totalHomeSize += int.Parse(txtRoomLength.Text) * int.Parse(txtRoomWidth.Text);
 
-                    //HouseSize hs = new HouseSize();
-                    //hs.Bedroom = bedroomNum;
-                    //hs.Bathroom = bathroomNum;
-                    //hs.HomeSize = totalHomeSize.ToString();
-                    //hs.Id = int.Parse(lblId.Text);
-
-                    ////update # of bedroom and bathroom and total house size in DB
-                    //String jsonHouseSize = js.Serialize(hs);
-                    //String isUpdated = rwr.PutWebRequest("PUT", URL + "UpdateHomeSizeInfo", jsonHouseSize);
-
-                    if (UpdateHomeSizeInfo(bedroomNum, bathroomNum, totalHomeSize.ToString()))//Boolean.Parse(isUpdated))
+                    if (UpdateHomeSizeInfo(bedroomNum, bathroomNum, totalHomeSize.ToString()))
                     {
                         lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
                         lblBathroom.Text = bathroomNum.ToString();
@@ -129,20 +120,27 @@ namespace RealEstateSite
                     }
                     else lblInstruction.Text = "Room is added, but the total house size, " +
                                                 "# of bedroom, or # of bathroom is not updated.";
+                    BindGV();
                 }
                 else lblInstruction.Text = "Failed to add room.";
             }
             catch (Exception ex) { lblInstruction.Text = "Error: " + ex.Message; }
+            Application.UnLock();
+        }
+
+        private void BindGV()
+        {
+            gvRooms.DataSource = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
+            gvRooms.DataBind();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 lblInstruction.Text = ADD_ROOM_DIR;
                 roomControls.Visible = false;
-                gvRooms.DataSource = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
-                gvRooms.DataBind();
+                BindGV();
             }
         }
 
@@ -168,19 +166,19 @@ namespace RealEstateSite
             else
             {   //check if there's a room with the same name for the same house in the DB (duplicate)
                 List<Room> rooms = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
-                if(rooms != null)
+                if (rooms != null)
                 {
                     bool noDuplicate = true;
-                    foreach(Room room in rooms)
+                    foreach (Room room in rooms)
                     {
-                        if (room.RoomName.Equals(txtRoomName.Text))
+                        if (room.RoomName.ToLower().Equals(txtRoomName.Text.ToLower()))
                         {   //can't have duplicate room
                             lblInstruction.Text = "Failed to add room. A room with this name already exists for this house.";
                             noDuplicate = false;
                             break;
                         }
                     }
-                    if(noDuplicate) AddRoomToDB();
+                    if (noDuplicate) AddRoomToDB();
                 }
                 //this house has no room data, so no duplicate room for the same house
                 else AddRoomToDB();
@@ -189,78 +187,95 @@ namespace RealEstateSite
 
         protected void btnUpdate_Click(object sender, EventArgs e) //updating house (not including room)
         {
-            //House house = new House();
-            //house.Seller = hc.Seller;
-            //house.Agent = hc.Agent;
-            //house.Address = hc.Address;
-            //house.Status = "Listing";
-            //house.City = hc.City;
-            //house.PropertyType = hc.PropertyType;
-            //house.HomeSize = "Unknown";   //calculate and update in AddRoomToDB(), so delete this later and in Stored procedure
-            //house.Bedroom = 0;            //calculate and update in AddRoomToDB(), so delete this later
-            //house.Bathroom = 0;           //calculate and update in AddRoomToDB(), so delete this later
-            //house.Amenity = hc.Amenities;
-            //house.HeatingCooling = hc.HeatingCooling;
-            //house.BuiltYear = hc.BuiltYear;
-            //house.GarageSize = hc.GarageSize;
-            //house.Utility = hc.Utility;
-            //house.HomeDescription = hc.Description;
-            //house.Price = int.Parse(hc.Price);
-            //rwr.PutWebRequest(URL + "updatehouse", );
+            Application.Lock();
+
+            House house = new House();
+            house.Id = int.Parse(lblId.Text);
+            house.Seller = houseCtrl.Seller;
+            house.Agent = houseCtrl.Agent;
+            house.Address = houseCtrl.Address;
+            house.City = houseCtrl.City;
+            house.PropertyType = houseCtrl.PropertyType;
+            house.Amenity = houseCtrl.Amenities;
+            house.HeatingCooling = houseCtrl.HeatingCooling;
+            house.BuiltYear = houseCtrl.BuiltYear;
+            house.GarageSize = houseCtrl.GarageSize;
+            house.Utility = houseCtrl.Utility;
+            house.HomeDescription = houseCtrl.Description;
+            house.Price = int.Parse(houseCtrl.Price);
+            //house.Image = picturebox.url.......................
+            rwr.PutWebRequest("PUT", URL + "updatehouse", js.Serialize(house));
+
+            Application.UnLock();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e) //deleting house
         {
             rwr.DeleteWebRequest(URL + "DeleteHouse/" + lblId.Text);
+            this.Visible = false; //this = HouseProfileCtrl
         }
 
         protected void gvRooms_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int rowIndex = int.Parse(e.CommandArgument.ToString());
-            TableCellCollection cells = gvRooms.Rows[rowIndex].Cells;
-            String roomName = cells[0].Text;
-            int width = int.Parse(cells[2].Text);
-            int length = int.Parse(cells[1].Text);
+            GridViewRow row = gvRooms.Rows[int.Parse(e.CommandArgument.ToString())];
+            TextBox txtWidth = (TextBox)row.FindControl("txtWidth");
+            TextBox txtLength = (TextBox)row.FindControl("txtLength");
 
-            if (e.CommandName == "UpdateRoom")
+            if (txtWidth.Text.Trim().Equals("") || txtLength.Text.Trim().Equals(""))
+                Response.Write("<script>alert('Width and length cannot be empty')</script>");
+            else if (int.Parse(txtWidth.Text) <= 0 || int.Parse(txtLength.Text) <= 0)
+                Response.Write("<script>alert('Width and length must be positive numbers')</script>");
+            else
             {
-                String jsonRoom = SerializeRoom(roomName, width, length);
-                bool isRoomUpdated = bool.Parse(rwr.PutWebRequest("PUT", URL + "UpdateRoom", jsonRoom));
+                int width = int.Parse(txtWidth.Text);
+                int length = int.Parse(txtLength.Text);
+                String roomName = row.Cells[0].Text;
 
-                //calculate the total house size and update it in the DB
-                if (isRoomUpdated)
+                if (e.CommandName == "UpdateRoom")
                 {
-                    gvRooms.DataBind(); //rebind
-                    int totalHomeSize = 0;
-                    List<Room> rooms = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
-                    
-                    //to ensure that we don't mix the old and new data together,
-                    //grap all the room data for this house and calculate the total home size
-                    foreach (Room room in rooms) { totalHomeSize += room.Width * room.Length; }
+                    Application.Lock(); //if seller is editing, agent can't edit and vice versa
+                    String jsonRoom = SerializeRoom(roomName, width, length);
+                    bool isRoomUpdated = bool.Parse(rwr.PutWebRequest("PUT", URL + "UpdateRoom", jsonRoom));
 
-                    if (UpdateHomeSizeInfo(int.Parse(lblBedroom.Text), int.Parse(lblBathroom.Text), totalHomeSize.ToString()))
-                        lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
+                    //calculate the total house size and update it in the DB
+                    if (isRoomUpdated)
+                    {
+                        int totalHomeSize = 0;
+                        List<Room> rooms = rwr.GetRoomWR(URL + "getrooms/" + int.Parse(lblId.Text));
+
+                        //to ensure that we don't mix the old and new data together,
+                        //grap all the room data for this house and calculate the total home size
+                        foreach (Room room in rooms) { totalHomeSize += room.Width * room.Length; }
+
+                        if (UpdateHomeSizeInfo(int.Parse(lblBedroom.Text), int.Parse(lblBathroom.Text), totalHomeSize.ToString()))
+                            lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
+                    }
+                    Application.UnLock();
                 }
-            }
-            else if (e.CommandName == "DeleteRoom")
-            {
-                bool isDeleted = bool.Parse(rwr.DeleteWebRequest(URL + "DeleteRoom/" + lblId.Text + "/" + roomName));
-
-                //calculate # of bedroom and bathroom and total house size and update the data in the DB
-                if (isDeleted)
+                else if (e.CommandName == "DeleteRoom")
                 {
-                    gvRooms.DataBind(); //rebind 
-                    int bedroom = int.Parse(lblBedroom.Text);
-                    int bathroom = int.Parse(lblBathroom.Text);
-                    int totalHomeSize = int.Parse(lblHomeSize.Text);
-                    totalHomeSize -= width * length;
+                    bool isDeleted = bool.Parse(rwr.DeleteWebRequest(URL + "DeleteRoom/" + lblId.Text + "/" + roomName));
 
-                    if (roomName.ToLower().Contains("bedroom")) bedroom--;
-                    else if (roomName.ToLower().Contains("bathroom")) bathroom--;
+                    //calculate # of bedroom and bathroom and total house size and update the data in the DB
+                    if (isDeleted)
+                    {
+                        int bedroom = int.Parse(lblBedroom.Text);
+                        int bathroom = int.Parse(lblBathroom.Text);
+                        int totalHomeSize = int.Parse(lblHomeSize.Text);
+                        totalHomeSize -= width * length;
 
-                    if(UpdateHomeSizeInfo(bedroom, bathroom, totalHomeSize.ToString())) 
-                        lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
+                        if (roomName.ToLower().Contains("bedroom")) bedroom--;
+                        else if (roomName.ToLower().Contains("bathroom")) bathroom--;
+
+                        if (UpdateHomeSizeInfo(bedroom, bathroom, totalHomeSize.ToString()))
+                        {
+                            lblHomeSize.Text = totalHomeSize.ToString(); //displaying new data
+                            lblBedroom.Text = bedroom.ToString();
+                            lblBathroom.Text = bathroom.ToString();
+                        }
+                    }
                 }
+                BindGV();
             }
         }
     }

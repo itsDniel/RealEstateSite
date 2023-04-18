@@ -53,6 +53,7 @@
         GarageSize
         <asp:DropDownList ID="ddlGarageSize" runat="server">
             <asp:ListItem>None</asp:ListItem>
+            <asp:ListItem>1 car</asp:ListItem>
             <asp:ListItem>2 cars</asp:ListItem>
             <asp:ListItem>3 cars</asp:ListItem>
         </asp:DropDownList>
