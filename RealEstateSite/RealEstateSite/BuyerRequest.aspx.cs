@@ -12,36 +12,23 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
 
         protected void Page_Load(object sender, EventArgs e)
-        {   
-            if(Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
-        }
-
-        protected void Searchbtn_Click(object sender, EventArgs e)
         {
-            string buyer = Request.Cookies["Username"].Value.ToString();
-            string status = "";
-            if(statusddl.Text == "Pending")
+            if (Request.Cookies["Username"] == null)
             {
-                status = "Pending";
-                requestdtl.DataBind(status, buyer);
-                requestdtl.Visible = true;
-                requestdtl.hidebutton();
-            }
-            else if(statusddl.Text == "Approved")
-            {
-                status = "Approved";
-                requestdtl.DataBind(status, buyer);
-                requestdtl.Visible = true;
-                requestdtl.showButton();
-                
+                Response.Redirect("RealEstateLogin.aspx");
             }
             else
             {
-                status = "Denied";
-                requestdtl.DataBind(status, buyer);
-                requestdtl.Visible = true;
-                requestdtl.hidebutton();
+                if (!IsPostBack)
+                {
+                    string status = "Scheduled";
+                    string buyer = Request.Cookies["Username"].Value.ToString();
+                    requestdtl.DataBind(status, buyer);
+                    requestdtl.Visible = true;
+                    requestdtl.showButton();
+                }
             }
         }
+
     }
 }
