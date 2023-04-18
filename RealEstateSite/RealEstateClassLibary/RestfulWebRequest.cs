@@ -41,7 +41,7 @@ namespace RealEstateClassLibary
         }
 
         public List<House> GetHouseWR(String url) { return js.Deserialize<List<House>>(GetResponse(url)); }
-       
+
         public List<Room> GetRoomWR(String url) { return js.Deserialize<List<Room>>(GetResponse(url)); }
 
         //public HouseSize GetHouseSizeInfo(String url) { return js.Deserialize<HouseSize>(GetResponse(url)); }
@@ -52,21 +52,13 @@ namespace RealEstateClassLibary
             request.Method = method; // "POST";
             request.ContentLength = jsonObj.Length;
             request.ContentType = "application/json";
-
-            // Write the JSON data to the Web Request
-            //StreamWriter writer = new StreamWriter(request.GetRequestStream());
-            //writer.Write(jsonObj);
-            //writer.Flush();
-            //writer.Close();
-
-            //return ReadData(request.GetResponse());
             return WriteData(jsonObj);
         }
 
         public String PostWebRequest(String method, String url, String jsonObj)
         { return PostOrPut(method, url, jsonObj); }
 
-        public String PutWebRequest(String method, String url, String jsonObj) 
+        public String PutWebRequest(String method, String url, String jsonObj)
         { return PostOrPut(method, url, jsonObj); }
 
         public String DeleteWebRequest(String url)
