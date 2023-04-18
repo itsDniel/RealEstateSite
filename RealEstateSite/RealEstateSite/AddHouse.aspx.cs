@@ -21,11 +21,11 @@ namespace RealEstateSite
             if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
             else
             {
-                if(!IsPostBack)
+                if (!IsPostBack)
                 {
                     lblInstruction.Text = ADD_HOUSE_DIRECTION;
                     String user = Request.Cookies["Username"].Value;
-                    
+
                     //prefill seller or agent textbox according to the role
                     if (pxy.GetRole(user).Equals("Seller")) hc.Seller = user;
                     else hc.Agent = user;
@@ -35,13 +35,13 @@ namespace RealEstateSite
 
         protected void btnAddHouse_Click(object sender, EventArgs e)
         {
-            if(hc.Seller.Trim().Equals("") || hc.Agent.Trim().Equals("") || hc.Address.Trim().Equals("") ||
+            if (hc.Seller.Trim().Equals("") || hc.Agent.Trim().Equals("") || hc.Address.Trim().Equals("") ||
                hc.City.Trim().Equals("") || hc.BuiltYear.Trim().Equals("") || hc.Price.Trim().Equals("") ||
                hc.Description.Trim().Equals("") || !hc.ImgFileUpload.HasFile)
             {
                 lblInstruction.Text = "Missing Info: please fill out all the textboxes and upload an image file.";
             }
-            else if(int.Parse(hc.Price) <= 0 || int.Parse(hc.BuiltYear) <= 0)
+            else if (int.Parse(hc.Price) <= 0 || int.Parse(hc.BuiltYear) <= 0)
             {
                 lblInstruction.Text = "Negative number or 0 is NOT allowed for the price and built year.";
             }
@@ -54,9 +54,6 @@ namespace RealEstateSite
                 house.Status = "Listing";
                 house.City = hc.City;
                 house.PropertyType = hc.PropertyType;
-                house.HomeSize = "0";
-                house.Bedroom = 0;
-                house.Bathroom = 0;
                 house.Amenity = hc.Amenities;
                 house.HeatingCooling = hc.HeatingCooling;
                 house.BuiltYear = hc.BuiltYear;
@@ -65,14 +62,14 @@ namespace RealEstateSite
                 house.HomeDescription = hc.Description;
                 house.Price = int.Parse(hc.Price);
                 house.Image = hc.ImgFileUpload.FileName; //how do I get the file path?...............//jenny
-                
+
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 String jsonHouse = js.Serialize(house); //Serialize a House object into a JSON string.
 
-                try 
+                try
                 {   // adding house and getting result
                     RestfulWebRequest rwr = new RestfulWebRequest();
-                    String isAdded= rwr.PostWebRequest("POST", "http://localhost:28769/api/house/addhouse", jsonHouse);   
+                    String isAdded = rwr.PostWebRequest("POST", "http://localhost:28769/api/house/addhouse", jsonHouse);
                     if (bool.Parse(isAdded))
                     {
                         lblInstruction.Text = ADD_HOUSE_DIRECTION;
