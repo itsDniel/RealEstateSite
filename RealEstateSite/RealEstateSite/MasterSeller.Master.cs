@@ -29,7 +29,7 @@ namespace RealEstateSite
         protected void SellerNotibtn_Click(object sender, EventArgs e)
         {
             string username = Request.Cookies["Username"].Value.ToString();
-            string status = "Approved";
+            string status = "Pending";
             int sellerstatus = 1;
             pxy.UpdateSellerNoti(username, status, sellerstatus);
             SellerNotibtn.Visible = false;
