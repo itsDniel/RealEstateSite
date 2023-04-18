@@ -130,25 +130,37 @@ namespace RealEstateSite
                 else
                 {
                     string status = "Pending";
-                    
+                    string deniedStatus = "Denied";
 
-                    //Creating object for visit request with status pending and visit request with status denied
+                    //Creating object for visit request with status pending and visit request with status denied in the db
                     visitRequest request = new visitRequest();
-                  
+                    visitRequest denied = new visitRequest();
                     string buyer = Request.Cookies["Username"].Value.ToString();
                     
-                    //Pending vist request
+                    //Pending vist request object
                     request.homeid = int.Parse(homeidplaceholder.Text);
                     request.buyer = buyer;
                     request.date = visitDatetxt.Text;
                     request.time = visitTimetxt.Text;
                     request.status = status;
 
+                    //Request object with records that have the status denied in the db
+                    denied.homeid = int.Parse(homeidplaceholder.Text);
+                    denied.buyer = buyer;
+                    denied.status = deniedStatus;
+
+                    //If the home that the buyer is requesting a visit has already been denied before
+                    int deniedCheck = pxy.checkVisit(denied);
+                    if(deniedCheck > 0)
+                    {
+                        pxy.DeleteVisit(denied);
+                    }
+                    
                     int check = pxy.checkVisit(request);
-                        if (check > 0)
-                        {
-                            Visitmsg.Text = "You already have a visit request with this specific home";
-                        }
+                    if (check > 0)
+                     {
+                       Visitmsg.Text = "You already have a visit request with this specific home";
+                     }
                         else
                         {
                         pxy.insertVisit(request);

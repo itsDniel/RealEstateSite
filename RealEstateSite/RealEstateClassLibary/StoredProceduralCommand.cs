@@ -168,6 +168,17 @@ namespace RealEstateClassLibary
             return command;
         }
 
+        //Command to delete a visit request
+        public SqlCommand DeleteVisit(visitRequest request)
+        {
+            SqlCommand command = new SqlCommand("TP_DeleteVisit");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = request.buyer;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = request.homeid;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = request.status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
         //This command update feedback to TP_Feedback
         public SqlCommand addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
         {
@@ -193,18 +204,28 @@ namespace RealEstateClassLibary
         }
 
         //This command add offer to TP_Offer
-        public SqlCommand addOffer(int homeid, string buyer, int a1, string a2, string a3, string status)
+        public SqlCommand addOffer(OfferBuyer offer)
         {
             SqlCommand command = new SqlCommand("TP_AddOffer");
-            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
-            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = buyer;
-            command.Parameters.Add("@a1", SqlDbType.Int).Value = a1;
-            command.Parameters.Add("@a2", SqlDbType.VarChar).Value = a2;
-            command.Parameters.Add("@a3", SqlDbType.VarChar).Value = a3;
-            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = offer.homeid;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = offer.buyer;
+            command.Parameters.Add("@a1", SqlDbType.Int).Value = offer.a1;
+            command.Parameters.Add("@a2", SqlDbType.VarChar).Value = offer.a2;
+            command.Parameters.Add("@a3", SqlDbType.VarChar).Value = offer.a3;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = offer.status;
             command.CommandType = CommandType.StoredProcedure;
             return command;
 
+        }
+
+        //This command get offers based on status and username
+        public SqlCommand GetOffer(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_GetOffer");
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
         }
 
         //Command to update the offer status to TP_Feedback

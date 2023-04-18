@@ -42,6 +42,24 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Label offerlbl;
 
         /// <summary>
+        /// OfferStatusddl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList OfferStatusddl;
+
+        /// <summary>
+        /// OfferSearchbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button OfferSearchbtn;
+
+        /// <summary>
         /// OverlayPanel control.
         /// </summary>
         /// <remarks>
