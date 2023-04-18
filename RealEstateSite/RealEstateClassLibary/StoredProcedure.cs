@@ -30,20 +30,15 @@ namespace RealEstateClassLibary
         }
 
         //this method is used for both updating and adding house
-        private void AddHouseParams(String seller, String agent, String address, String status, String city,
-            String propertyType, String homeSize, int bedroom, int bathroom, String amenity,
-            String heatingCooling, String builtYear, String garageSize, String utility,
+        private void AddHouseParams(String seller, String agent, String address, String city, String propertyType,
+            String amenity, String heatingCooling, String builtYear, String garageSize, String utility,
             String homeDescription, int price)//, String image)
         {
             command.Parameters.AddWithValue("@seller", seller);
             command.Parameters.AddWithValue("@agent", agent);
             command.Parameters.AddWithValue("@address", address);
-            command.Parameters.AddWithValue("@status", status);
             command.Parameters.AddWithValue("@city", city);
             command.Parameters.AddWithValue("@propertyType", propertyType);
-            command.Parameters.AddWithValue("@homeSize", homeSize);
-            command.Parameters.AddWithValue("@bedroom", bedroom);
-            command.Parameters.AddWithValue("@bathroom", bathroom);
             command.Parameters.AddWithValue("@amenity", amenity);
             command.Parameters.AddWithValue("@heatingCooling", heatingCooling);
             command.Parameters.AddWithValue("@builtYear", builtYear);
@@ -57,25 +52,22 @@ namespace RealEstateClassLibary
         public Boolean AddHouse(House house)
         {
             SetCommandTextAndClearParam("TP_AddHouse");
-            AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
-                house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
-                house.GarageSize, house.Utility, house.HomeDescription, house.Price);//, house.Image);
+            AddHouseParams(house.Seller, house.Agent, house.Address, house.City, house.PropertyType,
+                house.Amenity, house.HeatingCooling, house.BuiltYear, house.GarageSize, house.Utility,
+                house.HomeDescription, house.Price);//, house.Image);
+            command.Parameters.AddWithValue("@status", house.Status);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
             command.Parameters.AddWithValue("@image", house.Image);
-            //command.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
-            return UpdateDB();//connect.DoUpdate(command);
-
-            //return the id of the house so that TP_AddRoom can use it
-            //return int.Parse(command.Parameters["@id"].Value.ToString()); 
+            return UpdateDB();
         }
 
         public Boolean UpdateHouse(House house)
         {
             SetCommandTextAndClearParam("TP_UpdateHouse");
             command.Parameters.AddWithValue("@id", house.Id);
-            AddHouseParams(house.Seller, house.Agent, house.Address, house.Status, house.City, house.PropertyType,
-                house.HomeSize, house.Bedroom, house.Bathroom, house.Amenity, house.HeatingCooling, house.BuiltYear,
-                house.GarageSize, house.Utility, house.HomeDescription, house.Price);//, house.Image);
+            AddHouseParams(house.Seller, house.Agent, house.Address, house.City, house.PropertyType,
+                house.Amenity, house.HeatingCooling, house.BuiltYear, house.GarageSize, house.Utility,
+                house.HomeDescription, house.Price);//, house.Image);
             return UpdateDB();
         }
 
@@ -117,7 +109,7 @@ namespace RealEstateClassLibary
             DataTable houseTable = connect.GetDataSet(command).Tables[0]; //execute the stored procedure and get the data
             List<House> houses = new List<House>();
 
-            foreach(DataRow row in houseTable.Rows)
+            foreach (DataRow row in houseTable.Rows)
             {
                 House house = new House();
                 house.Id = int.Parse(row["HomeID"].ToString());
@@ -155,7 +147,7 @@ namespace RealEstateClassLibary
             DataTable roomTable = connect.GetDataSet(command).Tables[0];
             List<Room> rooms = new List<Room>();
 
-            foreach(DataRow row in roomTable.Rows)
+            foreach (DataRow row in roomTable.Rows)
             {
                 Room room = new Room();
                 room.Id = int.Parse(row["HomeID"].ToString());
@@ -167,7 +159,7 @@ namespace RealEstateClassLibary
             return rooms;
         }
 
-        public DataSet GetRole(String user) 
+        public DataSet GetRole(String user)
         {   //used in SOAP
             SetCommandTextAndClearParam("TP_GetRole");
             command.Parameters.AddWithValue("@username", user);
