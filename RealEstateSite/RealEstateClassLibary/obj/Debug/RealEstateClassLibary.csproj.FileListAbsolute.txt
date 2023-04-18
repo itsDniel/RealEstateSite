@@ -40,3 +40,12 @@ C:\Users\jenny\OneDrive\Desktop\Real Estate\RealEstateSite\RealEstateClassLibary
 C:\Users\jenny\OneDrive\Desktop\Real Estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CopyComplete
 C:\Users\jenny\OneDrive\Desktop\Real Estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
 C:\Users\jenny\OneDrive\Desktop\Real Estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.dll
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\bin\Debug\RealEstateClassLibary.pdb
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\bin\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.AssemblyReference.cache
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CoreCompileInputs.cache
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.csproj.CopyComplete
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.dll
+C:\Users\jenny\OneDrive\Desktop\Gingerbread real estate\RealEstateSite\RealEstateClassLibary\obj\Debug\RealEstateClassLibary.pdb
