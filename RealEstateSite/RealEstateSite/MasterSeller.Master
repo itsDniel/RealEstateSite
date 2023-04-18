@@ -14,7 +14,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    
+
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">BlueFin</span>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -28,12 +31,11 @@
                     <li class="nav-item"><a href="SellerFeedback.aspx" class="nav-link">Feedback</a></li>
                     <li class="nav-item"><a href="SellerOffer.aspx" class="nav-link">Offer</a></li>
                     <li class="nav-item"><a href="#" onclick="document.getElementById('<%= logoutbtn.ClientID %>').click(); return false;" class="nav-link">Logout</a></li>
+                    <li class="nav-item"><asp:Button ID="SellerNotibtn" runat="server" Text="Testing" Visible="false"  CssClass="nav-link" OnClick="SellerNotibtn_Click"/></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <form id="form1" runat="server">
         <div>
             <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" OnClick="logoutbtn_Click" Visible ="true" CausesValidation="false" PostBackUrl="RealEstateLogin.aspx?logout=true" />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

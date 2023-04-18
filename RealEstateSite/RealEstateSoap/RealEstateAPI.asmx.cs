@@ -209,5 +209,41 @@ namespace RealEstateSoap
             objDB.DoUpdate(command.updateFeedback(buyer, status, homeid));
         }
 
+        [WebMethod] //This get the count of notification for buyer
+        public int GetBuyerNoti(string username, string status, int buyerstatus)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            int count = (int)objDB.ExecuteScalarFunction(command.GetBuyerNoti(username, status, buyerstatus));
+            objDB.CloseConnection();
+            return count;
+        }
+
+        [WebMethod] //This update the buyer notification view status
+        public void UpdateBuyerNoti(string username, string status, int buyerstatus)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.UpdateBuyerNoti(username, status, buyerstatus));
+        }
+
+        [WebMethod] //This get the count of notification for seller
+        public int GetSellerNoti(string username, string status, int sellerstatus)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            int count = (int)objDB.ExecuteScalarFunction(command.GetBuyerNoti(username, status, sellerstatus));
+            objDB.CloseConnection();
+            return count;
+        }
+
+        [WebMethod] //This update the buyer notification view status
+        public void UpdateSellerNoti(string username, string status, int sellerstatus)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.UpdateSellerNoti(username, status, sellerstatus));
+        }
+
     }
 }

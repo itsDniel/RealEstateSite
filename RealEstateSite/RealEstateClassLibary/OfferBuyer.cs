@@ -14,5 +14,7 @@ namespace RealEstateClassLibary
         public string a2 { get; set; }
         public string a3 { get; set; }
         public string status { get; set; }
+        public int sellerStatus { get; set; }
+        public int buyerStatus { get; set; }
     }
 }

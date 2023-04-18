@@ -213,6 +213,8 @@ namespace RealEstateClassLibary
             command.Parameters.Add("@a2", SqlDbType.VarChar).Value = offer.a2;
             command.Parameters.Add("@a3", SqlDbType.VarChar).Value = offer.a3;
             command.Parameters.Add("@status", SqlDbType.VarChar).Value = offer.status;
+            command.Parameters.Add("@sellerstatus", SqlDbType.Bit).Value = offer.sellerStatus;
+            command.Parameters.Add("@buyerstatus", SqlDbType.Bit).Value = offer.buyerStatus;
             command.CommandType = CommandType.StoredProcedure;
             return command;
 
@@ -238,5 +240,50 @@ namespace RealEstateClassLibary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Command to check for the count of new notification for the buyer
+        public SqlCommand GetBuyerNoti(string username, string status, int buyerstatus)
+        {
+            SqlCommand command = new SqlCommand("TP_BuyerNotification");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@buyerstatus", SqlDbType.Bit).Value = buyerstatus;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to update the buyer view status
+        public SqlCommand UpdateBuyerNoti(string username, string status, int buyerstatus)
+        {
+            SqlCommand command = new SqlCommand("TP_UpdateBuyerNoti");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@buyerstatus", SqlDbType.Bit).Value = buyerstatus;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to check for the count of new notification for the seller
+        public SqlCommand GetSellerNoti(string username, string status, int sellerstatus)
+        {
+            SqlCommand command = new SqlCommand("TP_BuyerNotification");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@sellerstatus", SqlDbType.Bit).Value = sellerstatus;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to update the buyer view status
+        public SqlCommand UpdateSellerNoti(string username, string status, int sellerstatus)
+        {
+            SqlCommand command = new SqlCommand("TP_UpdateSellerNoti");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.Parameters.Add("@sellerstatus", SqlDbType.Bit).Value = sellerstatus;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
     }
 }

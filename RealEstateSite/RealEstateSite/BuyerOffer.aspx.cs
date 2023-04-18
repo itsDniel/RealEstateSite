@@ -66,6 +66,8 @@ namespace RealEstateSite
 
                         string status = "Pending";
                         string statusFeedback = "Offered";
+                        int SellerViewStatus = 0;
+                        int BuyerViewStatus = 0;
 
 
                         int a1 = int.Parse(A1txt.Text);
@@ -82,6 +84,8 @@ namespace RealEstateSite
                         offer.a2 = a2;
                         offer.a3 = a3;
                         offer.status = status;
+                        offer.sellerStatus = SellerViewStatus;
+                        offer.buyerStatus = BuyerViewStatus;
 
                         pxy.addOffer(offer);
                         pxy.updateFeedback(homeid, buyer, statusFeedback);
