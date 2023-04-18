@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RealEstateClassLibary;
 
 namespace RealEstateSite
 {
     public partial class BuyerOffer : System.Web.UI.Page
     {
+        RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-            RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
-            if (Request.Cookies["Username"] != null)
-            {
-                if (!IsPostBack)
-                {
-                    string status = "Offered";
-                    string buyer = Request.Cookies["Username"].Value.ToString();
-                    rprDisplay.DataSource = pxy.getFeedbacked(buyer, status);
-                    rprDisplay.DataBind();
-                }
-            }
-            else
+            
+            if (Request.Cookies["Username"] == null)
             {
                 Response.Redirect("RealEstateLogin.aspx");
             }
@@ -37,7 +30,7 @@ namespace RealEstateSite
 
         protected void offerbtn_Click(object sender, EventArgs e)
         {
-            Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("feedbackHiddenbutton"));
+            Button hiddenButton = (Button)((sender as Button).NamingContainer.FindControl("offerHiddenbutton"));
             offerHiddenbutton_click(hiddenButton, EventArgs.Empty);
         }
 
@@ -69,7 +62,8 @@ namespace RealEstateSite
                     }
                     else
                     {
-                        RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
+                        OfferBuyer offer = new OfferBuyer();
+
                         string status = "Pending";
                         string statusFeedback = "Offered";
 
@@ -82,13 +76,110 @@ namespace RealEstateSite
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
 
+                        offer.homeid = homeid;
+                        offer.buyer = buyer;
+                        offer.a1 = a1;
+                        offer.a2 = a2;
+                        offer.a3 = a3;
+                        offer.status = status;
 
-                        pxy.addOffer(homeid, buyer, a1, a2, a3, status);
+                        pxy.addOffer(offer);
                         pxy.updateFeedback(homeid, buyer, statusFeedback);
                         offerlbl.Text = "Great You Submitted An Offer";
                         OfferPanel.Visible = false;
                         OverlayPanel.Visible = false;
+                        break;
                     }
+                }
+            }
+        }
+
+        protected void OfferSearchbtn_Click(object sender, EventArgs e)
+        {
+            //Get the status from the ddl
+            string status = " ";
+            string buyer = Request.Cookies["Username"].Value.ToString();
+
+            if (OfferStatusddl.Text == "Awaiting Offer")
+            {
+                status = "Offered";
+                rprDisplay.DataSource = pxy.getFeedbacked(buyer, status);
+                rprDisplay.DataBind();
+
+
+                //Show the submit offer button
+                foreach (RepeaterItem item in rprDisplay.Items)
+                {
+                    Button btn = (Button)item.FindControl("offerbtn");
+                    btn.Visible = true;
+
+                    Label pricelbl = (Label)item.FindControl("pricelbl");
+                    pricelbl.Visible = true;
+
+                    Label statuslbl = (Label)item.FindControl("statuslbl");
+                    statuslbl.Visible = false;
+                }
+
+            }
+            else if(OfferStatusddl.Text == "Pending")
+            {
+                status = "Pending";
+                rprDisplay.DataSource = pxy.GetOffer(buyer, status);
+                rprDisplay.DataBind();
+                FeedbackedPanel.Visible = true;
+
+                //Hide the submit offer button
+                foreach (RepeaterItem item in rprDisplay.Items)
+                {
+                    Button btn = (Button)item.FindControl("offerbtn");
+                    btn.Visible = false;
+
+                    Label pricelbl = (Label)item.FindControl("pricelbl");
+                    pricelbl.Visible = true;
+
+                    Label statuslbl = (Label)item.FindControl("statuslbl");
+                    statuslbl.Visible = true;
+                }
+            }
+            else if(OfferStatusddl.Text == "Denied")
+            {
+                status = "Denied";
+                rprDisplay.DataSource = pxy.GetOffer(buyer, status);
+                rprDisplay.DataBind();
+                FeedbackedPanel.Visible = true;
+                
+
+                //Hide the submit offer button
+                foreach (RepeaterItem item in rprDisplay.Items)
+                {
+                    Button btn = (Button)item.FindControl("offerbtn");
+                    btn.Visible = false;
+
+                    Label pricelbl = (Label)item.FindControl("pricelbl");
+                    pricelbl.Visible = true;
+
+                    Label statuslbl = (Label)item.FindControl("statuslbl");
+                    statuslbl.Visible = true;
+                }
+            }
+            else if(OfferStatusddl.Text == "Approved")
+            {
+                status = "Approved";
+                rprDisplay.DataSource = pxy.GetOffer(buyer, status);
+                rprDisplay.DataBind();
+                FeedbackedPanel.Visible = true;
+
+                //Hide the submit offer button and control the visibility of some labels
+                foreach (RepeaterItem item in rprDisplay.Items)
+                {
+                    Button btn = (Button)item.FindControl("offerbtn");
+                    btn.Visible = false;
+
+                    Label pricelbl = (Label)item.FindControl("pricelbl");
+                    pricelbl.Visible = true;
+
+                    Label statuslbl = (Label)item.FindControl("statuslbl");
+                    statuslbl.Visible = true;
                 }
             }
         }

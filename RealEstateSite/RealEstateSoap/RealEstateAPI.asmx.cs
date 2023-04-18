@@ -139,6 +139,14 @@ namespace RealEstateSoap
             return ds;
         }
 
+        [WebMethod] //This is used to delete visit request
+        public void DeleteVisit(visitRequest request)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            objDB.DoUpdate(command.DeleteVisit(request));
+        }
+
         [WebMethod] //This is used to update the visit status to visited
         public void updateVisit(string username, string status, string homeid)
         {
@@ -176,11 +184,21 @@ namespace RealEstateSoap
         }
 
         [WebMethod] //This add the buyer offer to the TP_Offer table
-        public void addOffer(int homeid, string buyer, int a1, string a2, string a3, string status)
+        public void addOffer(OfferBuyer offer)
         {
             DBConnect objDB = new DBConnect();
             StoredProceduralCommand command = new StoredProceduralCommand();
-            objDB.DoUpdate(command.addOffer(homeid, buyer, a1, a2, a3, status));
+            objDB.DoUpdate(command.addOffer(offer));
+        }
+
+        [WebMethod] //This gets offer based on status and username
+        public DataSet GetOffer(string username, string status)
+        {
+            DBConnect objDB = new DBConnect();
+            StoredProceduralCommand command = new StoredProceduralCommand();
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetOffer(username, status));
+            return ds;
         }
 
         [WebMethod] //This update the status in TP_Feedback

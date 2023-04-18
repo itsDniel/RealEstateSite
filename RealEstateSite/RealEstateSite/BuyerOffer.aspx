@@ -9,7 +9,14 @@
     <div class="OfferDiv">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Button ID="OfferHiddenbutton" runat="server" CssClass="hidden" OnClick="offerHiddenbutton_click"/>
-        <asp:Label ID="offerlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here are the homes that you have left a feedback on"></asp:Label>
+        <asp:Label ID="offerlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here you can check out the status of your offer"></asp:Label>
+        <asp:DropDownList ID="OfferStatusddl" runat="server">
+            <asp:ListItem>Pending</asp:ListItem>
+            <asp:ListItem>Approved</asp:ListItem>
+            <asp:ListItem>Denied</asp:ListItem>
+            <asp:ListItem>Awaiting Offer</asp:ListItem>
+        </asp:DropDownList>
+        <asp:Button ID="OfferSearchbtn" runat="server" Text="Search" OnClick="OfferSearchbtn_Click" />
     </div>
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
@@ -31,9 +38,12 @@
                             <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
                         </p>
                         <p class="card-text">
-                            <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
+                            <asp:Label ID="pricelbl" runat="server" Visible="true" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
                         </p>
-                        <asp:Button ID="offerbtn" Text="Make An Offer" runat="server" OnClick="offerbtn_Click"/>
+                        <p class="card-text">
+                            <asp:Label ID="statuslbl" runat="server" Visible="false" Text='<%#"Status: " + DataBinder.Eval(Container.DataItem, "Status") %>'></asp:Label>
+                        </p>
+                        <asp:Button ID="offerbtn" Text="Make An Offer" runat="server" OnClick="offerbtn_Click" Visible ="true"/>
                     </div>
                 </div>
             </ItemTemplate>
@@ -41,7 +51,7 @@
     </asp:Panel>
 
     <asp:Panel ID="OfferPanel" runat="server" CssClass="feedbackModal" BorderStyle="Solid" Visible = "false">
-        <asp:Label ID="Label1" runat="server" Text="Please Leave Your Feedback For This Home" Font-Size="X-Large"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Please Leave Your Offer For This Home" Font-Size="X-Large"></asp:Label>
         <asp:Label ID="offermsg" runat="server" ForeColor="Red"></asp:Label>
         <asp:Label ID="Q1lbl" runat="server" Text="How much would you like to offer?"></asp:Label>
         <asp:TextBox ID="A1txt" runat="server" TextMode="Number"></asp:TextBox>
