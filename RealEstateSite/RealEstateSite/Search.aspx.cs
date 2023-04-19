@@ -168,15 +168,21 @@ namespace RealEstateSite
 
         protected void roomHiddenbtn_Click(object sender, EventArgs e)
         {
+            roomDimensionPanel.Visible = true;
             roomDimensionModal.Show();
             ProfilePanel.Visible = false;
-            roomDimensionPanel.Visible = true;
+
+            rprRoomDimension.DataSource = pxy.GetRooms(int.Parse(homeidplaceholder.Text));
+            rprRoomDimension.DataBind();
+            OverlayPanel.Visible = true;
+
         }
 
         protected void roomDimensionClosebtn_Click(object sender, EventArgs e)
         {
             roomDimensionPanel.Visible = false;
             ProfilePanel.Visible = true;
+            OverlayPanel.Visible = false;
         }
     }
 }

@@ -285,5 +285,13 @@ namespace RealEstateClassLibary
             return command;
         }
 
+        //Command to get rooms
+        public SqlCommand GetRoom(int homeID)
+        {
+            SqlCommand command = new SqlCommand("TP_GetRooms");
+            command.Parameters.Add("@id", SqlDbType.Int).Value = homeID;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }

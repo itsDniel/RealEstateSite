@@ -20,13 +20,13 @@ namespace RealEstateSoap
     // [System.Web.Script.Services.ScriptService]
     public class RealEstateAPI : System.Web.Services.WebService
     {
+        DBConnect objDB = new DBConnect();
+        StoredProceduralCommand command = new StoredProceduralCommand();
         StoredProcedure storedProcedure = new StoredProcedure();
 
         [WebMethod] //This method check if user exist in TP_Account table
         public int scalarLogin(User user)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int userCount = (int)objDB.ExecuteScalarFunction(command.checkLogin(user.Username, user.Password));
             objDB.CloseConnection();
 
@@ -37,8 +37,6 @@ namespace RealEstateSoap
         [WebMethod] //This method check if username already exist in TP_Account table
         public int scalarUsername(User user)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int usernameCount = (int)objDB.ExecuteScalarFunction(command.checkUsername(user.Username));
             objDB.CloseConnection();
 
@@ -49,8 +47,6 @@ namespace RealEstateSoap
         [WebMethod] //This method check if the email already exist with this given role
         public int scalarEmail(User user)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int emailCount = (int)objDB.ExecuteScalarFunction(command.checkEmail(user));
             objDB.CloseConnection();
 
@@ -61,8 +57,6 @@ namespace RealEstateSoap
         [WebMethod] //This method update a new user into TP_Account table
         public void accountUpdate(User user)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.updateAccount(user));
         }
 
@@ -70,8 +64,6 @@ namespace RealEstateSoap
         public DataSet getQuestion(string email, string role)
         {
             DataSet ds = new DataSet();
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             ds = objDB.GetDataSet(command.getQuestion(email, role));
             return ds;
         }
@@ -79,8 +71,6 @@ namespace RealEstateSoap
         [WebMethod] //This method update a user password in TP_Account based on the provided email and role
         public void updatePassword(string email, string role, string password)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.updatePassword(email, role, password));
         }
 
@@ -93,8 +83,6 @@ namespace RealEstateSoap
         [WebMethod] //This retrieve all the houses based on the user defined search filter
         public DataSet getHouse(string location, int minPrice, int maxPrice, string property, string garage, int minSize, int maxSize, string amenity, string utility, string username)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.searchHome(location, minPrice, maxPrice, property, garage, minSize, maxSize, amenity, utility, username));
             return ds;
@@ -103,8 +91,6 @@ namespace RealEstateSoap
         [WebMethod] // This retrieve the house based on the homeid
         public DataSet getHouseByID(string homeID)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getHome(homeID));
             return ds;
@@ -113,16 +99,12 @@ namespace RealEstateSoap
         [WebMethod] //This update the user visit request to TP_VisitRequest
         public void insertVisit(visitRequest request)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.addVisit(request));
         }
 
         [WebMethod] //This check to see if a buyer already has a visit request with this home id
         public int checkVisit(visitRequest request)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int check = (int)objDB.ExecuteScalarFunction(command.checkVisit(request));
             objDB.CloseConnection();
             return check;
@@ -132,8 +114,6 @@ namespace RealEstateSoap
         [WebMethod] //This is used to get all the visit request from TP_VisitRequest table based on given buyer username
         public DataSet getVisit(string username, string status)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getVisit(username, status));
             return ds;
@@ -142,24 +122,18 @@ namespace RealEstateSoap
         [WebMethod] //This is used to delete visit request
         public void DeleteVisit(visitRequest request)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.DeleteVisit(request));
         }
 
         [WebMethod] //This is used to update the visit status to visited
         public void updateVisit(string username, string status, string homeid)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.updateVisit(username, status, homeid));
         }
 
         [WebMethod] //This is used to get all the home that the buyer have visited
         public DataSet getVisited(string username, string status)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getVisited(username, status));
             return ds;
@@ -168,16 +142,12 @@ namespace RealEstateSoap
         [WebMethod] //This update feedback to TP_Feedback table
         public void addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.addFeedback(homeid, buyer, a1, a2, a3, a4));
         }
 
         [WebMethod] //This get all the homes that the buyer left the feedback on
         public DataSet getFeedbacked(string buyer, string status)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getFeedbacked(buyer, status));
             return ds;
@@ -186,16 +156,12 @@ namespace RealEstateSoap
         [WebMethod] //This add the buyer offer to the TP_Offer table
         public void addOffer(OfferBuyer offer)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.addOffer(offer));
         }
 
         [WebMethod] //This gets offer based on status and username
         public DataSet GetOffer(string username, string status)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.GetOffer(username, status));
             return ds;
@@ -204,16 +170,12 @@ namespace RealEstateSoap
         [WebMethod] //This update the status in TP_Feedback
         public void updateFeedback(int homeid, string buyer, string status)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.updateFeedback(buyer, status, homeid));
         }
 
         [WebMethod] //This get the count of notification for buyer
         public int GetBuyerNoti(string username, string status, int buyerstatus)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int count = (int)objDB.ExecuteScalarFunction(command.GetBuyerNoti(username, status, buyerstatus));
             objDB.CloseConnection();
             return count;
@@ -222,16 +184,12 @@ namespace RealEstateSoap
         [WebMethod] //This update the buyer notification view status
         public void UpdateBuyerNoti(string username, string status, int buyerstatus)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.UpdateBuyerNoti(username, status, buyerstatus));
         }
 
         [WebMethod] //This get the count of notification for seller
         public int GetSellerNoti(string username, string status, int sellerstatus)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             int count = (int)objDB.ExecuteScalarFunction(command.GetSellerNoti(username, status, sellerstatus));
             objDB.CloseConnection();
             return count;
@@ -240,9 +198,15 @@ namespace RealEstateSoap
         [WebMethod] //This update the buyer notification view status
         public void UpdateSellerNoti(string username, string status, int sellerstatus)
         {
-            DBConnect objDB = new DBConnect();
-            StoredProceduralCommand command = new StoredProceduralCommand();
             objDB.DoUpdate(command.UpdateSellerNoti(username, status, sellerstatus));
+        }
+
+        [WebMethod] //This gets the room dimension data
+        public DataSet GetRooms(int id)
+        {
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetRoom(id));
+            return ds;
         }
 
     }
