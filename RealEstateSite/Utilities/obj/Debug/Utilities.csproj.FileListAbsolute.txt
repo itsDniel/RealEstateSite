@@ -21,4 +21,3 @@ C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\
 C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.dll
 C:\Users\jenny\OneDrive\Desktop\FinalProject\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
-C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
