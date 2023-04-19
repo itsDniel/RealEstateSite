@@ -55,7 +55,7 @@
         <asp:TextBox ID="usernametxt" runat="server"></asp:TextBox>
         <asp:Label ID="passwordlbl" runat="server" Text="Password"></asp:Label>
         <asp:TextBox ID="passwordtxt" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:CheckBox ID="rememberMe" runat="server" Text="Forget me not"/>
+        <asp:CheckBox ID="rememberMe" runat="server" Text="Remember Me"/>
         <asp:Button ID="loginbtn" runat="server" Text="Login" OnClick="loginbtn_Click" />
         <asp:Button ID="accountbtn" runat="server" Text="Create Account" OnClick="accountbtn_Click" CausesValidation="False" />
         <asp:Button ID="forgetpassbtn" runat="server" Text="Forget Password" CausesValidation="False" OnClick="forgetpassbtn_Click" />

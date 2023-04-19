@@ -71,13 +71,18 @@
         </ajaxToolkit:ModalPopupExtender>
     </asp:Panel>
 
-    <asp:Panel ID="SearchPanel" runat="server" CssClass="Searchrpr" Visible="false">
+    
+    <asp:Panel ID="SearchPanel" runat="server" Visible="false" CssClass="Searchrpr">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
         <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand" >
+           
             <ItemTemplate>
-                <div class="card" style="width: 18rem;">
+               
+                <div class="col">    
+                <div class="card w-75 text-center" style="width: 18rem;">
                     <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                     <div class="card-body">
-                        <h1 class="card-title">
+                        <h1 class="card-text">
                             <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
                             <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
                         </h1>
@@ -93,9 +98,14 @@
                         <asp:Button ID="btnShowDetail" Text="More Details" runat="server"/>
                     </div>
                 </div>
+          </div>
+                
             </ItemTemplate>
+               
         </asp:Repeater>
+            </div> 
     </asp:Panel>
+   
 
     <asp:Panel ID="ProfilePanel" runat="server" CssClass="SearchModal" Visible="false">
         <asp:Repeater ID="rprProfile" runat="server">
