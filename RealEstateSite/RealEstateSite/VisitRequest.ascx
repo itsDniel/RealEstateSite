@@ -1,9 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VisitRequest.ascx.cs" Inherits="RealEstateSite.VisitRequest" %>
 <link href="Stylesheet/BuyerVisitRequest.css" rel="stylesheet" />
 
+<div class="d-flex justify-content-center">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
 <asp:DataList ID="visitddl" runat="server" OnItemCommand="visitddl_ItemCommand">
     <ItemTemplate>
-        <div class="card" style="width: 18rem;">
+        <div class="col">
+        <div class="card w-75 text-center mt-3">
             <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
             <div class="card-body">
                 <h1 class="card-title">
@@ -22,7 +26,10 @@
                 <asp:Button ID="visitedbtn" runat="server" Text="I have visited" Visible ="false"/>
             </div>
         </div>
+            </div>
     </ItemTemplate>
 </asp:DataList>
-
+                    </div>
+</div>
+    </div>
 <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>

@@ -70,16 +70,17 @@
         <ajaxToolkit:ModalPopupExtender ID="SearchModal" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
         </ajaxToolkit:ModalPopupExtender>
     </asp:Panel>
-
+        <div class="d-flex justify-content-center">
+            <div class="container">
     
-    <asp:Panel ID="SearchPanel" runat="server" Visible="false" CssClass="Searchrpr">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+    <asp:Panel ID="SearchPanel" runat="server" Visible="false">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand" >
            
             <ItemTemplate>
                
                 <div class="col">    
-                <div class="card w-75 text-center" style="width: 18rem;">
+                <div class="card w-75 text-center mt-3">
                     <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                     <div class="card-body">
                         <h1 class="card-text">
@@ -105,10 +106,10 @@
         </asp:Repeater>
             </div> 
     </asp:Panel>
-   
-    <div class="d-flex justify-content-center">
-        <div class="container">
-            <asp:Panel ID="ProfilePanel" runat="server" Visible="false">
+                </div>
+</div>   
+
+            <asp:Panel ID="ProfilePanel" runat="server" Visible="false" CssClass="SearchModal">
                 <asp:Repeater ID="rprProfile" runat="server">
                     <ItemTemplate>
                         <div class="card" style="width: 18rem;">
@@ -174,8 +175,7 @@
                 </asp:Repeater>
                 <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
             </asp:Panel>
-        </div class="container">
-    </div>
+
     <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">
         <asp:Repeater ID="rprRoomDimension" runat="server" Visible="true">
             <ItemTemplate>
