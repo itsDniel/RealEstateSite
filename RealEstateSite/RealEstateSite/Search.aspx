@@ -106,73 +106,76 @@
             </div> 
     </asp:Panel>
    
-
-    <asp:Panel ID="ProfilePanel" runat="server" CssClass="SearchModal" Visible="false">
-        <asp:Repeater ID="rprProfile" runat="server">
-            <ItemTemplate>
-                <div class="card" style="width: 18rem;">
-                    <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
-                    <div class="card-body">
-                        <h1 class="card-title">
-                            <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
-                            <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
-                        </h1>
-                        <p class="card-text">
-                            <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="homesizelbl" runat="server" Text='<%# "Home Size: " + DataBinder.Eval(Container.DataItem, "HomeSize") + " square feet" %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="bedroomlbl" runat="server" Text='<%# "Bedroom: " + DataBinder.Eval(Container.DataItem, "Bedroom") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="bathroomlbl" runat="server" Text='<%# "Bathroom: " + DataBinder.Eval(Container.DataItem, "Bathroom") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Button ID="roomDetail" Text="Room Dimension Detail" runat="server" OnClick="roomDimensionbtn_Click" />
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="amenity" runat="server" Text='<%# "Amenity: " + DataBinder.Eval(Container.DataItem, "Amenity") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="heatlbl" runat="server" Text='<%# "Heating/Cooling Type: " + DataBinder.Eval(Container.DataItem, "Heating/Cooling") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="builtyearlbl" runat="server" Text='<%# "Built Year: " + DataBinder.Eval(Container.DataItem, "BuiltYear") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="garagelbl" runat="server" Text='<%# "Garage Size: " + DataBinder.Eval(Container.DataItem, "GarageSize") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="utilitylbl" runat="server" Text='<%# "Utility: " + DataBinder.Eval(Container.DataItem, "Utility") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="homedeslbl" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "HomeDescription") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="agentlbl" runat="server" Text='<%# "Agent: " + DataBinder.Eval(Container.DataItem, "FullName") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="agentemaillbl" runat="server" Text='<%# "Email: " + DataBinder.Eval(Container.DataItem, "Email") %>'></asp:Label>
-                        </p>
-                        <p class="card-text">
-                            <asp:Label ID="agentphonelbl" runat="server" Text='<%# "Phone number: " + DataBinder.Eval(Container.DataItem, "Phone") %>'></asp:Label>
-                        </p>
-                        <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" OnClick="visitRequestbtn_Click"/>
-                        <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" OnClick="ProfileClosebtn_Click" />
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-        <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
-    </asp:Panel>
+    <div class="d-flex justify-content-center">
+        <div class="container">
+            <asp:Panel ID="ProfilePanel" runat="server" Visible="false">
+                <asp:Repeater ID="rprProfile" runat="server">
+                    <ItemTemplate>
+                        <div class="card" style="width: 18rem;">
+                            <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
+                            <div class="card-body">
+                                <h1 class="card-title">
+                                    <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
+                                    <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
+                                </h1>
+                                <p class="card-text">
+                                    <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="homesizelbl" runat="server" Text='<%# "Home Size: " + DataBinder.Eval(Container.DataItem, "HomeSize") + " square feet" %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="bedroomlbl" runat="server" Text='<%# "Bedroom: " + DataBinder.Eval(Container.DataItem, "Bedroom") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="bathroomlbl" runat="server" Text='<%# "Bathroom: " + DataBinder.Eval(Container.DataItem, "Bathroom") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Button ID="roomDetail" Text="Room Dimension Detail" runat="server" OnClick="roomDimensionbtn_Click" />
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="amenity" runat="server" Text='<%# "Amenity: " + DataBinder.Eval(Container.DataItem, "Amenity") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="heatlbl" runat="server" Text='<%# "Heating/Cooling Type: " + DataBinder.Eval(Container.DataItem, "Heating/Cooling") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="builtyearlbl" runat="server" Text='<%# "Built Year: " + DataBinder.Eval(Container.DataItem, "BuiltYear") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="garagelbl" runat="server" Text='<%# "Garage Size: " + DataBinder.Eval(Container.DataItem, "GarageSize") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="utilitylbl" runat="server" Text='<%# "Utility: " + DataBinder.Eval(Container.DataItem, "Utility") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="homedeslbl" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "HomeDescription") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="agentlbl" runat="server" Text='<%# "Agent: " + DataBinder.Eval(Container.DataItem, "FullName") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="agentemaillbl" runat="server" Text='<%# "Email: " + DataBinder.Eval(Container.DataItem, "Email") %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="agentphonelbl" runat="server" Text='<%# "Phone number: " + DataBinder.Eval(Container.DataItem, "Phone") %>'></asp:Label>
+                                </p>
+                                <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" OnClick="visitRequestbtn_Click" />
+                                <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" OnClick="ProfileClosebtn_Click" />
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
+            </asp:Panel>
+        </div class="container">
+    </div>
     <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">
         <asp:Repeater ID="rprRoomDimension" runat="server">
             <ItemTemplate>
