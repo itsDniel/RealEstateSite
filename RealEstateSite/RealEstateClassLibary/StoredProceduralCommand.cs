@@ -32,6 +32,17 @@ namespace RealEstateClassLibary
             return command;
         }
 
+        //Command to get user fullname
+        //Daniel
+        public SqlCommand GetName(string username, string role)
+        {
+            SqlCommand command = new SqlCommand("TP_GetName");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@role", SqlDbType.VarChar).Value = role;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
         public SqlCommand checkEmail(User user)
         {
             SqlCommand command = new SqlCommand("TP_CheckEmail");
@@ -119,6 +130,7 @@ namespace RealEstateClassLibary
             SqlCommand command = new SqlCommand("TP_AddVisitRequest");
             command.Parameters.Add("@homeid", SqlDbType.Int).Value = request.homeid;
             command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = request.buyer;
+            command.Parameters.Add("@buyername", SqlDbType.VarChar).Value = request.buyerName;
             command.Parameters.Add("@date", SqlDbType.DateTime).Value = DateTime.Parse(request.date);
             command.Parameters.Add("@time", SqlDbType.DateTime).Value = DateTime.Parse(request.time);
             command.Parameters.Add("@status", SqlDbType.VarChar).Value = request.status;
@@ -180,11 +192,12 @@ namespace RealEstateClassLibary
         }
 
         //This command update feedback to TP_Feedback
-        public SqlCommand addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
+        public SqlCommand addFeedback(int homeid, string buyer, string buyername, string a1, string a2, string a3, string a4)
         {
             SqlCommand command = new SqlCommand("TP_AddFeedback");
             command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
             command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = buyer;
+            command.Parameters.Add("@buyername", SqlDbType.VarChar).Value = buyername;
             command.Parameters.Add("@a1", SqlDbType.VarChar).Value = a1;
             command.Parameters.Add("@a2", SqlDbType.VarChar).Value = a2;
             command.Parameters.Add("@a3", SqlDbType.VarChar).Value = a3;
@@ -203,12 +216,23 @@ namespace RealEstateClassLibary
             return command;
         }
 
+        //This command check if user already left a feedback for this home
+        public SqlCommand CheckFeedback(string username, int homeid)
+        {
+            SqlCommand command = new SqlCommand("TP_CheckFeedback");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
         //This command add offer to TP_Offer
         public SqlCommand addOffer(OfferBuyer offer)
         {
             SqlCommand command = new SqlCommand("TP_AddOffer");
             command.Parameters.Add("@homeid", SqlDbType.Int).Value = offer.homeid;
             command.Parameters.Add("@buyer", SqlDbType.VarChar).Value = offer.buyer;
+            command.Parameters.Add("@buyername", SqlDbType.VarChar).Value = offer.buyername;
             command.Parameters.Add("@a1", SqlDbType.Int).Value = offer.a1;
             command.Parameters.Add("@a2", SqlDbType.VarChar).Value = offer.a2;
             command.Parameters.Add("@a3", SqlDbType.VarChar).Value = offer.a3;
@@ -293,5 +317,77 @@ namespace RealEstateClassLibary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Command to get all feedback for seller
+        public SqlCommand GetFeedbackSeller(string username)
+        {
+            SqlCommand command = new SqlCommand("TP_GetFeedbackSeller");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to get all offer for seller
+        public SqlCommand GetOfferSeller(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_GetOfferSeller");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to let seller update offer status
+        public SqlCommand SellerUpdateOffer(int homeid, string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_SellerUpdateOffer");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.Parameters.Add("@buyerusername", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to update new home owner
+        public SqlCommand UpdateHomeOwner(int homeid, string username, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_UpdateHomeOwner");
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = homeid;
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to seller offer by buyer username and homeid
+        public SqlCommand GetOfferSellerById(string username, int id)
+        {
+            SqlCommand command = new SqlCommand("TP_GetOfferSellerById");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = id;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to check if an offer already existed
+        public SqlCommand CheckOffer(string username, int id, string status)
+        {
+            SqlCommand command = new SqlCommand("TP_CheckOffer");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@homeid", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Command to get all visit request for seller
+        public SqlCommand GetVisitSeller(string username)
+        {
+            SqlCommand command = new SqlCommand("TP_GetVisitSeller");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }
+

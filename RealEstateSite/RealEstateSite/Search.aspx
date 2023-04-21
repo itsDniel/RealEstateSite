@@ -88,7 +88,7 @@
                             <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
                         </h1>
                         <p class="card-text">
-                            <asp:Label ID="citylbl" runat="server" Text='<%# "City: " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
+                            <asp:Label ID="citylbl" runat="server" Text='<%# "City " + DataBinder.Eval(Container.DataItem, "City") %>'></asp:Label>
                         </p>
                         <p class="card-text">
                             <asp:Label ID="propertylbl" runat="server" Text='<%# "Property Type: " + DataBinder.Eval(Container.DataItem, "PropertyType") %>'></asp:Label>
@@ -112,7 +112,7 @@
             <asp:Panel ID="ProfilePanel" runat="server" Visible="false" CssClass="SearchModal">
                 <asp:Repeater ID="rprProfile" runat="server">
                     <ItemTemplate>
-                        <div class="card" style="width: 18rem;">
+                        <div class="card w-100 text-center">
                             <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                             <div class="card-body">
                                 <h1 class="card-title">
@@ -127,6 +127,9 @@
                                 </p>
                                 <p class="card-text">
                                     <asp:Label ID="homesizelbl" runat="server" Text='<%# "Home Size: " + DataBinder.Eval(Container.DataItem, "HomeSize") + " square feet" %>'></asp:Label>
+                                </p>
+                                <p class="card-text">
+                                    <asp:Label ID="domlbl" runat="server" Text='<%# "Days on market: " + DataBinder.Eval(Container.DataItem, "DayDiff") + " Day(s)" %>'></asp:Label>
                                 </p>
                                 <p class="card-text">
                                     <asp:Label ID="bedroomlbl" runat="server" Text='<%# "Bedroom: " + DataBinder.Eval(Container.DataItem, "Bedroom") %>'></asp:Label>
@@ -179,10 +182,10 @@
     <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="SearchModal" BorderStyle="Solid" Visible = "false">
         <asp:Repeater ID="rprRoomDimension" runat="server" Visible="true">
             <ItemTemplate>
-                <div class="card" style="width: 18rem;">
+                <div class="card w-75 text-center">
                     <div class="card-body">
                         <h1 class="card-title">
-                            <asp:Label ID="roomNamelbl" runat="server" Text='<%# "Room name: " + DataBinder.Eval(Container.DataItem, "Room") %>'></asp:Label>
+                            <asp:Label ID="roomNamelbl" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Room") %>'></asp:Label>
                         </h1>
                         <p class="card-text">
                             <asp:Label ID="dimensionlbl" runat="server" Text='<%# "Dimension (L x W): " + DataBinder.Eval(Container.DataItem, "Length") + " ft " + " x " + DataBinder.Eval(Container.DataItem, "Width") + " ft" %>'></asp:Label>

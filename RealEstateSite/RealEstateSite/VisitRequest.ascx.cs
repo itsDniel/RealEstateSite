@@ -15,7 +15,7 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            requestlbl.Text = "If you have visited these house then please click the button";
         }
 
         public void DataBind(string status, string username)
@@ -52,10 +52,8 @@ namespace RealEstateSite
             foreach (DataListItem item in visitddl.Items)
             {
                 Label lbl = (Label)item.FindControl("msglbl");
-                lbl.Text = "Great please head over to the feedback page to leave a feedback";
-                lbl.Visible = true;
-                Button btn = (Button)item.FindControl("visitedbtn");
-                btn.Visible = false;
+                requestlbl.Text = "Great please head over to the feedback page to leave a feedback";
+ 
             }
         }
     }

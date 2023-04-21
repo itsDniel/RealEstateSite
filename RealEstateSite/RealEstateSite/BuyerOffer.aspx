@@ -20,11 +20,14 @@
     </div>
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
-
-    <asp:Panel ID="FeedbackedPanel" runat="server" CssClass="Searchrpr" Visible="true">
+    <div class="d-flex justify-content-center">
+            <div class="container">
+    <asp:Panel ID="FeedbackedPanel" runat="server" Visible="true">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater ID="rprDisplay" runat="server" OnItemCommand="rptDisplay_ItemCommand">
             <ItemTemplate>
-                <div class="card" style="width: 18rem;">
+                 <div class="col"> 
+                <div class="card w-75 text-center mt-3">
                     <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                     <div class="card-body">
                         <h1 class="card-title">
@@ -46,9 +49,13 @@
                         <asp:Button ID="offerbtn" Text="Make An Offer" runat="server" OnClick="offerbtn_Click" Visible ="true"/>
                     </div>
                 </div>
+                     </div>
             </ItemTemplate>
         </asp:Repeater>
+            </div>
     </asp:Panel>
+                </div>
+        </div>
 
     <asp:Panel ID="OfferPanel" runat="server" CssClass="feedbackModal" BorderStyle="Solid" Visible = "false">
         <asp:Label ID="Label1" runat="server" Text="Please Leave Your Offer For This Home" Font-Size="X-Large"></asp:Label>

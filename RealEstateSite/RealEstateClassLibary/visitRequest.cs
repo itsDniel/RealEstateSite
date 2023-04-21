@@ -10,6 +10,7 @@ namespace RealEstateClassLibary
     {
         public int homeid { get; set; }
         public string buyer { get; set; }
+        public string buyerName { get; set; }
         public string date { get; set; }
         public string time { get; set; }
         public string status { get; set; }

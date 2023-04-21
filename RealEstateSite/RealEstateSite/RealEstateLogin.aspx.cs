@@ -87,6 +87,7 @@ namespace RealEstateSite
             {
                 User user = new User();
                 user.Username = usernametxt.Text;
+                string role = pxy.GetRole(usernametxt.Text);
                 EncryptingPassword(passwordtxt.Text, user);
                 int userCount = pxy.scalarLogin(user);
 
@@ -99,17 +100,21 @@ namespace RealEstateSite
 
                         //Creating cookie for username, and cookies for login credential
                         HttpCookie username = new HttpCookie("Username");
+                        HttpCookie Name = new HttpCookie("Name");
                         HttpCookie loginuser = new HttpCookie("LoginUser");
                         HttpCookie loginPass = new HttpCookie("LoginPassword");
 
-
+                        Name.Value = pxy.GetName(usernametxt.Text, role);
+                        Name.Expires = DateTime.MaxValue;
                         loginuser.Value = usernametxt.Text;
                         loginuser.Expires = DateTime.MaxValue;
                         loginPass.Value = passwordtxt.Text;
                         loginPass.Expires = DateTime.MaxValue;
                         username.Value = usernametxt.Text;
+                        username.Expires = DateTime.MaxValue;
 
                         Response.Cookies.Add(username);
+                        Response.Cookies.Add(Name);
                         Response.Cookies.Add(loginuser);
                         Response.Cookies.Add(loginPass);
                         DirectingUserToTheRightPage();
@@ -120,8 +125,13 @@ namespace RealEstateSite
                         loginmsg.Text = "Login Success";
 
                         HttpCookie username = new HttpCookie("Username");
+                        HttpCookie Name = new HttpCookie("Name");
                         username.Value = usernametxt.Text;
+                        username.Expires = DateTime.MaxValue;
+                        Name.Value = pxy.GetName(usernametxt.Text, role);
+                        Name.Expires = DateTime.MaxValue;
                         Response.Cookies.Add(username);
+                        Response.Cookies.Add(Name);
                         DirectingUserToTheRightPage();
                     }
                 }
