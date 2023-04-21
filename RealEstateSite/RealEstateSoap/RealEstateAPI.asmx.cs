@@ -44,6 +44,13 @@ namespace RealEstateSoap
             else return 0;
         }
 
+        [WebMethod] //This method get the user fullname
+        public string GetName(string username, string role)
+        {
+            string name = objDB.GetDataSet(command.GetName(username, role)).Tables[0].Rows[0][0].ToString();
+            return name;
+        }
+
         [WebMethod] //This method check if the email already exist with this given role
         public int scalarEmail(User user)
         {
@@ -140,9 +147,9 @@ namespace RealEstateSoap
         }
 
         [WebMethod] //This update feedback to TP_Feedback table
-        public void addFeedback(int homeid, string buyer, string a1, string a2, string a3, string a4)
+        public void addFeedback(int homeid, string buyer, string buyername, string a1, string a2, string a3, string a4)
         {
-            objDB.DoUpdate(command.addFeedback(homeid, buyer, a1, a2, a3, a4));
+            objDB.DoUpdate(command.addFeedback(homeid, buyer, buyername, a1, a2, a3, a4));
         }
 
         [WebMethod] //This get all the homes that the buyer left the feedback on
@@ -151,6 +158,14 @@ namespace RealEstateSoap
             DataSet ds = new DataSet();
             ds = objDB.GetDataSet(command.getFeedbacked(buyer, status));
             return ds;
+        }
+
+        [WebMethod] //This check if user already have a feedback
+        public int CheckFeedback(string username, int id)
+        {
+            int count = (int)objDB.ExecuteScalarFunction(command.CheckFeedback(username, id));
+            objDB.CloseConnection();
+            return count;
         }
 
         [WebMethod] //This add the buyer offer to the TP_Offer table
@@ -208,6 +223,60 @@ namespace RealEstateSoap
             ds = objDB.GetDataSet(command.GetRoom(id));
             return ds;
         }
+
+        [WebMethod] //This gets all feedback for seller
+        public DataSet GetFeedbackSeller(string username)
+        {
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetFeedbackSeller(username));
+            return ds;
+        }
+
+        [WebMethod] //This gets all offer for seller
+        public DataSet GetOfferSeller(string username, string status)
+        {
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetOfferSeller(username, status));
+            return ds;
+        }
+
+        [WebMethod] //This let seller update offer status
+        public void SellerUpdateOffer(int id, string username, string status)
+        {
+            objDB.DoUpdate(command.SellerUpdateOffer(id, username, status));
+        }
+
+        [WebMethod] //This update the home table with new home owner
+        public void UpdateHomeOwnere(int id, string username, string status)
+        {
+            objDB.DoUpdate(command.UpdateHomeOwner(id, username, status));
+        }
+
+        [WebMethod] //This gets seller offer based on buyer username and homeid
+        public DataSet GetOfferSellerById(string username, int id)
+        {
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetOfferSellerById(username, id));
+            return ds;
+        }
+
+        [WebMethod] //This check if user already leave an offer
+        public int CheckOffer(string username, int id, string status)
+        {
+            int count = (int)objDB.ExecuteScalarFunction(command.CheckOffer(username, id, status));
+            objDB.CloseConnection();
+            return count;
+        }
+
+        [WebMethod] //This gets all visit request for seller
+        public DataSet GetVisitSeller(string username)
+        {
+            DataSet ds = new DataSet();
+            ds = objDB.GetDataSet(command.GetVisitSeller(username));
+            return ds;
+        }
+
+
 
     }
 }

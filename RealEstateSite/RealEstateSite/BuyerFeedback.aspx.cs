@@ -66,6 +66,7 @@ namespace RealEstateSite
                     }
                     else
                     {
+                        
                         string status = "Feedbacked";
                         string a1 = A1ddl.Text;
                         string a2 = A2ddl.Text;
@@ -75,13 +76,23 @@ namespace RealEstateSite
 
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
+                        string buyerName = Request.Cookies["Name"].Value.ToString();
+                        int FeedbackCount = pxy.CheckFeedback(buyer, homeid);
 
-
-                        pxy.addFeedback(homeid, buyer, a1, a2, a3, a4);
-                        pxy.updateVisit(buyer, status, homeid.ToString());
-                        requestlbl.Text = "Great You Left A Feedback, Head On To The Offer Page If You Would Like To Make An Offer";
-                        FeedbackPanel.Visible = false;
-                        OverlayPanel.Visible = false;
+                        if (FeedbackCount > 0)
+                        {
+                            requestlbl.Text = "You already left a feedback on this home";
+                        }
+                        else
+                        {
+                            pxy.addFeedback(homeid, buyer, buyerName, a1, a2, a3, a4);
+                            pxy.updateVisit(buyer, status, homeid.ToString());
+                            requestlbl.Text = "Great You Left A Feedback, Head On To The Offer Page If You Would Like To Make An Offer";
+                            FeedbackPanel.Visible = false;
+                            OverlayPanel.Visible = false;
+                            ApprovedRequestPanel.Visible = true;
+                            break;
+                        }
                     }
                 }
             }

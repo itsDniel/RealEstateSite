@@ -1,6 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VisitRequest.ascx.cs" Inherits="RealEstateSite.VisitRequest" %>
 <link href="Stylesheet/BuyerVisitRequest.css" rel="stylesheet" />
 
+<div class="requestMessage">
+<asp:Label ID="requestlbl" runat="server" Font-Size="X-Large" Font-Strikeout="False" Text="Here you can see the status of your visit request"></asp:Label>
+    </div>
 <div class="d-flex justify-content-center">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -15,7 +18,7 @@
                     <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
                 </h1>
                 <p class="card-text">
-                    <asp:Label ID="datelbl" runat="server" Text='<%# "Date: " + DataBinder.Eval(Container.DataItem, "DateRequested") %>'></asp:Label>
+                    <asp:Label ID="datelbl" runat="server" Text='<%# "Date: " + ((DateTime)Eval("DateRequested")).ToString("MM/dd/yyyy") %>'></asp:Label>
                 </p>
                 <p class="card-text">
                     <asp:Label ID="statuslbl" runat="server"  Text='<%# "Status: " + DataBinder.Eval(Container.DataItem, "Status") %>'></asp:Label>

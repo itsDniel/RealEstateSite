@@ -12,12 +12,3 @@
 .hidden {
     display: none;
 }
-
-.datalist {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}

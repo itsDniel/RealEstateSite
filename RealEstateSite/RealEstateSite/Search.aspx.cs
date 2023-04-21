@@ -37,7 +37,7 @@ namespace RealEstateSite
             string utility = utilityddl.Text;
 
 
-            //do we need this? this var is not used anywhere else in the code - jenny........................................
+
             searchHouse getHome = new searchHouse(); 
             getHome.location = location;
             getHome.minPrice = minPrice;
@@ -79,8 +79,18 @@ namespace RealEstateSite
             int rowIndex = e.Item.ItemIndex;
             Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
             homeidplaceholder.Text = myLabel.Text;
-            rprProfile.DataSource = pxy.getHouseByID(homeidplaceholder.Text);
+
+            DateTime AddedDate = DateTime.Parse(pxy.getHouseByID(homeidplaceholder.Text).Tables[0].Rows[0]["DateAdded"].ToString());
+            TimeSpan DateCount = DateTime.Now - AddedDate;
+            int DayDiff = DateCount.Days;
+
+            DataTable dt = pxy.getHouseByID(homeidplaceholder.Text).Tables[0];
+            dt.Columns.Add("DayDiff", typeof(int));
+            dt.Rows[0]["DayDiff"] = DayDiff;
+
+            rprProfile.DataSource = dt;
             rprProfile.DataBind();
+
             ProfilePanel.Visible = true;
             SearchPanel.Visible = false;
             searchlbl.Text = "Find it. Tour it. Own it";
@@ -138,6 +148,7 @@ namespace RealEstateSite
                     //Pending vist request object
                     request.homeid = int.Parse(homeidplaceholder.Text);
                     request.buyer = buyer;
+                    request.buyerName = Request.Cookies["Name"].Value.ToString();
                     request.date = visitDatetxt.Text;
                     request.time = visitTimetxt.Text;
                     request.status = status;

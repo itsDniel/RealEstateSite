@@ -23,6 +23,7 @@ namespace RealEstateSite
         protected void logoutbtn_Click(object sender, EventArgs e)
         {
             Response.Cookies.Add(new HttpCookie("Username") { Expires = DateTime.Now.AddDays(-1) });
+            Response.Cookies.Add(new HttpCookie("Name") { Expires = DateTime.Now.AddDays(-1) });
             Response.Redirect("RealEstateLogin.aspx");
         }
 

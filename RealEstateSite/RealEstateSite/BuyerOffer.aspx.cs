@@ -77,9 +77,11 @@ namespace RealEstateSite
 
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
+                        string buyername = Request.Cookies["Name"].Value.ToString();
 
                         offer.homeid = homeid;
                         offer.buyer = buyer;
+                        offer.buyername = buyername;
                         offer.a1 = a1;
                         offer.a2 = a2;
                         offer.a3 = a3;
@@ -87,12 +89,22 @@ namespace RealEstateSite
                         offer.sellerStatus = SellerViewStatus;
                         offer.buyerStatus = BuyerViewStatus;
 
-                        pxy.addOffer(offer);
-                        pxy.updateFeedback(homeid, buyer, statusFeedback);
-                        offerlbl.Text = "Great You Submitted An Offer";
-                        OfferPanel.Visible = false;
-                        OverlayPanel.Visible = false;
-                        break;
+                        int count = (int)pxy.CheckOffer(buyer, homeid, status);
+
+                        if (count > 0)
+                        {
+                            offerlbl.Text = "You already have an offer for this home";
+                        }
+                        else
+                        {
+                            pxy.addOffer(offer);
+                            pxy.updateFeedback(homeid, buyer, statusFeedback);
+                            offerlbl.Text = "Great You Submitted An Offer";
+                            OfferPanel.Visible = false;
+                            OverlayPanel.Visible = false;
+                            FeedbackedPanel.Visible = true;
+                            break;
+                        }
                     }
                 }
             }
