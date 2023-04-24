@@ -46,6 +46,21 @@ namespace RealEstateSite
             get { return img.ImageUrl; }
             set { img.ImageUrl = value; }
         }
+        public String FullName
+        {
+            get { return lblFullName.Text; }
+            set { lblFullName.Text = value; }
+        }
+        public String Phone
+        {
+            get { return lblPhone.Text; }
+            set { lblPhone.Text = value; }
+        }
+        public String Email
+        {
+            get { return lblEmail.Text; }
+            set { lblEmail.Text = value; }
+        }
         public HouseControl HouseCtrl { get { return houseCtrl; } }
 
         const String ADD_ROOM_DIR = "Click the plus sign to add room.";

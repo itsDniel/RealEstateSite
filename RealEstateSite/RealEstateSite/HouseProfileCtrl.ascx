@@ -7,8 +7,19 @@
 <br />
 <div class="row">
     <div class="col">House Id: <asp:Label ID="lblId" runat="server" Text="Label"></asp:Label></div>
+</div>
+<div class="row">
     <%-- Status will be updated when user accepts an offer --%>
     <div class="col">Status: <asp:Label ID="lblStatus" runat="server" Text="Label"></asp:Label></div>
+    <div class="col">
+        <%-- if logged in user is a seller, display Agent's full name and vice versa --%>
+        <div class="col">Full Name: <asp:Label ID="lblFullName" runat="server" Text="Label"></asp:Label></div>
+    </div>
+</div>
+<div class="row">
+    <%-- if logged in user is a seller, display Agent's contact info and vice versa --%>
+    <div class="col">Phone number: <asp:Label ID="lblPhone" runat="server" Text="Label"></asp:Label></div>
+    <div class="col">Email: <asp:Label ID="lblEmail" runat="server" Text="Label"></asp:Label></div>
 </div>
 <div class="row">
     <%-- Buyer will be updated when user accepts an offer --%>

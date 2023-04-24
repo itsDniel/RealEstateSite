@@ -47,6 +47,9 @@ namespace RealEstateSite
                     hc.Description = house.HomeDescription;
                     hc.Price = house.Price.ToString();
                     hpc.Img = house.Image;
+                    hpc.FullName = house.FullName;
+                    hpc.Phone = house.PhoneNumber;
+                    hpc.Email = house.Email;
                     houseContainer.Controls.Add(hpc);
                 }
             }
