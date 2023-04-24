@@ -60,17 +60,19 @@ namespace RealEstateSite
             Byte[] textBytes;
             string encryptedPass;
 
+       
             UTF8Encoding encoder = new UTF8Encoding();
             textBytes = encoder.GetBytes(password);
 
-            RijndaelManaged rmEncryption = new RijndaelManaged();
+            AesManaged aesEncryption = new AesManaged();
+
             MemoryStream stream = new MemoryStream();
-            CryptoStream encryptionStream = new CryptoStream(stream, rmEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+            CryptoStream encryptionStream = new CryptoStream(stream, aesEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
             encryptionStream.Write(textBytes, 0, textBytes.Length);
             encryptionStream.FlushFinalBlock();
 
             stream.Position = 0;
-            Byte[] encryptedBytes = new Byte[stream.Length];
+            byte[] encryptedBytes = new byte[stream.Length];
             stream.Read(encryptedBytes, 0, encryptedBytes.Length);
 
             encryptionStream.Close();
