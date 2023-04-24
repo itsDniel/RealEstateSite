@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="text-center">Add A House</h1>
+    <h1>Add A House</h1>
 
     <div class="container w-75 bg-light bg-opacity-75">
         <br />

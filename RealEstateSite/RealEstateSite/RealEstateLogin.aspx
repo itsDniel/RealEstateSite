@@ -13,6 +13,7 @@
 </head>
 <body>
     <img src="Img/bgImg.jpg" class="bg"/><%-- background img --%>
+    <h1>Welcome to Gingerbread Land</h1>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
