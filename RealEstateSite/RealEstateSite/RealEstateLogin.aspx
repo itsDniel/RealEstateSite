@@ -14,13 +14,14 @@
 <body>
     <img src="Img/bgImg.jpg" class="bg"/><%-- background img --%>
     <h1>Welcome to Gingerbread Land</h1>
+
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         
-        <asp:Panel ID="AccountPanel" runat="server" CssClass="Modal" BorderStyle="Solid" Visible = "false">
-            <asp:Label ID="accountlbl" runat="server" Text="Account Creation" Font-Size="X-Large"></asp:Label>
-            <asp:Label ID="accountmsg" runat="server" ForeColor="Red"></asp:Label>
+        <asp:Panel ID="AccountPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
+            <asp:Label ID="accountlbl" runat="server" Text="Account Creation" Font-Size="X-Large" CssClass="text-center"></asp:Label><br />
+            <asp:Label ID="accountmsg" runat="server" ForeColor="Red"></asp:Label><br />
             <asp:Label ID="AccountUsernamelbl" runat="server" Text="Please enter your username"></asp:Label>
             <asp:TextBox ID="AccountUsernametxt" runat="server"></asp:TextBox>
             <asp:Label ID="AccountFullnamelbl" runat="server" Text="Please enter your full name"></asp:Label>
@@ -49,22 +50,29 @@
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     
-        <asp:Panel ID="LoginPanel" CssClass="login" runat="server" BorderStyle="Solid" Visible="true">
-        <asp:Label ID="loginlbl" runat="server" Font-Size="X-Large" Text="Login"></asp:Label>
-        <asp:Label ID="loginmsg" runat="server" ForeColor="Red"></asp:Label>
-        <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="usernametxt" ErrorMessage="Username missing" ForeColor="Red"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="passwordtxt" ErrorMessage="Password missing" ForeColor="Red"></asp:RequiredFieldValidator>
-        <asp:Label ID="usernamelbl" runat="server" Text="Username"></asp:Label>
-        <asp:TextBox ID="usernametxt" runat="server"></asp:TextBox>
-        <asp:Label ID="passwordlbl" runat="server" Text="Password"></asp:Label>
-        <asp:TextBox ID="passwordtxt" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:CheckBox ID="rememberMe" runat="server" Text="Remember Me"/>
-        <asp:Button ID="loginbtn" runat="server" Text="Login" OnClick="loginbtn_Click" />
-        <asp:Button ID="accountbtn" runat="server" Text="Create Account" OnClick="accountbtn_Click" CausesValidation="False" />
-        <asp:Button ID="forgetpassbtn" runat="server" Text="Forget Password" CausesValidation="False" OnClick="forgetpassbtn_Click" />
+        <%-- css class = login --%>
+        <asp:Panel ID="LoginPanel" CssClass="myModal bg-light bg-opacity-75" runat="server" BorderStyle="Solid" Visible="true">
+            <%--<asp:Label ID="loginlbl" runat="server" Font-Size="X-Large" Text="Login"></asp:Label><br />--%>
+            <asp:Label ID="loginmsg" runat="server" ForeColor="Red"></asp:Label><br />
+            <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="usernametxt" ErrorMessage="Username missing" ForeColor="Red"></asp:RequiredFieldValidator>
+            <br />
+            <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ControlToValidate="passwordtxt" ErrorMessage="Password missing" ForeColor="Red"></asp:RequiredFieldValidator>
+            <br />
+            <asp:Label ID="usernamelbl" runat="server" Text="Username"></asp:Label>
+            <asp:TextBox ID="usernametxt" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="passwordlbl" runat="server" Text="Password"></asp:Label>
+            <asp:TextBox ID="passwordtxt" runat="server" TextMode="Password"></asp:TextBox>
+            <br /><br />
+            <asp:CheckBox ID="rememberMe" runat="server" Text="Remember Me"/>
+            <br /><br />
+            <asp:Button ID="loginbtn" runat="server" Text="Login" OnClick="loginbtn_Click" />
+            <br />
+            <asp:Button ID="accountbtn" runat="server" Text="Create Account" OnClick="accountbtn_Click" CausesValidation="False" CssClass="btn btn-link"/>
+            <asp:Button ID="forgetpassbtn" runat="server" Text="Forget Password" CausesValidation="False" OnClick="forgetpassbtn_Click" CssClass="btn btn-link"/>
         </asp:Panel>
 
-        <asp:Panel ID="PasswordPanel" runat="server" CssClass="Modal" BorderStyle="Solid" Visible = "false">
+        <asp:Panel ID="PasswordPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="PasswordRecoverylbl" runat="server" Text="Password Recovery" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Passwordmsg" runat="server" ForeColor="Red"></asp:Label>
             <asp:Label ID="PasswordEmaillbl" runat="server" Text="Please enter your Email"></asp:Label>
@@ -81,7 +89,7 @@
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
 
-        <asp:Panel ID="PINPanel" runat="server" CssClass="Modal" BorderStyle="Solid" Visible = "false">
+        <asp:Panel ID="PINPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="Pinlbl" runat="server" Text="Please enter your PIN that was sent to the email you entered" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Pinmsg" runat="server" ForeColor="Red"></asp:Label>
             <asp:TextBox ID="Pintxt" runat="server"></asp:TextBox>
@@ -91,7 +99,7 @@
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
 
-         <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="Modal" BorderStyle="Solid" Visible = "false">
+         <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="SQPmsg" runat="server" Text="Please Answer Your Security Question" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="SQPQuestionlbl" runat="server" ForeColor="Red"></asp:Label>
             <asp:TextBox ID="SQPAnswertxt" runat="server"></asp:TextBox>
