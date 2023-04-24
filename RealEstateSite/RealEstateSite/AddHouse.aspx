@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="text-center">Add A House</h1>
 
-    <div class="container w-75 bg-info bg-opacity-25">
+    <div class="container w-75 bg-light bg-opacity-75">
         <br />
         <asp:Label ID="lblInstruction" runat="server" Text="Label"></asp:Label>
         <uc1:HouseControl runat="server" ID="hc" />
