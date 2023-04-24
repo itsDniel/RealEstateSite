@@ -79,6 +79,8 @@
     <Content Include="HouseProfile.aspx" />
     <Content Include="HouseControl.ascx" />
     <Content Include="HouseProfileCtrl.ascx" />
+    <Content Include="Img\bgImg.jpg" />
+    <Content Include="Img\gingerbread.png" />
     <Content Include="RealEstateLogin.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="SellerFeedback.aspx" />
@@ -206,6 +208,7 @@
     <Content Include="MasterSeller.Master" />
     <Content Include="MasterBuyer.Master" />
     <None Include="packages.config" />
+    <Content Include="Stylesheet\Main.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
