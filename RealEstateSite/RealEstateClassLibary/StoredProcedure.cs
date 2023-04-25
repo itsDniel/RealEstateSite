@@ -32,7 +32,7 @@ namespace RealEstateClassLibary
         //this method is used for both updating and adding house
         private void AddHouseParams(String seller, String agent, String address, String city, String propertyType,
             String amenity, String heatingCooling, String builtYear, String garageSize, String utility,
-            String homeDescription, int price)//, String image)
+            String homeDescription, int price)
         {
             command.Parameters.AddWithValue("@seller", seller);
             command.Parameters.AddWithValue("@agent", agent);
@@ -54,7 +54,7 @@ namespace RealEstateClassLibary
             SetCommandTextAndClearParam("TP_AddHouse");
             AddHouseParams(house.Seller, house.Agent, house.Address, house.City, house.PropertyType,
                 house.Amenity, house.HeatingCooling, house.BuiltYear, house.GarageSize, house.Utility,
-                house.HomeDescription, house.Price);//, house.Image);
+                house.HomeDescription, house.Price);
             command.Parameters.AddWithValue("@status", house.Status);
             command.Parameters.AddWithValue("@dateAdded", DateTime.Now);
             command.Parameters.AddWithValue("@image", house.Image);
@@ -67,11 +67,11 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@id", house.Id);
             AddHouseParams(house.Seller, house.Agent, house.Address, house.City, house.PropertyType,
                 house.Amenity, house.HeatingCooling, house.BuiltYear, house.GarageSize, house.Utility,
-                house.HomeDescription, house.Price);//, house.Image);
+                house.HomeDescription, house.Price);
             return UpdateDB();
         }
 
-        public Boolean UpdateImage(House house)//String imgPath, int id)
+        public Boolean UpdateImage(House house)
         {
             SetCommandTextAndClearParam("TP_UpdateImage");
             command.Parameters.AddWithValue("@id", house.Id);
@@ -173,19 +173,6 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@username", user);
             return connect.GetDataSet(command);
         }
-
-        //public HouseSize GetHouseSizeInfo(int id)
-        //{
-        //    SetCommandTextAndClearParam("TP_GetHomeSizeInfo"); //delete this procedure?........................
-        //    command.Parameters.AddWithValue("@id", id);
-        //    DataRow row = connect.GetDataSet(command).Tables[0].Rows[0];
-
-        //    HouseSize houseSize = new HouseSize();
-        //    houseSize.Bedroom = int.Parse(row["Bedroom"].ToString());
-        //    houseSize.Bathroom = int.Parse(row["Bathroom"].ToString());
-        //    houseSize.HomeSize = row["Bathroom"].ToString();
-        //    return houseSize;
-        //}
 
         public Boolean UpdateHomeSizeInfo(HouseSize houseSize)
         {
