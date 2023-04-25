@@ -202,13 +202,18 @@ namespace RealEstateSite
 
         protected void btnUpdateImg_Click(object sender, EventArgs e)
         {
-            String imgPath = "~/Img/" + houseCtrl.ImgFileUpload.FileName;
-            House house = new House();
-            house.Id = int.Parse(lblId.Text);
-            house.Image = imgPath;
+            if(houseCtrl.ImgFileUpload.HasFile)
+            {
+                String imgPath = "~/Img/" + houseCtrl.ImgFileUpload.FileName;
+                House house = new House();
+                house.Id = int.Parse(lblId.Text);
+                house.Image = imgPath;
 
-            houseCtrl.ImgFileUpload.PostedFile.SaveAs(Server.MapPath(imgPath));
-            rwr.PutWebRequest("PUT", URL + "updateimg", js.Serialize(house));
+                houseCtrl.ImgFileUpload.PostedFile.SaveAs(Server.MapPath(imgPath));
+                rwr.PutWebRequest("PUT", URL + "updateimg", js.Serialize(house));
+                img.ImageUrl = imgPath;
+            }
+            else Response.Write("<script>alert('Please upload an image.')</script>");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e) //updating house (not including room)

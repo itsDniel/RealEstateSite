@@ -37,7 +37,7 @@ namespace RealEstateRestful.Controllers
         [HttpPut("UpdateImg")]      //api/house/updateimg
         public Boolean UpdateImage([FromBody] House house)
         {
-            return storedProcedure.UpdateHouse(house);
+            return storedProcedure.UpdateImage(house);
         }
 
         [HttpPut("UpdateRoom")]     //api/house/updateroom
