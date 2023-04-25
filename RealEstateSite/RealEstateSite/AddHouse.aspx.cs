@@ -61,11 +61,10 @@ namespace RealEstateSite
                 house.Utility = hc.Utility;
                 house.HomeDescription = hc.Description;
                 house.Price = int.Parse(hc.Price);
-                //house.Image = hc.ImgFileUpload.FileName; //how do I get the file path?...............//jenny
 
                 String imgPath = "~/Img/" + hc.ImgFileUpload.FileName;
                 house.Image = imgPath;
-                hc.ImgFileUpload.PostedFile.SaveAs(Server.MapPath(imgPath));//"~/Img/" + hc.ImgFileUpload.FileName));
+                hc.ImgFileUpload.PostedFile.SaveAs(Server.MapPath(imgPath));
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 String jsonHouse = js.Serialize(house); //Serialize a House object into a JSON string.

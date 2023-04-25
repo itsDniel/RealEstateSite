@@ -200,28 +200,48 @@ namespace RealEstateSite
             }
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e) //updating house (not including room)
+        protected void btnUpdateImg_Click(object sender, EventArgs e)
         {
-            Application.Lock();
-
+            String imgPath = "~/Img/" + houseCtrl.ImgFileUpload.FileName;
             House house = new House();
             house.Id = int.Parse(lblId.Text);
-            house.Seller = houseCtrl.Seller;
-            house.Agent = houseCtrl.Agent;
-            house.Address = houseCtrl.Address;
-            house.City = houseCtrl.City;
-            house.PropertyType = houseCtrl.PropertyType;
-            house.Amenity = houseCtrl.Amenities;
-            house.HeatingCooling = houseCtrl.HeatingCooling;
-            house.BuiltYear = houseCtrl.BuiltYear;
-            house.GarageSize = houseCtrl.GarageSize;
-            house.Utility = houseCtrl.Utility;
-            house.HomeDescription = houseCtrl.Description;
-            house.Price = int.Parse(houseCtrl.Price);
-            //house.Image = picturebox.url.......................
-            rwr.PutWebRequest("PUT", URL + "updatehouse", js.Serialize(house));
+            house.Image = imgPath;
 
-            Application.UnLock();
+            houseCtrl.ImgFileUpload.PostedFile.SaveAs(Server.MapPath(imgPath));
+            rwr.PutWebRequest("PUT", URL + "updateimg", js.Serialize(house));
+        }
+
+        protected void btnUpdate_Click(object sender, EventArgs e) //updating house (not including room)
+        {
+            if(houseCtrl.Seller.Trim().Equals("") || houseCtrl.Agent.Trim().Equals("") || 
+                houseCtrl.Address.Trim().Equals("") || houseCtrl.City.Trim().Equals("") ||
+                houseCtrl.BuiltYear.Trim().Equals("") || houseCtrl.Price.Trim().Equals("")||
+                houseCtrl.Description.Trim().Equals(""))
+                Response.Write("<script>alert('Invalid input(s) - empty textbox')</script>");
+            else if(int.Parse(houseCtrl.Price) <= 0 || int.Parse(houseCtrl.BuiltYear) <= 0)
+                Response.Write("<script>alert('Error - price/built year must be positive #')</script>");
+            else
+            {
+                Application.Lock();
+
+                House house = new House();
+                house.Id = int.Parse(lblId.Text);
+                house.Seller = houseCtrl.Seller;
+                house.Agent = houseCtrl.Agent;
+                house.Address = houseCtrl.Address;
+                house.City = houseCtrl.City;
+                house.PropertyType = houseCtrl.PropertyType;
+                house.Amenity = houseCtrl.Amenities;
+                house.HeatingCooling = houseCtrl.HeatingCooling;
+                house.BuiltYear = houseCtrl.BuiltYear;
+                house.GarageSize = houseCtrl.GarageSize;
+                house.Utility = houseCtrl.Utility;
+                house.HomeDescription = houseCtrl.Description;
+                house.Price = int.Parse(houseCtrl.Price);
+                rwr.PutWebRequest("PUT", URL + "updatehouse", js.Serialize(house));
+
+                Application.UnLock();
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e) //deleting house

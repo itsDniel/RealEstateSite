@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using RealEstateClassLibary;
 using System.Data;
+using System.Diagnostics;
 
 namespace RealEstateRestful.Controllers
 {
@@ -17,7 +18,7 @@ namespace RealEstateRestful.Controllers
 
         [HttpPost("AddHouse")]      //api/house/addhouse
         public Boolean AddHouse([FromBody] House house)
-        {   //add a record to the TP_Home table and return the id of the record
+        {   //add a record to the TP_Home table
             return storedProcedure.AddHouse(house);
         }
 
@@ -29,6 +30,12 @@ namespace RealEstateRestful.Controllers
 
         [HttpPut("UpdateHouse")]    //api/house/updatehouse
         public Boolean UpdateHouse([FromBody]House house)
+        {
+            return storedProcedure.UpdateHouse(house);
+        }
+
+        [HttpPut("UpdateImg")]      //api/house/updateimg
+        public Boolean UpdateImage([FromBody] House house)
         {
             return storedProcedure.UpdateHouse(house);
         }

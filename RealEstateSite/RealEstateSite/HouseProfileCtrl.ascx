@@ -29,11 +29,21 @@
 
 <uc1:HouseControl runat="server" ID="houseCtrl" />
 
+<br />
+<div class="text-center">
+    <asp:Button ID="btnUpdateImg" runat="server" Text="Update Image" CssClass="btn btn-outline-dark" OnClick="btnUpdateImg_Click"/>
+    <asp:Button ID="btnUpdate" runat="server" Text="Update House" CssClass="btn btn-outline-primary" OnClick="btnUpdate_Click"/>
+    <asp:Button ID="btnDelete" runat="server" Text="Delete House" CssClass="btn btn-outline-danger" OnClick="btnDelete_Click"/>
+</div>
+<br />
+
+<%-- Room --%>
 <div class="row">
     <div class="col">Number of bedroom: <asp:Label ID="lblBedroom" runat="server" Text="Label"></asp:Label></div>
     <div class="col">Number of bathroom: <asp:Label ID="lblBathroom" runat="server" Text="Label"></asp:Label></div>
 </div>
 <br />
+
 <div class="text-center">
     <asp:GridView ID="gvRooms" runat="server" AutoGenerateColumns="False" OnRowCommand="gvRooms_RowCommand">
         <Columns>
@@ -74,9 +84,5 @@ ImageUrl="https://cdn-icons-png.flaticon.com/512/5244/5244841.png" OnClick="imgB
     <br />
     <asp:Button ID="btnAddRoom" runat="server" Text="Add Room" CssClass="btn btn-outline-primary" OnClick="btnAddRoom_Click"/>
     <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary" OnClick="btnCancel_Click"/>
-</div>
-<div class="text-center">
-    <asp:Button ID="btnUpdate" runat="server" Text="Update House" CssClass="btn btn-outline-primary" OnClick="btnUpdate_Click"/>
-    <asp:Button ID="btnDelete" runat="server" Text="Delete House" CssClass="btn btn-outline-danger" OnClick="btnDelete_Click"/>
 </div>
 <hr/>

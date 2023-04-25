@@ -71,6 +71,14 @@ namespace RealEstateClassLibary
             return UpdateDB();
         }
 
+        public Boolean UpdateImage(House house)//String imgPath, int id)
+        {
+            SetCommandTextAndClearParam("TP_UpdateImage");
+            command.Parameters.AddWithValue("@id", house.Id);
+            command.Parameters.AddWithValue("@img", house.Image);
+            return UpdateDB();
+        }
+
         public Boolean ModifyRoomDB(String procedure, int id, String room, int width, int length)
         {   //for TP_AddRoom and TP_UpdateRoom
             SetCommandTextAndClearParam(procedure);

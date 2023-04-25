@@ -58,12 +58,12 @@
             <asp:ListItem>3 cars</asp:ListItem>
         </asp:DropDownList>
     </div>
-    <div class="col">Image <asp:FileUpload ID="fileUpload" runat="server" /></div>
+    <div class="col">BuiltYear <asp:TextBox ID="txtBuiltYear" runat="server" TextMode="Number"></asp:TextBox></div>
 </div>
 <div class="row">
-    <div class="col">BuiltYear <asp:TextBox ID="txtBuiltYear" runat="server" TextMode="Number"></asp:TextBox></div>
     <div class="col">Price <asp:TextBox ID="txtPrice" runat="server" TextMode="Number"></asp:TextBox></div>
 </div>
-        
+      
 HomeDescription<br />
 <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
+Image <asp:FileUpload ID="fileUpload" runat="server" /><br />
