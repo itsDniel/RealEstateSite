@@ -16,13 +16,20 @@ namespace RealEstateSite
             {
                 if (!IsPostBack)
                 {
-                    string buyer = Request.Cookies["Username"].Value.ToString();
-                    string status = "Visited";
-                    rprDisplay.DataSource = pxy.getVisited(buyer, status);
-                    rprDisplay.DataBind();
+                    if (Request.Cookies["Role"].Value != "Buyer")
+                    {
+                        ((MasterBuyer)Master).logoutbtn_Click(sender, e);
+                    }
+                    else
+                    {
+                        string buyer = Request.Cookies["Username"].Value.ToString();
+                        string status = "Visited";
+                        rprDisplay.DataSource = pxy.getVisited(buyer, status);
+                        rprDisplay.DataBind();
+                    }
                 }
             }
-            else Response.Redirect("RealEstateLogin.aspx");
+            else ((MasterBuyer)Master).logoutbtn_Click(sender, e); ;
         }
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)

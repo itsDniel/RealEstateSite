@@ -170,7 +170,7 @@
                                 <p class="card-text">
                                     <asp:Label ID="agentphonelbl" runat="server" Text='<%# "Phone number: " + DataBinder.Eval(Container.DataItem, "Phone") %>'></asp:Label>
                                 </p>
-                                <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" OnClick="visitRequestbtn_Click" />
+                                <asp:Button ID="visitRequestbtn" Text="Request Visit" runat="server" OnClick="visitRequestbtn_Click" Visible ="true" />
                                 <asp:Button ID="ProfileClosebtn" Text="Close" runat="server" OnClick="ProfileClosebtn_Click" />
                             </div>
                         </div>

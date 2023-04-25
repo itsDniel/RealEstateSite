@@ -18,7 +18,7 @@ namespace RealEstateSite
         {
             if (Request.Cookies["Username"] == null)
             {
-                Response.Redirect("RealEstateLogin.aspx");
+                ((MasterBuyer)Master).logoutbtn_Click(sender, e);
             }
 
         }
@@ -76,24 +76,24 @@ namespace RealEstateSite
 
         protected void rptDisplay_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
-            int rowIndex = e.Item.ItemIndex;
-            Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
-            homeidplaceholder.Text = myLabel.Text;
+                int rowIndex = e.Item.ItemIndex;
+                Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("homeIDlbl");
+                homeidplaceholder.Text = myLabel.Text;
 
-            DateTime AddedDate = DateTime.Parse(pxy.getHouseByID(homeidplaceholder.Text).Tables[0].Rows[0]["DateAdded"].ToString());
-            TimeSpan DateCount = DateTime.Now - AddedDate;
-            int DayDiff = DateCount.Days;
+                DateTime AddedDate = DateTime.Parse(pxy.getHouseByID(homeidplaceholder.Text).Tables[0].Rows[0]["DateAdded"].ToString());
+                TimeSpan DateCount = DateTime.Now - AddedDate;
+                int DayDiff = DateCount.Days;
 
-            DataTable dt = pxy.getHouseByID(homeidplaceholder.Text).Tables[0];
-            dt.Columns.Add("DayDiff", typeof(int));
-            dt.Rows[0]["DayDiff"] = DayDiff;
+                DataTable dt = pxy.getHouseByID(homeidplaceholder.Text).Tables[0];
+                dt.Columns.Add("DayDiff", typeof(int));
+                dt.Rows[0]["DayDiff"] = DayDiff;
 
-            rprProfile.DataSource = dt;
-            rprProfile.DataBind();
+                rprProfile.DataSource = dt;
+                rprProfile.DataBind();
 
-            ProfilePanel.Visible = true;
-            SearchPanel.Visible = false;
-            searchlbl.Text = "Find it. Tour it. Own it";
+                ProfilePanel.Visible = true;
+                SearchPanel.Visible = false;
+                searchlbl.Text = "Find it. Tour it. Own it";
         }
 
         protected void ProfileClosebtn_Click(object sender, EventArgs e)
@@ -110,10 +110,17 @@ namespace RealEstateSite
 
         protected void hiddenButton_click(object sender, EventArgs e)
         {
-            visitRequestPanel.Visible = true;
-            visitModal.Show();
-            ProfilePanel.Visible = false;
-            OverlayPanel.Visible = true;
+            if (Request.Cookies["Role"].Value == "Buyer")
+            {
+                visitRequestPanel.Visible = true;
+                visitModal.Show();
+                ProfilePanel.Visible = false;
+                OverlayPanel.Visible = true;
+            }
+            else
+            {
+                searchlbl.Text = "Only buyer can request a visit, please create or log into a buyer account";
+            }
         }
 
         protected void visitClosebtn_Click(object sender, EventArgs e)
@@ -195,5 +202,6 @@ namespace RealEstateSite
             ProfilePanel.Visible = true;
             OverlayPanel.Visible = false;
         }
+
     }
 }

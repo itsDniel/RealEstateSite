@@ -36,6 +36,9 @@ namespace RealEstateSite
                 {
                     if (Request.QueryString["logout"] == "true")
                     {
+                        Response.Cookies.Add(new HttpCookie("Username") { Expires = DateTime.Now.AddDays(-1) });
+                        Response.Cookies.Add(new HttpCookie("Name") { Expires = DateTime.Now.AddDays(-1) });
+                        Response.Cookies.Add(new HttpCookie("Role") { Expires = DateTime.Now.AddDays(-1) });
                         usernametxt.Text = Request.Cookies["LoginUser"].Value.ToString();
                         passwordtxt.Text = Request.Cookies["LoginPassword"].Value.ToString();
                     }
@@ -51,7 +54,10 @@ namespace RealEstateSite
 
         private void DirectingUserToTheRightPage()
         {
-            if (pxy.GetRole(usernametxt.Text).Equals("Buyer")) Response.Redirect("Search.aspx");
+            if (pxy.GetRole(usernametxt.Text).Equals("Buyer"))
+            {
+                Response.Redirect("Search.aspx");
+            }
             else Response.Redirect("HouseProfile.aspx");
         }
 
@@ -105,6 +111,7 @@ namespace RealEstateSite
                         HttpCookie Name = new HttpCookie("Name");
                         HttpCookie loginuser = new HttpCookie("LoginUser");
                         HttpCookie loginPass = new HttpCookie("LoginPassword");
+                        HttpCookie userRole = new HttpCookie("Role");
 
                         Name.Value = pxy.GetName(usernametxt.Text, role);
                         Name.Expires = DateTime.MaxValue;
@@ -114,7 +121,9 @@ namespace RealEstateSite
                         loginPass.Expires = DateTime.MaxValue;
                         username.Value = usernametxt.Text;
                         username.Expires = DateTime.MaxValue;
+                        userRole.Value = role;
 
+                        Response.Cookies.Add(userRole);
                         Response.Cookies.Add(username);
                         Response.Cookies.Add(Name);
                         Response.Cookies.Add(loginuser);
@@ -128,10 +137,15 @@ namespace RealEstateSite
 
                         HttpCookie username = new HttpCookie("Username");
                         HttpCookie Name = new HttpCookie("Name");
+                        HttpCookie userRole = new HttpCookie("Role");
+
+                        userRole.Value = role;
                         username.Value = usernametxt.Text;
                         username.Expires = DateTime.MaxValue;
                         Name.Value = pxy.GetName(usernametxt.Text, role);
                         Name.Expires = DateTime.MaxValue;
+
+                        Response.Cookies.Add(userRole);
                         Response.Cookies.Add(username);
                         Response.Cookies.Add(Name);
                         DirectingUserToTheRightPage();

@@ -37,7 +37,7 @@
         </div>
     </nav>
         <div>
-            <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" OnClick="logoutbtn_Click" Visible ="true" CausesValidation="false" PostBackUrl="RealEstateLogin.aspx?logout=true" />
+            <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" OnClick="logoutbtn_Click" Visible ="true" CausesValidation="false"/>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
