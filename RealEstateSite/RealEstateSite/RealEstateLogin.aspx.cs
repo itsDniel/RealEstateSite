@@ -344,8 +344,10 @@ namespace RealEstateSite
             if (string.IsNullOrEmpty(SQPAnswertxt.Text)) SQPmsg.Text = "You must enter a new password";
             else
             {
-                string password = SQPAnswertxt.Text;
-                pxy.updatePassword(email, role, password);  //not working...
+                User user = new User();
+                EncryptingPassword(SQPAnswertxt.Text, user);
+                string encrypted = user.Password;
+                pxy.updatePassword(email, role, encrypted); 
                 LoginPanel.Visible = true;                  //jenny
                 SecurityQuestionPanel.Visible = false;      //jenny
             }
