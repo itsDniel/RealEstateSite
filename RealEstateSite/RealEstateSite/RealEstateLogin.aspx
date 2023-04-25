@@ -19,31 +19,38 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         
-        <asp:Panel ID="AccountPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
+        <asp:Panel ID="AccountPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="accountlbl" runat="server" Text="Account Creation" Font-Size="X-Large" CssClass="text-center"></asp:Label><br />
             <asp:Label ID="accountmsg" runat="server" ForeColor="Red"></asp:Label><br />
-            <asp:Label ID="AccountUsernamelbl" runat="server" Text="Please enter your username"></asp:Label>
-            <asp:TextBox ID="AccountUsernametxt" runat="server"></asp:TextBox>
-            <asp:Label ID="AccountFullnamelbl" runat="server" Text="Please enter your full name"></asp:Label>
-            <asp:TextBox ID="AccountFullnametxt" runat="server"></asp:TextBox>
-            <asp:Label ID="AccountRole" runat="server" Text="Please choose your role"></asp:Label>
+
+            <asp:Label ID="AccountUsernamelbl" runat="server" Text="Username"></asp:Label>
+            <asp:TextBox ID="AccountUsernametxt" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="AccountFullnamelbl" runat="server" Text="Full name"></asp:Label>
+            <asp:TextBox ID="AccountFullnametxt" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="AccountRole" runat="server" Text="Role"></asp:Label>
             <asp:DropDownList ID="AccountRoleddl" runat="server">
                 <asp:ListItem>Buyer</asp:ListItem>
                 <asp:ListItem>Seller</asp:ListItem>
                 <asp:ListItem>Agent</asp:ListItem>
-            </asp:DropDownList>
-            <asp:Label ID="AccountEmail" runat="server" Text="Please enter your email"></asp:Label>
-            <asp:TextBox ID="AccountEmailtxt" runat="server"></asp:TextBox>
-            <asp:Label ID="AccountPasswordlbl" runat="server" Text="Please enter your password"></asp:Label>
-            <asp:TextBox ID="AccountPasswordtxt" runat="server" TextMode="Password"></asp:TextBox>
-            <asp:Label ID="AccountPhonelbl" runat="server" Text="Please enter your phone number"></asp:Label>
-            <asp:TextBox ID="AccountPhonetxt" runat="server"></asp:TextBox>
+            </asp:DropDownList><br />
+
+            <asp:Label ID="AccountEmail" runat="server" Text="Email"></asp:Label>
+            <asp:TextBox ID="AccountEmailtxt" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="AccountPasswordlbl" runat="server" Text="Password"></asp:Label>
+            <asp:TextBox ID="AccountPasswordtxt" runat="server" TextMode="Password"></asp:TextBox><br />
+
+            <asp:Label ID="AccountPhonelbl" runat="server" Text="Phone number"></asp:Label>
+            <asp:TextBox ID="AccountPhonetxt" runat="server"></asp:TextBox><br />
+
             <asp:Label ID="Q1lbl" runat="server" Text="What was your first car?"></asp:Label>
-            <asp:TextBox ID="A1txt" runat="server"></asp:TextBox>
+            <asp:TextBox ID="A1txt" runat="server"></asp:TextBox><br />
             <asp:Label ID="Q2lbl" runat="server" Text="What was your dream job as a child"></asp:Label>
-            <asp:TextBox ID="A2txt" runat="server"></asp:TextBox>
+            <asp:TextBox ID="A2txt" runat="server"></asp:TextBox><br />
             <asp:Label ID="Q3lbl" runat="server" Text="What is the name of the company of your first job?"></asp:Label>
-            <asp:TextBox ID="A3txt" runat="server"></asp:TextBox>
+            <asp:TextBox ID="A3txt" runat="server"></asp:TextBox><br />
             <asp:Button ID="AccountSubmitBtn" runat="server" Text ="Submit" OnClick="AccountSubmitBtn_Click" />
             <asp:Button ID="AccountCloseBtn" runat="server" Text="Close" OnClick="AccountCloseBtn_Click" />
             <ajaxToolkit:ModalPopupExtender ID="AccountModal" runat="server" TargetControlID="accountbtn" PopupControlID="AccountPanel, LoginPanel" OkControlID="AccountCloseBtn" >
