@@ -345,7 +345,9 @@ namespace RealEstateSite
             else
             {
                 string password = SQPAnswertxt.Text;
-                pxy.updatePassword(email, role, password);
+                pxy.updatePassword(email, role, password);  //not working...
+                LoginPanel.Visible = true;                  //jenny
+                SecurityQuestionPanel.Visible = false;      //jenny
             }
         }
     }
