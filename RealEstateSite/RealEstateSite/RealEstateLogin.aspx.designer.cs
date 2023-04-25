@@ -60,15 +60,6 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Label accountmsg;
 
         /// <summary>
-        /// AccountUsernamelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountUsernamelbl;
-
-        /// <summary>
         /// AccountUsernametxt control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace RealEstateSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AccountUsernametxt;
-
-        /// <summary>
-        /// AccountFullnamelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountFullnamelbl;
 
         /// <summary>
         /// AccountFullnametxt control.
@@ -96,15 +78,6 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.TextBox AccountFullnametxt;
 
         /// <summary>
-        /// AccountRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountRole;
-
-        /// <summary>
         /// AccountRoleddl control.
         /// </summary>
         /// <remarks>
@@ -112,15 +85,6 @@ namespace RealEstateSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList AccountRoleddl;
-
-        /// <summary>
-        /// AccountEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountEmail;
 
         /// <summary>
         /// AccountEmailtxt control.
@@ -132,15 +96,6 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.TextBox AccountEmailtxt;
 
         /// <summary>
-        /// AccountPasswordlbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountPasswordlbl;
-
-        /// <summary>
         /// AccountPasswordtxt control.
         /// </summary>
         /// <remarks>
@@ -148,15 +103,6 @@ namespace RealEstateSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AccountPasswordtxt;
-
-        /// <summary>
-        /// AccountPhonelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AccountPhonelbl;
 
         /// <summary>
         /// AccountPhonetxt control.
@@ -384,15 +330,6 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Label Passwordmsg;
 
         /// <summary>
-        /// PasswordEmaillbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordEmaillbl;
-
-        /// <summary>
         /// PasswordEmailtxt control.
         /// </summary>
         /// <remarks>
@@ -400,15 +337,6 @@ namespace RealEstateSite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PasswordEmailtxt;
-
-        /// <summary>
-        /// PasswordRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordRole;
 
         /// <summary>
         /// passwordroleddl control.

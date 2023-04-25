@@ -23,43 +23,37 @@
             <asp:Label ID="accountlbl" runat="server" Text="Account Creation" Font-Size="X-Large" CssClass="text-center"></asp:Label><br />
             <asp:Label ID="accountmsg" runat="server" ForeColor="Red"></asp:Label><br />
 
-            <asp:Label ID="AccountUsernamelbl" runat="server" Text="Username"></asp:Label>
-            <asp:TextBox ID="AccountUsernametxt" runat="server"></asp:TextBox><br />
-
-            <asp:Label ID="AccountFullnamelbl" runat="server" Text="Full name"></asp:Label>
-            <asp:TextBox ID="AccountFullnametxt" runat="server"></asp:TextBox><br />
-
-            <asp:Label ID="AccountRole" runat="server" Text="Role"></asp:Label>
+            Username <asp:TextBox ID="AccountUsernametxt" runat="server"></asp:TextBox><br />
+            Full name <asp:TextBox ID="AccountFullnametxt" runat="server"></asp:TextBox><br />
+            
+            Role 
             <asp:DropDownList ID="AccountRoleddl" runat="server">
                 <asp:ListItem>Buyer</asp:ListItem>
                 <asp:ListItem>Seller</asp:ListItem>
                 <asp:ListItem>Agent</asp:ListItem>
             </asp:DropDownList><br />
 
-            <asp:Label ID="AccountEmail" runat="server" Text="Email"></asp:Label>
-            <asp:TextBox ID="AccountEmailtxt" runat="server"></asp:TextBox><br />
+            Email <asp:TextBox ID="AccountEmailtxt" runat="server"></asp:TextBox><br />
+            Password <asp:TextBox ID="AccountPasswordtxt" runat="server" TextMode="Password"></asp:TextBox><br />
+            Phone number <asp:TextBox ID="AccountPhonetxt" runat="server"></asp:TextBox><br /><br />
 
-            <asp:Label ID="AccountPasswordlbl" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="AccountPasswordtxt" runat="server" TextMode="Password"></asp:TextBox><br />
-
-            <asp:Label ID="AccountPhonelbl" runat="server" Text="Phone number"></asp:Label>
-            <asp:TextBox ID="AccountPhonetxt" runat="server"></asp:TextBox><br />
-
-            <asp:Label ID="Q1lbl" runat="server" Text="What was your first car?"></asp:Label>
+            <asp:Label ID="Q1lbl" runat="server" Text="What was your first car?"></asp:Label><br />
             <asp:TextBox ID="A1txt" runat="server"></asp:TextBox><br />
-            <asp:Label ID="Q2lbl" runat="server" Text="What was your dream job as a child"></asp:Label>
+            
+            <asp:Label ID="Q2lbl" runat="server" Text="What was your dream job as a child"></asp:Label><br />
             <asp:TextBox ID="A2txt" runat="server"></asp:TextBox><br />
-            <asp:Label ID="Q3lbl" runat="server" Text="What is the name of the company of your first job?"></asp:Label>
-            <asp:TextBox ID="A3txt" runat="server"></asp:TextBox><br />
+
+            <asp:Label ID="Q3lbl" runat="server" Text="What is the name of the company of your first job?"></asp:Label><br />
+            <asp:TextBox ID="A3txt" runat="server"></asp:TextBox><br /><br />
+
             <asp:Button ID="AccountSubmitBtn" runat="server" Text ="Submit" OnClick="AccountSubmitBtn_Click" />
             <asp:Button ID="AccountCloseBtn" runat="server" Text="Close" OnClick="AccountCloseBtn_Click" />
+
             <ajaxToolkit:ModalPopupExtender ID="AccountModal" runat="server" TargetControlID="accountbtn" PopupControlID="AccountPanel, LoginPanel" OkControlID="AccountCloseBtn" >
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
     
-        <%-- css class = login --%>
         <asp:Panel ID="LoginPanel" CssClass="myModal bg-light bg-opacity-75" runat="server" BorderStyle="Solid" Visible="true">
-            <%--<asp:Label ID="loginlbl" runat="server" Font-Size="X-Large" Text="Login"></asp:Label><br />--%>
             <asp:Label ID="loginmsg" runat="server" ForeColor="Red"></asp:Label><br />
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ControlToValidate="usernametxt" ErrorMessage="Username missing" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
@@ -80,16 +74,15 @@
         </asp:Panel>
 
         <asp:Panel ID="PasswordPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
-            <asp:Label ID="PasswordRecoverylbl" runat="server" Text="Password Recovery" Font-Size="X-Large"></asp:Label>
-            <asp:Label ID="Passwordmsg" runat="server" ForeColor="Red"></asp:Label>
-            <asp:Label ID="PasswordEmaillbl" runat="server" Text="Please enter your Email"></asp:Label>
-            <asp:TextBox ID="PasswordEmailtxt" runat="server"></asp:TextBox>
-            <asp:Label ID="PasswordRole" runat="server" Text="Please choose your account type"></asp:Label>
+            <asp:Label ID="PasswordRecoverylbl" runat="server" Text="Password Recovery" Font-Size="X-Large"></asp:Label><br />
+            <asp:Label ID="Passwordmsg" runat="server" ForeColor="Red"></asp:Label><br />
+            Email <asp:TextBox ID="PasswordEmailtxt" runat="server"></asp:TextBox><br />
+            Account Type
             <asp:DropDownList ID="passwordroleddl" runat="server">
                 <asp:ListItem>Buyer</asp:ListItem>
                 <asp:ListItem>Seller</asp:ListItem>
                 <asp:ListItem>Agent</asp:ListItem>
-            </asp:DropDownList>
+            </asp:DropDownList><br /><br />
             <asp:Button ID="PasswordSendbtn" runat="server" Text ="Send Email" OnClick="PasswordSendbtn_Click"/>
             <asp:Button ID="PasswordClosebtn" runat="server" Text="Close" OnClick="PasswordClosebtn_Click"/>
             <ajaxToolkit:ModalPopupExtender ID="PasswordModal" runat="server" TargetControlID="forgetpassbtn" PopupControlID="LoginPanel, PasswordPanel" OkControlID="PasswordClosebtn" >
@@ -97,9 +90,9 @@
         </asp:Panel>
 
         <asp:Panel ID="PINPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
-            <asp:Label ID="Pinlbl" runat="server" Text="Please enter your PIN that was sent to the email you entered" Font-Size="X-Large"></asp:Label>
-            <asp:Label ID="Pinmsg" runat="server" ForeColor="Red"></asp:Label>
-            <asp:TextBox ID="Pintxt" runat="server"></asp:TextBox>
+            <asp:Label ID="Pinlbl" runat="server" Text="Please enter your PIN that was sent to the email you entered" Font-Size="X-Large"></asp:Label><br />
+            <asp:Label ID="Pinmsg" runat="server" ForeColor="Red"></asp:Label><br />
+            <asp:TextBox ID="Pintxt" runat="server" TextMode="Number"></asp:TextBox><br /><br />
             <asp:Button ID="PinSubmitbtn" runat="server" Text ="Submit" OnClick="PinSubmitbtn_Click"/>
             <asp:Button ID="PinBackbtn" runat="server" Text="Didn't receive the email?" OnClick="PinBackbtn_Click" />
             <ajaxToolkit:ModalPopupExtender ID="PinModal" runat="server" TargetControlID="PasswordSendbtn" PopupControlID="PINPanel, PasswordPanel" OkControlID="PinBackbtn" >
@@ -107,11 +100,11 @@
         </asp:Panel>
 
          <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
-            <asp:Label ID="SQPmsg" runat="server" Text="Please Answer Your Security Question" Font-Size="X-Large"></asp:Label>
-            <asp:Label ID="SQPQuestionlbl" runat="server" ForeColor="Red"></asp:Label>
-            <asp:TextBox ID="SQPAnswertxt" runat="server"></asp:TextBox>
+            <asp:Label ID="SQPmsg" runat="server" Text="Please Answer Your Security Question" Font-Size="X-Large"></asp:Label><br />
+            <asp:Label ID="SQPQuestionlbl" runat="server" ForeColor="Red"></asp:Label><br />
+            <asp:TextBox ID="SQPAnswertxt" runat="server"></asp:TextBox><br /><br />
             <asp:Button ID="SQPSubmitbtn" runat="server" Text ="Submit" OnClick="SQPSubmitbtn_Click"/>
-             <asp:Button ID="SQPChangePassbtn" runat="server" Text="Change Password" Visible ="false" OnClick="SQPChangePassbtn_Click" />
+            <asp:Button ID="SQPChangePassbtn" runat="server" Text="Change Password" Visible ="false" OnClick="SQPChangePassbtn_Click" />
             <asp:Button ID="SQPBackbtn" runat="server" Text="Back" OnClick="SQPBackbtn_Click"/>
             <ajaxToolkit:ModalPopupExtender ID="SQLModal" runat="server" TargetControlID="PinSubmitbtn" PopupControlID="PINPanel, SecurityQuestionPanel" OkControlID="SQPBackbtn, SQPChangePassbtn" >
             </ajaxToolkit:ModalPopupExtender>
