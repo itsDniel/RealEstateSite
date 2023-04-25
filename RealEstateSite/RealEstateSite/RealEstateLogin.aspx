@@ -79,7 +79,7 @@
             <asp:Button ID="forgetpassbtn" runat="server" Text="Forget Password" CausesValidation="False" OnClick="forgetpassbtn_Click" CssClass="btn btn-link"/>
         </asp:Panel>
 
-        <asp:Panel ID="PasswordPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
+        <asp:Panel ID="PasswordPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="PasswordRecoverylbl" runat="server" Text="Password Recovery" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Passwordmsg" runat="server" ForeColor="Red"></asp:Label>
             <asp:Label ID="PasswordEmaillbl" runat="server" Text="Please enter your Email"></asp:Label>
@@ -96,7 +96,7 @@
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
 
-        <asp:Panel ID="PINPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
+        <asp:Panel ID="PINPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="Pinlbl" runat="server" Text="Please enter your PIN that was sent to the email you entered" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="Pinmsg" runat="server" ForeColor="Red"></asp:Label>
             <asp:TextBox ID="Pintxt" runat="server"></asp:TextBox>
@@ -106,7 +106,7 @@
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
 
-         <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="myModal" BorderStyle="Solid" Visible = "false">
+         <asp:Panel ID="SecurityQuestionPanel" runat="server" CssClass="myModal bg-light bg-opacity-75" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="SQPmsg" runat="server" Text="Please Answer Your Security Question" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="SQPQuestionlbl" runat="server" ForeColor="Red"></asp:Label>
             <asp:TextBox ID="SQPAnswertxt" runat="server"></asp:TextBox>
