@@ -14,9 +14,9 @@ namespace RealEstateSite
         RealEstateSoap.RealEstateAPI pxy = new RealEstateSoap.RealEstateAPI();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["Username"] == null)
+            if (Request.Cookies["Username"] == null || Request.Cookies["Role"].Value == "Buyer")
             {
-                Response.Redirect("RealEstateLogin.aspx");
+                ((MasterSeller)Master).logoutbtn_Click(sender, e);
             }
             else
             {

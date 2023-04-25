@@ -57,17 +57,20 @@ namespace RealEstateSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["Username"] == null) Response.Redirect("RealEstateLogin.aspx");
+            if (Request.Cookies["Username"] == null || Request.Cookies["Role"].Value == "Buyer")
+            {
+                ((MasterSeller)Master).logoutbtn_Click(sender, e); 
+            }
             else
             {
                 //if(!IsPostBack)
                 //{
-                    String username = Request.Cookies["Username"].Value;
-                    String url = "http://localhost:28769/api/house/";
+                String username = Request.Cookies["Username"].Value;
+                String url = "http://localhost:28769/api/house/";
 
-                    if (pxy.GetRole(username).Equals("Seller")) 
-                        DisplayHouses(url + "GetHouseBySeller/" + username); 
-                    else DisplayHouses(url + "GetHouseByAgent/" + username);
+                if (pxy.GetRole(username).Equals("Seller"))
+                    DisplayHouses(url + "GetHouseBySeller/" + username);
+                else DisplayHouses(url + "GetHouseByAgent/" + username);
                 //}
             }
         }
