@@ -50,6 +50,7 @@ namespace RealEstateSite
                     hpc.FullName = house.FullName;
                     hpc.Phone = house.PhoneNumber;
                     hpc.Email = house.Email;
+                    hpc.Img = house.Image;
                     houseContainer.Controls.Add(hpc);
                 }
             }
