@@ -1,0 +1,1570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="scalarLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Role" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Q1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Q2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Q3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="A1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="A2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="A3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="scalarLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scalarLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="scalarUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="scalarUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scalarUsernameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="scalarEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="scalarEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scalarEmailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="accountUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="accountUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getQuestionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updatePasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRole">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="minPrice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxPrice" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="property" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="garage" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="minSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="amenity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="utility" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHouseResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouseByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="homeID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouseByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHouseByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:visitRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="visitRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="homeid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="buyer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="buyerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertVisitResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="checkVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:visitRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkVisitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkVisitResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVisitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVisitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:visitRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteVisitResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateVisit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="homeid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateVisitResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getVisited">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVisitedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVisitedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="homeid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="buyer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="buyername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="a1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="a2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="a3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="a4" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addFeedbackResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getFeedbacked">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buyer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFeedbackedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFeedbackedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFeedbackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckFeedbackResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addOffer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="offer" type="tns:OfferBuyer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OfferBuyer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="homeid" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="buyer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="buyername" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="a1" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="a2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="a3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="sellerStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="buyerStatus" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addOfferResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOffer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOfferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOfferResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="homeid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="buyer" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateFeedbackResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBuyerNoti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="buyerstatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBuyerNotiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBuyerNotiResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBuyerNoti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="buyerstatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBuyerNotiResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSellerNoti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sellerstatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerNotiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSellerNotiResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerNoti">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sellerstatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerNotiResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRooms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoomsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoomsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedbackSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFeedbackSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFeedbackSellerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOfferSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOfferSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOfferSellerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SellerUpdateOffer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SellerUpdateOfferResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateHomeOwnere">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHomeOwnereResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOfferSellerById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOfferSellerByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOfferSellerByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOffer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOfferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOfferResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVisitSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVisitSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVisitSellerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="scalarLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:scalarLogin" />
+  </wsdl:message>
+  <wsdl:message name="scalarLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:scalarLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="scalarUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:scalarUsername" />
+  </wsdl:message>
+  <wsdl:message name="scalarUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:scalarUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetName" />
+  </wsdl:message>
+  <wsdl:message name="GetNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="scalarEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:scalarEmail" />
+  </wsdl:message>
+  <wsdl:message name="scalarEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:scalarEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="accountUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:accountUpdate" />
+  </wsdl:message>
+  <wsdl:message name="accountUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:accountUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:getQuestion" />
+  </wsdl:message>
+  <wsdl:message name="getQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:getQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:updatePassword" />
+  </wsdl:message>
+  <wsdl:message name="updatePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:updatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRole" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHouseSoapIn">
+    <wsdl:part name="parameters" element="tns:getHouse" />
+  </wsdl:message>
+  <wsdl:message name="getHouseSoapOut">
+    <wsdl:part name="parameters" element="tns:getHouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHouseByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getHouseByID" />
+  </wsdl:message>
+  <wsdl:message name="getHouseByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getHouseByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:insertVisit" />
+  </wsdl:message>
+  <wsdl:message name="insertVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:insertVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:checkVisit" />
+  </wsdl:message>
+  <wsdl:message name="checkVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:checkVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:getVisit" />
+  </wsdl:message>
+  <wsdl:message name="getVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:getVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteVisit" />
+  </wsdl:message>
+  <wsdl:message name="DeleteVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateVisitSoapIn">
+    <wsdl:part name="parameters" element="tns:updateVisit" />
+  </wsdl:message>
+  <wsdl:message name="updateVisitSoapOut">
+    <wsdl:part name="parameters" element="tns:updateVisitResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVisitedSoapIn">
+    <wsdl:part name="parameters" element="tns:getVisited" />
+  </wsdl:message>
+  <wsdl:message name="getVisitedSoapOut">
+    <wsdl:part name="parameters" element="tns:getVisitedResponse" />
+  </wsdl:message>
+  <wsdl:message name="addFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:addFeedback" />
+  </wsdl:message>
+  <wsdl:message name="addFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:addFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFeedbackedSoapIn">
+    <wsdl:part name="parameters" element="tns:getFeedbacked" />
+  </wsdl:message>
+  <wsdl:message name="getFeedbackedSoapOut">
+    <wsdl:part name="parameters" element="tns:getFeedbackedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFeedback" />
+  </wsdl:message>
+  <wsdl:message name="CheckFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="addOfferSoapIn">
+    <wsdl:part name="parameters" element="tns:addOffer" />
+  </wsdl:message>
+  <wsdl:message name="addOfferSoapOut">
+    <wsdl:part name="parameters" element="tns:addOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOffer" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:updateFeedback" />
+  </wsdl:message>
+  <wsdl:message name="updateFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:updateFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBuyerNotiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBuyerNoti" />
+  </wsdl:message>
+  <wsdl:message name="GetBuyerNotiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBuyerNotiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBuyerNotiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBuyerNoti" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBuyerNotiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBuyerNotiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerNotiSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSellerNoti" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerNotiSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSellerNotiResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerNotiSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSellerNoti" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerNotiSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSellerNotiResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoomsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRooms" />
+  </wsdl:message>
+  <wsdl:message name="GetRoomsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoomsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedbackSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFeedbackSeller" />
+  </wsdl:message>
+  <wsdl:message name="GetFeedbackSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFeedbackSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOfferSeller" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOfferSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SellerUpdateOfferSoapIn">
+    <wsdl:part name="parameters" element="tns:SellerUpdateOffer" />
+  </wsdl:message>
+  <wsdl:message name="SellerUpdateOfferSoapOut">
+    <wsdl:part name="parameters" element="tns:SellerUpdateOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHomeOwnereSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHomeOwnere" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHomeOwnereSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHomeOwnereResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSellerByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOfferSellerById" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSellerByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOfferSellerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckOfferSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckOffer" />
+  </wsdl:message>
+  <wsdl:message name="CheckOfferSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVisitSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVisitSeller" />
+  </wsdl:message>
+  <wsdl:message name="GetVisitSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVisitSellerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RealEstateAPISoap">
+    <wsdl:operation name="scalarLogin">
+      <wsdl:input message="tns:scalarLoginSoapIn" />
+      <wsdl:output message="tns:scalarLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="scalarUsername">
+      <wsdl:input message="tns:scalarUsernameSoapIn" />
+      <wsdl:output message="tns:scalarUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <wsdl:input message="tns:GetNameSoapIn" />
+      <wsdl:output message="tns:GetNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="scalarEmail">
+      <wsdl:input message="tns:scalarEmailSoapIn" />
+      <wsdl:output message="tns:scalarEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="accountUpdate">
+      <wsdl:input message="tns:accountUpdateSoapIn" />
+      <wsdl:output message="tns:accountUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getQuestion">
+      <wsdl:input message="tns:getQuestionSoapIn" />
+      <wsdl:output message="tns:getQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePassword">
+      <wsdl:input message="tns:updatePasswordSoapIn" />
+      <wsdl:output message="tns:updatePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <wsdl:input message="tns:GetRoleSoapIn" />
+      <wsdl:output message="tns:GetRoleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHouse">
+      <wsdl:input message="tns:getHouseSoapIn" />
+      <wsdl:output message="tns:getHouseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHouseByID">
+      <wsdl:input message="tns:getHouseByIDSoapIn" />
+      <wsdl:output message="tns:getHouseByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertVisit">
+      <wsdl:input message="tns:insertVisitSoapIn" />
+      <wsdl:output message="tns:insertVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkVisit">
+      <wsdl:input message="tns:checkVisitSoapIn" />
+      <wsdl:output message="tns:checkVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVisit">
+      <wsdl:input message="tns:getVisitSoapIn" />
+      <wsdl:output message="tns:getVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVisit">
+      <wsdl:input message="tns:DeleteVisitSoapIn" />
+      <wsdl:output message="tns:DeleteVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateVisit">
+      <wsdl:input message="tns:updateVisitSoapIn" />
+      <wsdl:output message="tns:updateVisitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVisited">
+      <wsdl:input message="tns:getVisitedSoapIn" />
+      <wsdl:output message="tns:getVisitedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addFeedback">
+      <wsdl:input message="tns:addFeedbackSoapIn" />
+      <wsdl:output message="tns:addFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFeedbacked">
+      <wsdl:input message="tns:getFeedbackedSoapIn" />
+      <wsdl:output message="tns:getFeedbackedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFeedback">
+      <wsdl:input message="tns:CheckFeedbackSoapIn" />
+      <wsdl:output message="tns:CheckFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addOffer">
+      <wsdl:input message="tns:addOfferSoapIn" />
+      <wsdl:output message="tns:addOfferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <wsdl:input message="tns:GetOfferSoapIn" />
+      <wsdl:output message="tns:GetOfferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateFeedback">
+      <wsdl:input message="tns:updateFeedbackSoapIn" />
+      <wsdl:output message="tns:updateFeedbackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerNoti">
+      <wsdl:input message="tns:GetBuyerNotiSoapIn" />
+      <wsdl:output message="tns:GetBuyerNotiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBuyerNoti">
+      <wsdl:input message="tns:UpdateBuyerNotiSoapIn" />
+      <wsdl:output message="tns:UpdateBuyerNotiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerNoti">
+      <wsdl:input message="tns:GetSellerNotiSoapIn" />
+      <wsdl:output message="tns:GetSellerNotiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerNoti">
+      <wsdl:input message="tns:UpdateSellerNotiSoapIn" />
+      <wsdl:output message="tns:UpdateSellerNotiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <wsdl:input message="tns:GetRoomsSoapIn" />
+      <wsdl:output message="tns:GetRoomsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackSeller">
+      <wsdl:input message="tns:GetFeedbackSellerSoapIn" />
+      <wsdl:output message="tns:GetFeedbackSellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSeller">
+      <wsdl:input message="tns:GetOfferSellerSoapIn" />
+      <wsdl:output message="tns:GetOfferSellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SellerUpdateOffer">
+      <wsdl:input message="tns:SellerUpdateOfferSoapIn" />
+      <wsdl:output message="tns:SellerUpdateOfferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHomeOwnere">
+      <wsdl:input message="tns:UpdateHomeOwnereSoapIn" />
+      <wsdl:output message="tns:UpdateHomeOwnereSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSellerById">
+      <wsdl:input message="tns:GetOfferSellerByIdSoapIn" />
+      <wsdl:output message="tns:GetOfferSellerByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOffer">
+      <wsdl:input message="tns:CheckOfferSoapIn" />
+      <wsdl:output message="tns:CheckOfferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitSeller">
+      <wsdl:input message="tns:GetVisitSellerSoapIn" />
+      <wsdl:output message="tns:GetVisitSellerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RealEstateAPISoap" type="tns:RealEstateAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="scalarLogin">
+      <soap:operation soapAction="http://tempuri.org/scalarLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scalarUsername">
+      <soap:operation soapAction="http://tempuri.org/scalarUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <soap:operation soapAction="http://tempuri.org/GetName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scalarEmail">
+      <soap:operation soapAction="http://tempuri.org/scalarEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="accountUpdate">
+      <soap:operation soapAction="http://tempuri.org/accountUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuestion">
+      <soap:operation soapAction="http://tempuri.org/getQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePassword">
+      <soap:operation soapAction="http://tempuri.org/updatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap:operation soapAction="http://tempuri.org/GetRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouse">
+      <soap:operation soapAction="http://tempuri.org/getHouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseByID">
+      <soap:operation soapAction="http://tempuri.org/getHouseByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertVisit">
+      <soap:operation soapAction="http://tempuri.org/insertVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkVisit">
+      <soap:operation soapAction="http://tempuri.org/checkVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisit">
+      <soap:operation soapAction="http://tempuri.org/getVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVisit">
+      <soap:operation soapAction="http://tempuri.org/DeleteVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisit">
+      <soap:operation soapAction="http://tempuri.org/updateVisit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisited">
+      <soap:operation soapAction="http://tempuri.org/getVisited" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addFeedback">
+      <soap:operation soapAction="http://tempuri.org/addFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFeedbacked">
+      <soap:operation soapAction="http://tempuri.org/getFeedbacked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFeedback">
+      <soap:operation soapAction="http://tempuri.org/CheckFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOffer">
+      <soap:operation soapAction="http://tempuri.org/addOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <soap:operation soapAction="http://tempuri.org/GetOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateFeedback">
+      <soap:operation soapAction="http://tempuri.org/updateFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerNoti">
+      <soap:operation soapAction="http://tempuri.org/GetBuyerNoti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBuyerNoti">
+      <soap:operation soapAction="http://tempuri.org/UpdateBuyerNoti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerNoti">
+      <soap:operation soapAction="http://tempuri.org/GetSellerNoti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerNoti">
+      <soap:operation soapAction="http://tempuri.org/UpdateSellerNoti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <soap:operation soapAction="http://tempuri.org/GetRooms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackSeller">
+      <soap:operation soapAction="http://tempuri.org/GetFeedbackSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSeller">
+      <soap:operation soapAction="http://tempuri.org/GetOfferSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SellerUpdateOffer">
+      <soap:operation soapAction="http://tempuri.org/SellerUpdateOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHomeOwnere">
+      <soap:operation soapAction="http://tempuri.org/UpdateHomeOwnere" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSellerById">
+      <soap:operation soapAction="http://tempuri.org/GetOfferSellerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOffer">
+      <soap:operation soapAction="http://tempuri.org/CheckOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitSeller">
+      <soap:operation soapAction="http://tempuri.org/GetVisitSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RealEstateAPISoap12" type="tns:RealEstateAPISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="scalarLogin">
+      <soap12:operation soapAction="http://tempuri.org/scalarLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scalarUsername">
+      <soap12:operation soapAction="http://tempuri.org/scalarUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <soap12:operation soapAction="http://tempuri.org/GetName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="scalarEmail">
+      <soap12:operation soapAction="http://tempuri.org/scalarEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="accountUpdate">
+      <soap12:operation soapAction="http://tempuri.org/accountUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQuestion">
+      <soap12:operation soapAction="http://tempuri.org/getQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePassword">
+      <soap12:operation soapAction="http://tempuri.org/updatePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <soap12:operation soapAction="http://tempuri.org/GetRole" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouse">
+      <soap12:operation soapAction="http://tempuri.org/getHouse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseByID">
+      <soap12:operation soapAction="http://tempuri.org/getHouseByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertVisit">
+      <soap12:operation soapAction="http://tempuri.org/insertVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkVisit">
+      <soap12:operation soapAction="http://tempuri.org/checkVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisit">
+      <soap12:operation soapAction="http://tempuri.org/getVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVisit">
+      <soap12:operation soapAction="http://tempuri.org/DeleteVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisit">
+      <soap12:operation soapAction="http://tempuri.org/updateVisit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVisited">
+      <soap12:operation soapAction="http://tempuri.org/getVisited" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addFeedback">
+      <soap12:operation soapAction="http://tempuri.org/addFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFeedbacked">
+      <soap12:operation soapAction="http://tempuri.org/getFeedbacked" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFeedback">
+      <soap12:operation soapAction="http://tempuri.org/CheckFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOffer">
+      <soap12:operation soapAction="http://tempuri.org/addOffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <soap12:operation soapAction="http://tempuri.org/GetOffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateFeedback">
+      <soap12:operation soapAction="http://tempuri.org/updateFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerNoti">
+      <soap12:operation soapAction="http://tempuri.org/GetBuyerNoti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBuyerNoti">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBuyerNoti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerNoti">
+      <soap12:operation soapAction="http://tempuri.org/GetSellerNoti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerNoti">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSellerNoti" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRooms">
+      <soap12:operation soapAction="http://tempuri.org/GetRooms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeedbackSeller">
+      <soap12:operation soapAction="http://tempuri.org/GetFeedbackSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSeller">
+      <soap12:operation soapAction="http://tempuri.org/GetOfferSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SellerUpdateOffer">
+      <soap12:operation soapAction="http://tempuri.org/SellerUpdateOffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHomeOwnere">
+      <soap12:operation soapAction="http://tempuri.org/UpdateHomeOwnere" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOfferSellerById">
+      <soap12:operation soapAction="http://tempuri.org/GetOfferSellerById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOffer">
+      <soap12:operation soapAction="http://tempuri.org/CheckOffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVisitSeller">
+      <soap12:operation soapAction="http://tempuri.org/GetVisitSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RealEstateAPI">
+    <wsdl:port name="RealEstateAPISoap" binding="tns:RealEstateAPISoap">
+      <soap:address location="https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/Project4/RealEstateAPI.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RealEstateAPISoap12" binding="tns:RealEstateAPISoap12">
+      <soap12:address location="https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/Project4/RealEstateAPI.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
