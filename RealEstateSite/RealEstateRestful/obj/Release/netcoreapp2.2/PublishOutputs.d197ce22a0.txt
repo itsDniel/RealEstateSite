@@ -1,0 +1,10 @@
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\appsettings.Development.json
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\appsettings.json
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateRestful.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateRestful.runtimeconfig.json
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateRestful.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateClassLibary.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\Utilities.dll
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateClassLibary.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\Utilities.pdb
+C:\Users\Daniel\Documents\GitHub\RealEstateSite\RealEstateSite\RealEstateRestful\obj\Release\netcoreapp2.2\PubTmp\Out\RealEstateRestful.deps.json

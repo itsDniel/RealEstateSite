@@ -94,6 +94,11 @@
     <Content Include="Stylesheet\SellerFeedback.css" />
     <Content Include="Stylesheet\SellerOffer.css" />
     <Content Include="VisitRequest.ascx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RealEstateSOAP\RealEstateAPI.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +166,11 @@
       <DependentUpon>MasterSeller.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="RealEstateLogin.aspx.cs">
       <DependentUpon>RealEstateLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,12 +213,22 @@
     <Compile Include="VisitRequest.ascx.designer.cs">
       <DependentUpon>VisitRequest.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\RealEstateSOAP\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterSeller.Master" />
     <Content Include="MasterBuyer.Master" />
     <None Include="packages.config" />
     <Content Include="Stylesheet\Main.css" />
+    <None Include="Web References\RealEstateSOAP\RealEstateAPI.wsdl" />
+    <Content Include="Web References\RealEstateSOAP\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,6 +249,25 @@
       <Project>{4fdf9790-a767-445c-95fb-1ef2ae259e7e}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/Project4/RealEstateAPI.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RealEstateSOAP\</RelPath>
+      <UpdateFromURL>https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/Project4/RealEstateAPI.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RealEstateSite_RealEstateSOAP_RealEstateAPI</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
