@@ -64,15 +64,12 @@ namespace RealEstateSite
             }
             else
             {
-                //if(!IsPostBack)
-                //{
                 String username = Request.Cookies["Username"].Value;
-                String url = "http://localhost:28769/api/house/";
+                String url = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/WebAPI/api/house/";
 
                 if (pxy.GetRole(username).Equals("Seller"))
                     DisplayHouses(url + "GetHouseBySeller/" + username);
                 else DisplayHouses(url + "GetHouseByAgent/" + username);
-                //}
             }
         }
     }
