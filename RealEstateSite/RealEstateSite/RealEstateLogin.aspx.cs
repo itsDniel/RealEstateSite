@@ -58,7 +58,7 @@ namespace RealEstateSite
             {
                 Response.Redirect("Search.aspx");
             }
-            else Response.Redirect("HouseProfile.aspx");
+            else Response.Redirect("SellerSearch.aspx");
         }
 
         private void EncryptingPassword(String password, User user)

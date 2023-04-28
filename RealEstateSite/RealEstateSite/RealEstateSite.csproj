@@ -86,6 +86,7 @@
     <Content Include="SellerFeedback.aspx" />
     <Content Include="SellerOffer.aspx" />
     <Content Include="SellerRequest.aspx" />
+    <Content Include="SellerSearch.aspx" />
     <Content Include="Stylesheet\BuyerFeedback.css" />
     <Content Include="Stylesheet\BuyerOffer.css" />
     <Content Include="Stylesheet\BuyerSearch.css" />
@@ -205,6 +206,13 @@
     </Compile>
     <Compile Include="SellerRequest.aspx.designer.cs">
       <DependentUpon>SellerRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerSearch.aspx.cs">
+      <DependentUpon>SellerSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SellerSearch.aspx.designer.cs">
+      <DependentUpon>SellerSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="VisitRequest.ascx.cs">
       <DependentUpon>VisitRequest.ascx</DependentUpon>
