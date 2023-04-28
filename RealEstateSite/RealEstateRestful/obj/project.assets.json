@@ -12132,11 +12132,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\ginger\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+      "projectUniqueName": "C:\\Users\\jenny\\OneDrive\\Desktop\\Gingerbread House\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
       "projectName": "RealEstateRestful",
-      "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\ginger\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+      "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\Gingerbread House\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
       "packagesPath": "C:\\Users\\jenny\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\ginger\\RealEstateSite\\RealEstateRestful\\obj\\",
+      "outputPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\Gingerbread House\\RealEstateSite\\RealEstateRestful\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12156,8 +12156,8 @@
         "netcoreapp2.2": {
           "targetAlias": "netcoreapp2.2",
           "projectReferences": {
-            "C:\\Users\\jenny\\OneDrive\\Desktop\\ginger\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
-              "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\ginger\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj"
+            "C:\\Users\\jenny\\OneDrive\\Desktop\\Gingerbread House\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj": {
+              "projectPath": "C:\\Users\\jenny\\OneDrive\\Desktop\\Gingerbread House\\RealEstateSite\\RealEstateClassLibary\\RealEstateClassLibary.csproj"
             }
           }
         }

@@ -28,3 +28,9 @@ C:\Users\jenny\OneDrive\Desktop\house project\RealEstateSite\Utilities\obj\Debug
 C:\Users\jenny\OneDrive\Desktop\house project\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 C:\Users\jenny\OneDrive\Desktop\house project\RealEstateSite\Utilities\obj\Debug\Utilities.dll
 C:\Users\jenny\OneDrive\Desktop\house project\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\bin\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\bin\Debug\Utilities.pdb
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\obj\Debug\Utilities.dll
+C:\Users\jenny\OneDrive\Desktop\Gingerbread House\RealEstateSite\Utilities\obj\Debug\Utilities.pdb
