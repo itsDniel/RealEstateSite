@@ -17,10 +17,11 @@ namespace RealEstateSite
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Username"] == null || Request.Cookies["Role"].Value != "Buyer")
-            {
                 ((MasterBuyer)Master).logoutbtn_Click(sender, e);
+            else
+            {   //earliest visit date is today's date
+                visitDatetxt.Attributes.Add("min", DateTime.Today.ToString("yyyy-MM-dd")); 
             }
-
         }
 
         protected void Searchbtn_Click(object sender, EventArgs e)
