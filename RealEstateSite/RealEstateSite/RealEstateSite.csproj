@@ -81,12 +81,16 @@
     <Content Include="HouseProfileCtrl.ascx" />
     <Content Include="Img\bgImg.jpg" />
     <Content Include="Img\gingerbread.png" />
+    <Content Include="Img\gingerbreadMan.png" />
+    <Content Include="Img\h1BgImg.png" />
+    <Content Include="Img\h1BgImg2.png" />
     <Content Include="RealEstateLogin.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="SellerFeedback.aspx" />
     <Content Include="SellerOffer.aspx" />
     <Content Include="SellerRequest.aspx" />
     <Content Include="SellerSearch.aspx" />
+    <Content Include="Stylesheet\Login.css" />
     <Content Include="VisitRequest.ascx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

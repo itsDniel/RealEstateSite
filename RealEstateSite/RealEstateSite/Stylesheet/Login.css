@@ -1,0 +1,21 @@
+﻿body {
+    
+}
+
+#welcomeMsg {
+    background-image: url('../Img/h1BgImg2.png');
+    padding: 5%;
+}
+
+.myModal { 
+    position: absolute;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    margin: auto;
+    padding: 1rem;
+    width: 30rem;
+    z-index: 10;
+    top: 30vh;
+    left: calc(50% - 15rem);
+}

@@ -8,11 +8,11 @@
 <head runat="server">
     <title>Login</title>
     <link href="Stylesheet/Main.css" rel="stylesheet" />
+    <link href="Stylesheet/Login.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
 </head>
-<body>
-    <img src="Img/bgImg.jpg" class="bg"/><%-- background img --%>
-    <h1>Welcome to Gingerbread Land</h1>
+<body style="background-color:#D5B4B4;">
+    <h1 id="welcomeMsg">Find your sweet home</h1>
 
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">

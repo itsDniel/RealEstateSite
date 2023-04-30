@@ -9,19 +9,6 @@ h1, .title {
 	text-align: center;
 }
 
-.myModal { /*for login page*/
-	position: absolute;
-	text-align: center;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-	border-radius: 6px;
-	margin: auto;
-	padding: 1rem;
-	width: 30rem;
-	z-index: 10;
-	top: 20vh;
-	left: calc(50% - 15rem);
-}
-
 .modalPopUp {
 	align-items: center;
 	text-align: center;
