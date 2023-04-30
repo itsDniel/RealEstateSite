@@ -35,6 +35,7 @@
             <asp:ListItem></asp:ListItem>
             <asp:ListItem>Single-Family</asp:ListItem>
             <asp:ListItem>Multi-Family</asp:ListItem>
+            <asp:ListItem>Townhouse</asp:ListItem>
             <asp:ListItem>Condo</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="garagelbl" runat="server" Text="Please choose your garage size"></asp:Label>
@@ -43,6 +44,7 @@
             <asp:ListItem>None</asp:ListItem>
             <asp:ListItem>1 car</asp:ListItem>
             <asp:ListItem>2 car</asp:ListItem>
+            <asp:ListItem>3 car</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="houseSizelbl" runat="server" Text="Please choose your house size"></asp:Label>
         <asp:DropDownList ID="houseSizeddl" runat="server">

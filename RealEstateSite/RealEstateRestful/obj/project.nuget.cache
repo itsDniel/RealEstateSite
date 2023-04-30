@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EhXsuXW3BFLWiZDL09IJZrAE/MJCdjdgc2jLuloHkXLWQXpeTIyG0DXmhTK4LiSGgEQcjX7NFiT5ufL3l1ZV4w==",
+  "dgSpecHash": "U33SqxPqI0xUcPtC2UyKkFiYUMouqeGkbKn+AbLrNciA12UHF/aqsXOxlT6KSe/JbIX2c8weo3zc/baDgc44HQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jenny\\OneDrive\\Desktop\\Real Estate\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
+  "projectFilePath": "C:\\Users\\jenny\\OneDrive\\Desktop\\gingerbread house\\RealEstateSite\\RealEstateRestful\\RealEstateRestful.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
