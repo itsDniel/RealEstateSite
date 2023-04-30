@@ -6,12 +6,6 @@
     <link href="Stylesheet/BuyerVisitRequest.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="requestMessage">
-        <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
-        
-
-    </div>
-    
-        <uc1:VisitRequest ID="requestdtl" runat="server" Visible="false"></uc1:VisitRequest>
-    
+    <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
+    <uc1:VisitRequest ID="requestdtl" runat="server" Visible="false"></uc1:VisitRequest>
 </asp:Content>
