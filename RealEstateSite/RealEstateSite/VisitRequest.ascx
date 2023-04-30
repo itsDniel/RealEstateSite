@@ -1,6 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VisitRequest.ascx.cs" Inherits="RealEstateSite.VisitRequest" %>
-<%--<link href="Stylesheet/BuyerVisitRequest.css" rel="stylesheet" />--%>
-
 <div class="h1 title">
     <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here you can see the status of your visit request"></asp:Label>
 </div>
