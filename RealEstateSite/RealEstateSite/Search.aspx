@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label><br />
-        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Find it. Tour it. Own it" CssClass="h1 title"></asp:Label>
+        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Welcome to Gingerbread Estate" CssClass="h1 title"></asp:Label>
         <br /><br />
         <asp:Button ID="searchFilterbtn" runat="server" Text ="Search Filter" OnClick="searchFilterbtn_Click" />
     </div>

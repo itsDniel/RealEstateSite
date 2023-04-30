@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>BlueFin - Buyer</title>
+    <title>Gingerbread Estate - Buyer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
@@ -19,7 +19,7 @@
     <form id="form1" runat="server">
          <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand">BlueFin</span>
+            <span class="navbar-brand">Gingerbread Estate</span>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>

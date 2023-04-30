@@ -257,7 +257,7 @@ namespace RealEstateSite
                     MailMessage message = new MailMessage(from, to);
 
                     string mailBody = "Here is your PIN number that you requested" + "<br>" + PIN;
-                    message.Subject = "BlueFin PIN Code";
+                    message.Subject = "Gingerbread Estate PIN Code";
                     message.Body = mailBody;
                     message.BodyEncoding = System.Text.Encoding.UTF8;
                     message.IsBodyHtml = true;

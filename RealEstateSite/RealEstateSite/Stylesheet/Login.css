@@ -5,6 +5,7 @@
 #welcomeMsg {
     background-image: url('../Img/h1BgImg2.png');
     padding: 5%;
+    color: black !important;
 }
 
 .myModal { 
