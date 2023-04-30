@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSeller.Master" AutoEventWireup="true" CodeBehind="SellerFeedback.aspx.cs" Inherits="RealEstateSite.SellerFeedback" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Stylesheet/SellerFeedback.css" rel="stylesheet" />
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="h1 title">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>

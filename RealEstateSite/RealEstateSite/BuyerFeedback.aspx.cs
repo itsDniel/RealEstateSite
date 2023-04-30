@@ -48,7 +48,7 @@ namespace RealEstateSite
         protected void feedbackHiddenbutton_click(object sender, EventArgs e)
         {
             FeedbackPanel.Visible = true;
-            feedbackModal.Show();
+            modalPopUp.Show();
             ApprovedRequestPanel.Visible = false;
             OverlayPanel.Visible = true;
         }

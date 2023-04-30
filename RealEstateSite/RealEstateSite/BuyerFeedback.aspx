@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterBuyer.Master" AutoEventWireup="true" CodeBehind="BuyerFeedback.aspx.cs" Inherits="RealEstateSite.BuyerFeedback" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Stylesheet/BuyerFeedback.css" rel="stylesheet" />
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="h1 title">
@@ -51,7 +48,7 @@
                 </div>
         </div>
 
-    <asp:Panel ID="FeedbackPanel" runat="server" CssClass="feedbackModal" BorderStyle="Solid" Visible = "false">
+    <asp:Panel ID="FeedbackPanel" runat="server" CssClass="modalPopUp" BorderStyle="Solid" Visible = "false">
             <asp:Label ID="feedbacklbl" runat="server" Text="Please Leave Your Feedback For This Home" Font-Size="X-Large"></asp:Label>
             <asp:Label ID="feedbackmsg" runat="server" ForeColor="Red"></asp:Label>
             <asp:Label ID="Q1lbl" runat="server" Text="Is the asking price reasonable?"></asp:Label>
@@ -77,7 +74,7 @@
             <asp:Button ID="feedbackSubmitbtn" runat="server" Text ="Leave Feedback" OnClick="feedbackSubmitbtn_Click"/>
             <asp:Button ID="feedbackClosebtn" runat="server" Text="Close" OnClick="feedbackClosebtn_Click"/>
             
-            <ajaxtoolkit:modalpopupextender ID="feedbackModal" runat="server" TargetControlID="feedbackHiddenbutton" PopupControlID="FeedbackPanel, ApprovedRequestPanel" OkControlID="feedbackClosebtn"> 
+            <ajaxtoolkit:modalpopupextender ID="modalPopUp" runat="server" TargetControlID="feedbackHiddenbutton" PopupControlID="FeedbackPanel, ApprovedRequestPanel" OkControlID="feedbackClosebtn"> 
             </ajaxToolkit:ModalPopupExtender>
         </asp:Panel>
 

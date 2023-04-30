@@ -87,9 +87,6 @@
     <Content Include="SellerOffer.aspx" />
     <Content Include="SellerRequest.aspx" />
     <Content Include="SellerSearch.aspx" />
-    <Content Include="Stylesheet\BuyerFeedback.css" />
-    <Content Include="Stylesheet\BuyerOffer.css" />
-    <Content Include="Stylesheet\SellerFeedback.css" />
     <Content Include="Stylesheet\SellerOffer.css" />
     <Content Include="VisitRequest.ascx" />
     <None Include="Properties\Settings.settings">
