@@ -43,8 +43,8 @@
             <asp:ListItem></asp:ListItem>
             <asp:ListItem>None</asp:ListItem>
             <asp:ListItem>1 car</asp:ListItem>
-            <asp:ListItem>2 car</asp:ListItem>
-            <asp:ListItem>3 car</asp:ListItem>
+            <asp:ListItem>2 cars</asp:ListItem>
+            <asp:ListItem>3 cars</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="houseSizelbl" runat="server" Text="Please choose your house size"></asp:Label>
         <asp:DropDownList ID="houseSizeddl" runat="server">
@@ -56,9 +56,11 @@
         <asp:Label ID="amenitylbl" runat="server" Text="Please choose your amenity type"></asp:Label>
         <asp:DropDownList ID="amenityddl" runat="server">
             <asp:ListItem></asp:ListItem>
-            <asp:ListItem>Basement</asp:ListItem>
-            <asp:ListItem>Pool</asp:ListItem>
+            <asp:ListItem>Swimming pool</asp:ListItem>
             <asp:ListItem>Garden</asp:ListItem>
+            <asp:ListItem>Balcony</asp:ListItem>
+            <asp:ListItem>Gated community</asp:ListItem>
+            <asp:ListItem>Skylights</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="utilitylbl" runat="server" Text="Please choose your utility type"></asp:Label>
         <asp:DropDownList ID="utilityddl" runat="server">
