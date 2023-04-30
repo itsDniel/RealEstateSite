@@ -43,7 +43,7 @@
     <div class="col">
         Utility
         <asp:DropDownList ID="ddlUtility" runat="server">
-            <asp:ListItem>Well water </asp:ListItem>
+            <asp:ListItem>Well water</asp:ListItem>
             <asp:ListItem>Public supply</asp:ListItem>
         </asp:DropDownList>
     </div>
