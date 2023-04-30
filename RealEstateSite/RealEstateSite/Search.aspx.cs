@@ -111,13 +111,10 @@ namespace RealEstateSite
 
         protected void hiddenButton_click(object sender, EventArgs e)
         {
-
-                visitRequestPanel.Visible = true;
-                visitModal.Show();
-                ProfilePanel.Visible = false;
-                OverlayPanel.Visible = true;
-
-
+            visitRequestPanel.Visible = true;
+            visitModal.Show();
+            ProfilePanel.Visible = false;
+            OverlayPanel.Visible = true;
         }
 
         protected void visitClosebtn_Click(object sender, EventArgs e)
@@ -159,18 +156,15 @@ namespace RealEstateSite
                     
                     int check = pxy.checkVisit(request);
                     if (check > 0)
-                     {
                        Visitmsg.Text = "You already have a visit request with this specific home";
-                     }
-                        else
-                        {
-                        pxy.insertVisit(request);
-                            searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
-                            visitRequestPanel.Visible = false;
-                            SearchPanel.Visible = true;
-                            OverlayPanel.Visible = false;
-                        }
-                    
+                    else
+                    {
+                    pxy.insertVisit(request);
+                        searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
+                        visitRequestPanel.Visible = false;
+                        SearchPanel.Visible = true;
+                        OverlayPanel.Visible = false;
+                    }
                 }
             }
         }
@@ -190,7 +184,6 @@ namespace RealEstateSite
             rprRoomDimension.DataSource = pxy.GetRooms(int.Parse(homeidplaceholder.Text));
             rprRoomDimension.DataBind();
             OverlayPanel.Visible = true;
-
         }
 
         protected void roomDimensionClosebtn_Click(object sender, EventArgs e)
@@ -199,6 +192,5 @@ namespace RealEstateSite
             ProfilePanel.Visible = true;
             OverlayPanel.Visible = false;
         }
-
     }
 }

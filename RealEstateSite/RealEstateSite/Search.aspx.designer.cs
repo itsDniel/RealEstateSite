@@ -213,13 +213,13 @@ namespace RealEstateSite
         protected global::System.Web.UI.WebControls.Button SearchFilterClosebtn;
 
         /// <summary>
-        /// searchModal control.
+        /// modalPopUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender searchModal;
+        protected global::AjaxControlToolkit.ModalPopupExtender modalPopUp;
 
         /// <summary>
         /// SearchPanel control.
