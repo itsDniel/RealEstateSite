@@ -35,7 +35,7 @@
                             <asp:Label ID="pricelbl" runat="server" Text='<%#"Price: $" + DataBinder.Eval(Container.DataItem, "Price") %>'></asp:Label>
                         </p>
                         <p class="card-text">
-                            <asp:Label ID="dateVisitedlbl" runat="server" Text='<%#"Date Visited: " + DataBinder.Eval(Container.DataItem, "DateRequested") %>'></asp:Label>
+                            <asp:Label ID="dateVisitedlbl" runat="server" Text='<%#"Date Visited: " + ((DateTime)Eval("DateRequested")).ToString("MM/dd/yyyy") %>'></asp:Label>
                         </p>
                         <asp:Button ID="feedbackbtn" Text="Leave Feedback" runat="server" OnClick="feedbackbtn_Click"/>
                     </div>
