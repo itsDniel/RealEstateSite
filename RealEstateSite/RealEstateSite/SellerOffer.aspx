@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSeller.Master" AutoEventWireup="true" CodeBehind="SellerOffer.aspx.cs" Inherits="RealEstateSite.SellerOffer" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Stylesheet/SellerOffer.css" rel="stylesheet" />
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="searchMessage">
+    <div class="text-center">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Label ID="buyerplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Button ID="Accepthiddenbtn" Text="Accept" CssClass="hidden" runat="server" CausesValidation="False" />
         <asp:Button ID="Denyhiddenbtn" Text="Deny" CssClass="hidden" runat="server" CausesValidation="False" />
-        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out offer(s) for your home"></asp:Label>
+        <div class="h1 title">
+            <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out offer(s) for your home"></asp:Label>
+        </div>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -40,7 +40,7 @@
         </div>
     </div>   
 
-    <asp:Panel ID="DetailPanel" runat="server" Visible="false" CssClass="SearchModal">
+    <asp:Panel ID="DetailPanel" runat="server" Visible="false" CssClass="modalPopUp">
         <asp:Repeater ID="rprDetail" runat="server">
             <ItemTemplate>
                 <div class="card w-100 text-center">
@@ -64,7 +64,8 @@
                             <asp:Label ID="conditionlbl" runat="server" Text='<%#"Sale condition: " + DataBinder.Eval(Container.DataItem, "SaleCondition") %>'></asp:Label>
                         </p>
                         <asp:Button ID="btnDeny" Text="Deny" runat="server" OnClick="OfferDenybtn_Click"/>&nbsp&nbsp
-                        <asp:Button ID="btnAccept" Text="Accept" runat="server" OnClick="OfferAcceptbtn_Click"/>
+                        <asp:Button ID="btnAccept" Text="Accept" runat="server" OnClick="OfferAcceptbtn_Click"/>&nbsp&nbsp
+                        <asp:Button ID="btnClose" Text="Close" runat="server" OnClick="btnClose_Click"/>
                     </div>
                 </div>
             </ItemTemplate>

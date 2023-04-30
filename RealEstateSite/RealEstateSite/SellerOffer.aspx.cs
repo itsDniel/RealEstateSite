@@ -81,5 +81,12 @@ namespace RealEstateSite
             DetailPanel.Visible = false;
             SearchPanel.Visible = true;
         }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            DetailPanel.Visible = false;
+            SearchPanel.Visible = true;
+
+        }
     }
 }
