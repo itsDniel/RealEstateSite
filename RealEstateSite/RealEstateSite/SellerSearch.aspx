@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterSeller.Master" AutoEventWireup="true" CodeBehind="SellerSearch.aspx.cs" Inherits="RealEstateSite.SellerSearch" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Stylesheet/Search.css" rel="stylesheet" />
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center">
@@ -15,7 +12,7 @@
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
 
-    <asp:Panel ID="SearchFilterPanel" runat="server" CssClass="searchModal" BorderStyle="Solid" Visible="false">
+    <asp:Panel ID="SearchFilterPanel" runat="server" CssClass="modalPopUp" BorderStyle="Solid" Visible="false">
         <asp:Label ID="SearchFilterlbl" runat="server" Text="Please select your search filter" Font-Size="X-Large"></asp:Label>
         <asp:Label ID="Locationlbl" runat="server" Text="Please choose your city"></asp:Label>
         <asp:DropDownList ID="cityddl" runat="server">
@@ -71,7 +68,7 @@
         </asp:DropDownList>
         <asp:Button ID="Searchbtn" runat="server" Text ="Search" OnClick="Searchbtn_Click" />
         <asp:Button ID="SearchFilterClosebtn" runat="server" Text="Close" OnClick="SearchFilterClosebtn_click"/>
-        <ajaxToolkit:ModalPopupExtender ID="searchModal" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
+        <ajaxToolkit:ModalPopupExtender ID="modalPopUp" runat="server" TargetControlID="searchFilterbtn" PopupControlID="SearchFilterPanel, SearchPanel" OkControlID="Closebtn">
         </ajaxToolkit:ModalPopupExtender>
     </asp:Panel>
         
@@ -109,7 +106,7 @@
         </div>
     </div>   
 
-    <asp:Panel ID="ProfilePanel" runat="server" Visible="false" CssClass="searchModal">
+    <asp:Panel ID="ProfilePanel" runat="server" Visible="false" CssClass="modalPopUp">
         <asp:Repeater ID="rprProfile" runat="server">
             <ItemTemplate>
                 <div class="card w-100 text-center">
@@ -179,7 +176,7 @@
         <asp:Button ID="visitHiddenbutton" runat="server" CssClass="hidden" />
     </asp:Panel>
 
-    <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="searchModal" BorderStyle="Solid" Visible = "false">
+    <asp:Panel ID="roomDimensionPanel" runat="server" CssClass="modalPopUp" BorderStyle="Solid" Visible = "false">
         <asp:Repeater ID="rprRoomDimension" runat="server" Visible="true">
             <ItemTemplate>
                 <div class="card w-75 text-center">
@@ -200,7 +197,7 @@
     </asp:Panel>
     <asp:Button ID="roomDimensionHiddenbtn" runat="server" CssClass="hidden" />
 
-    <asp:Panel ID="visitRequestPanel" runat="server" CssClass="searchModal" BorderStyle="Solid" Visible = "false">
+    <asp:Panel ID="visitRequestPanel" runat="server" CssClass="modalPopUp" BorderStyle="Solid" Visible = "false">
         <asp:Label ID="visitrequestlbl" runat="server" Text="Schedule a visit date and time" Font-Size="X-Large"></asp:Label>
         <asp:Label ID="Visitmsg" runat="server" ForeColor="Red"></asp:Label>
         <asp:Label ID="visitDatelbl" runat="server" Text="Please enter your desired visit date"></asp:Label>

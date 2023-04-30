@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-center">
         <div class="container">
             <asp:Panel ID="SearchPanel" runat="server" Visible="true">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
                     <asp:Repeater ID="rprDisplay" runat="server">
                         <ItemTemplate>
                             <div class="col">    

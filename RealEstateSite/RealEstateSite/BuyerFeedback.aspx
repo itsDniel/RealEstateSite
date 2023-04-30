@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center h1 title">
+    <div class="h1 title">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Button ID="feedbackHiddenbutton" runat="server" CssClass="hidden" OnClick="feedbackHiddenbutton_click"/>
         <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here are the homes that you have visited"></asp:Label>

@@ -3,9 +3,9 @@
     <link href="Stylesheet/SellerFeedback.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center">
+    <div class="h1 title">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
-        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out the feedback(s) on your home" CssClass="h1 title"></asp:Label>
+        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out the feedback(s) on your home"></asp:Label>
     </div>
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
