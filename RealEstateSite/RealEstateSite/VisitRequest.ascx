@@ -11,10 +11,10 @@
                         <div class="card w-75 text-center mt-3">
                             <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                             <div class="card-body">
-                                <h1 class="card-title">
+                                <h4 class="card-title"><strong>
                                     <asp:Label ID="homeidlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
                                     <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
-                                </h1>
+                                </h4></strong>
                                 <p class="card-text">
                                     <asp:Label ID="datelbl" runat="server" Text='<%# "Date: " + ((DateTime)Eval("DateRequested")).ToString("MM/dd/yyyy") %>'></asp:Label>
                                 </p>

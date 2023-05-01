@@ -19,10 +19,10 @@
                                 <div class="card w-75 text-center mt-3">
                                     <asp:Image ID="HomeImg" runat="server" ImageUrl='<%# Eval("Image") %>' />
                                     <div class="card-body">
-                                        <h1 class="card-text">
+                                        <h4 class="card-text"><strong>
                                             <asp:Label ID="homeIDlbl" runat="server" CssClass="hidden" Text='<%#DataBinder.Eval(Container.DataItem, "HomeID") %>'></asp:Label>
                                             <asp:Label ID="addresslbl" runat="server" Text='<%# "Address: " + DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
-                                        </h1>
+                                        </h4></strong>
                                         <p class="card-text">
                                             <asp:Label ID="namelbl" runat="server" Text='<%# "From: " + DataBinder.Eval(Container.DataItem, "BuyerName") %>'></asp:Label>
                                         </p>
