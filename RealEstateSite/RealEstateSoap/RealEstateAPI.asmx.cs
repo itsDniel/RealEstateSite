@@ -276,7 +276,10 @@ namespace RealEstateSoap
             return ds;
         }
 
-
-
+        [WebMethod] //jenny
+        public DataTable GetDistinctCities()
+        {
+            return storedProcedure.GetDistinctCities();
+        }
     }
 }
