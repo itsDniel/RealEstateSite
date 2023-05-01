@@ -6,7 +6,7 @@
     <div class="h1 title">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Button ID="feedbackHiddenbutton" runat="server" CssClass="hidden" OnClick="feedbackHiddenbutton_click"/>
-        <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here are the homes that you have visited"></asp:Label>
+        <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here are the homes that<br/>you have visited"></asp:Label>
     </div>
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>

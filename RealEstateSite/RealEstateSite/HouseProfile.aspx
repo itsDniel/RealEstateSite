@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>House Profile</h1>
 
-    <div class="container w-75 bg-light bg-opacity-75 px-4" id="houseContainer" runat="server">
+    <div class="" id="houseContainer" runat="server">
         <%-- HouseProfileCtrl (custom control) will be dynamically added to this page for each house record --%>
     </div>
 </asp:Content>
