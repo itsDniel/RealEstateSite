@@ -65,7 +65,7 @@ namespace RealEstateSite
             else
             {
                 String username = Request.Cookies["Username"].Value;
-                String url = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/WebAPI/api/house/";
+                String url = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/webAPI/api/house/";
 
                 if (pxy.GetRole(username).Equals("Seller"))
                     DisplayHouses(url + "GetHouseBySeller/" + username);

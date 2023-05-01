@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateClassLibary", "Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateSoap", "RealEstateSoap\RealEstateSoap.csproj", "{7629F37D-F15D-438B-859E-FFB61A034BB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateRestful", "RealEstateRestful\RealEstateRestful.csproj", "{F778F20B-267D-4E77-ABB5-4051221465F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateRestful", "RealEstateRestful\RealEstateRestful.csproj", "{F778F20B-267D-4E77-ABB5-4051221465F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project1_homepage", "..\..\Student-Registration\StudentRegistration\project1_homepage\project1_homepage.csproj", "{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F778F20B-267D-4E77-ABB5-4051221465F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F778F20B-267D-4E77-ABB5-4051221465F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F778F20B-267D-4E77-ABB5-4051221465F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

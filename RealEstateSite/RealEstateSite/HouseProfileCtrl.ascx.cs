@@ -64,7 +64,7 @@ namespace RealEstateSite
         public HouseControl HouseCtrl { get { return houseCtrl; } }
 
         const String ADD_ROOM_DIR = "Click the plus sign to add room.";
-        const String URL = "http://localhost:28769/api/house/";//"https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/WebAPI/api/house/";
+        const String URL = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tug41792/webAPI/api/house/";
         RestfulWebRequest rwr = new RestfulWebRequest();
         JavaScriptSerializer js = new JavaScriptSerializer();
 

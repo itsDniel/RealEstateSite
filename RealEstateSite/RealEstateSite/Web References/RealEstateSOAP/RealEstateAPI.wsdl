@@ -597,6 +597,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetDistinctCities">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDistinctCitiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistinctCitiesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="scalarLoginSoapIn">
@@ -803,6 +820,12 @@
   <wsdl:message name="GetVisitSellerSoapOut">
     <wsdl:part name="parameters" element="tns:GetVisitSellerResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDistinctCitiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistinctCities" />
+  </wsdl:message>
+  <wsdl:message name="GetDistinctCitiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistinctCitiesResponse" />
+  </wsdl:message>
   <wsdl:portType name="RealEstateAPISoap">
     <wsdl:operation name="scalarLogin">
       <wsdl:input message="tns:scalarLoginSoapIn" />
@@ -939,6 +962,10 @@
     <wsdl:operation name="GetVisitSeller">
       <wsdl:input message="tns:GetVisitSellerSoapIn" />
       <wsdl:output message="tns:GetVisitSellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistinctCities">
+      <wsdl:input message="tns:GetDistinctCitiesSoapIn" />
+      <wsdl:output message="tns:GetDistinctCitiesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RealEstateAPISoap" type="tns:RealEstateAPISoap">
@@ -1249,6 +1276,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDistinctCities">
+      <soap:operation soapAction="http://tempuri.org/GetDistinctCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RealEstateAPISoap12" type="tns:RealEstateAPISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1551,6 +1587,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetVisitSeller">
       <soap12:operation soapAction="http://tempuri.org/GetVisitSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistinctCities">
+      <soap12:operation soapAction="http://tempuri.org/GetDistinctCities" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

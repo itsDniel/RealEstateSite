@@ -98,6 +98,8 @@ namespace RealEstateSite.RealEstateSOAP {
         
         private System.Threading.SendOrPostCallback GetVisitSellerOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetDistinctCitiesOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -237,6 +239,9 @@ namespace RealEstateSite.RealEstateSOAP {
         
         /// <remarks/>
         public event GetVisitSellerCompletedEventHandler GetVisitSellerCompleted;
+        
+        /// <remarks/>
+        public event GetDistinctCitiesCompletedEventHandler GetDistinctCitiesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/scalarLogin", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1301,6 +1306,33 @@ namespace RealEstateSite.RealEstateSOAP {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetDistinctCities", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataTable GetDistinctCities() {
+            object[] results = this.Invoke("GetDistinctCities", new object[0]);
+            return ((System.Data.DataTable)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetDistinctCitiesAsync() {
+            this.GetDistinctCitiesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetDistinctCitiesAsync(object userState) {
+            if ((this.GetDistinctCitiesOperationCompleted == null)) {
+                this.GetDistinctCitiesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetDistinctCitiesOperationCompleted);
+            }
+            this.InvokeAsync("GetDistinctCities", new object[0], this.GetDistinctCitiesOperationCompleted, userState);
+        }
+        
+        private void OnGetDistinctCitiesOperationCompleted(object arg) {
+            if ((this.GetDistinctCitiesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetDistinctCitiesCompleted(this, new GetDistinctCitiesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -2286,6 +2318,32 @@ namespace RealEstateSite.RealEstateSOAP {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetDistinctCitiesCompletedEventHandler(object sender, GetDistinctCitiesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetDistinctCitiesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetDistinctCitiesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataTable Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataTable)(this.results[0]));
             }
         }
     }
