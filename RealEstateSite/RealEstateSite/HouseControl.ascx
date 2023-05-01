@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HouseControl.ascx.cs" Inherits="RealEstateSite.HouseControl" %>
 <div class="row">
-    <div class="col">Seller <asp:TextBox ID="txtSeller" runat="server"></asp:TextBox></div>
-    <div class="col">Agent <asp:TextBox ID="txtAgent" runat="server"></asp:TextBox></div>
+    <div class="col">Seller (username) <asp:TextBox ID="txtSeller" runat="server"></asp:TextBox></div>
+    <div class="col">Agent (username) <asp:TextBox ID="txtAgent" runat="server"></asp:TextBox></div>
 </div>
 <div class="row">
     <div class="col">Address <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox></div>
