@@ -99,7 +99,7 @@ namespace RealEstateSite
                         {
                             pxy.addOffer(offer);
                             pxy.updateFeedback(homeid, buyer, statusFeedback);
-                            offerlbl.Text = "Great You Submitted An Offer";
+                            offerlbl.Text = "Great! You Submitted An Offer";
                             OfferPanel.Visible = false;
                             OverlayPanel.Visible = false;
                             FeedbackedPanel.Visible = true;

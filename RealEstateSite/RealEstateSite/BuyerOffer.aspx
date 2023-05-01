@@ -7,7 +7,7 @@
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
         <asp:Button ID="OfferHiddenbutton" runat="server" CssClass="hidden" OnClick="offerHiddenbutton_click"/>
         <div class="h1 title">
-            <asp:Label ID="offerlbl" runat="server" Font-Strikeout="False" Text="Here you can check out the status of your offer"></asp:Label>
+            <asp:Label ID="offerlbl" runat="server" Font-Strikeout="False" Text="Check out the status of your offer"></asp:Label>
         </div>
         <asp:DropDownList ID="OfferStatusddl" runat="server">
             <asp:ListItem>Pending</asp:ListItem>

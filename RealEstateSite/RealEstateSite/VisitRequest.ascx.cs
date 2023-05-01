@@ -52,7 +52,7 @@ namespace RealEstateSite
             foreach (DataListItem item in visitddl.Items)
             {
                 Label lbl = (Label)item.FindControl("msglbl");
-                requestlbl.Text = "Great! Please head over to the feedback page<br/>to leave a feedback.";
+                requestlbl.Text = "Great! Please go to the feedback page<br/>to leave a feedback.";
             }
         }
     }

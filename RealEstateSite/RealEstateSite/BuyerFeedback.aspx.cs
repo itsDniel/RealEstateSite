@@ -73,13 +73,11 @@ namespace RealEstateSite
                     }
                     else
                     {
-                        
                         string status = "Feedbacked";
                         string a1 = A1ddl.Text;
                         string a2 = A2ddl.Text;
                         string a3 = A3txt.Text;
                         string a4 = A4txt.Text;
-
 
                         int homeid = int.Parse(homeidplaceholder.Text);
                         string buyer = Request.Cookies["Username"].Value.ToString();
@@ -94,7 +92,7 @@ namespace RealEstateSite
                         {
                             pxy.addFeedback(homeid, buyer, buyerName, a1, a2, a3, a4);
                             pxy.updateVisit(buyer, status, homeid.ToString());
-                            requestlbl.Text = "Great You Left A Feedback, Head On To The Offer Page If You Would Like To Make An Offer";
+                            requestlbl.Text = "Feedback sent. Go to the offer page<br/>if you want to make an offer.";
                             FeedbackPanel.Visible = false;
                             OverlayPanel.Visible = false;
                             ApprovedRequestPanel.Visible = true;
