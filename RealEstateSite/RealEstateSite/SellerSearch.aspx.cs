@@ -36,7 +36,7 @@ namespace RealEstateSite
 
         protected void Searchbtn_Click(object sender, EventArgs e)
         {
-            string buyer = Request.Cookies["Username"].Value.ToString();
+            string buyer = "Sold";
             string location = cityddl.Text;
             int minPrice = housePrice.minPrice(priceddl.SelectedValue); ;
             int maxPrice = housePrice.maxPrice(priceddl.SelectedValue); ;
