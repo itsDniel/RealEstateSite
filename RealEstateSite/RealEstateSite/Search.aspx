@@ -16,10 +16,6 @@
         <asp:Label ID="SearchFilterlbl" runat="server" Text="Please select your search filter" Font-Size="X-Large"></asp:Label>
         <asp:Label ID="Locationlbl" runat="server" Text="Please choose your city"></asp:Label>
         <asp:DropDownList ID="cityddl" runat="server">
-            <asp:ListItem></asp:ListItem>
-            <asp:ListItem>Philadelphia</asp:ListItem>
-            <asp:ListItem>New York</asp:ListItem>
-            <asp:ListItem>Chicago</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="Pricelbl" runat="server" Text="Please select your price range"></asp:Label>
         <asp:DropDownList ID="priceddl" runat="server">
