@@ -17,10 +17,21 @@ namespace RealEstateSite
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Username"] == null || Request.Cookies["Role"].Value == "Buyer")
-            {
                 ((MasterSeller)Master).logoutbtn_Click(sender, e);
+            else
+            {
+                if (!IsPostBack)
+                {
+                    DataTable cityTable = pxy.GetDistinctCities();  //get data from DB
+                    DataRow emptyRow = cityTable.NewRow();          //create a row that contains an empty string
+                    emptyRow[0] = "";
+                    cityTable.Rows.InsertAt(emptyRow, 0);           //insert this new row as the 1st row to the table
+                    cityddl.DataTextField = "City";                 // Set the column name to use for the display text
+                    cityddl.DataValueField = "City";
+                    cityddl.DataSource = cityTable;
+                    cityddl.DataBind();
+                }
             }
-
         }
 
         protected void Searchbtn_Click(object sender, EventArgs e)
