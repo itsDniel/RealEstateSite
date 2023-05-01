@@ -183,5 +183,11 @@ namespace RealEstateClassLibary
             command.Parameters.AddWithValue("@homeSize", houseSize.HomeSize);
             return UpdateDB();
         }
+
+        public DataTable GetDistinctCities()
+        {
+            SetCommandTextAndClearParam("TP_GetDistinctCities");
+            return connect.GetDataSet(command).Tables[0];
+        }
     }
 }
