@@ -47,8 +47,6 @@ namespace RealEstateSite
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
 
-
-
             searchHouse getHome = new searchHouse();
             getHome.location = location;
             getHome.minPrice = minPrice;
@@ -129,9 +127,7 @@ namespace RealEstateSite
                 OverlayPanel.Visible = true;
             }
             else
-            {
-                searchlbl.Text = "Only buyer can request a visit, please create or log into a buyer account";
-            }
+                searchlbl.Text = "Only buyer can request a visit,<br/>please create or log into a buyer account";
         }
 
         protected void visitClosebtn_Click(object sender, EventArgs e)
@@ -179,7 +175,7 @@ namespace RealEstateSite
                     else
                     {
                         pxy.insertVisit(request);
-                        searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
+                        searchlbl.Text = "Visit request is sent. Check your visit status in the request page!";
                         visitRequestPanel.Visible = false;
                         SearchPanel.Visible = true;
                         OverlayPanel.Visible = false;

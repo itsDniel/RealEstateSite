@@ -50,8 +50,6 @@ namespace RealEstateSite
             string amenity = amenityddl.Text;
             string utility = utilityddl.Text;
 
-
-
             searchHouse getHome = new searchHouse(); 
             getHome.location = location;
             getHome.minPrice = minPrice;
@@ -172,8 +170,8 @@ namespace RealEstateSite
                        Visitmsg.Text = "You already have a visit request with this specific home";
                     else
                     {
-                    pxy.insertVisit(request);
-                        searchlbl.Text = "Great you successfully scheduled a visit, you can check your visit status in the request page!";
+                        pxy.insertVisit(request);
+                        searchlbl.Text = "Visit request is sent. Check your visit status<br/>in the request page!";
                         visitRequestPanel.Visible = false;
                         SearchPanel.Visible = true;
                         OverlayPanel.Visible = false;
