@@ -7,7 +7,7 @@
         <asp:Button ID="Accepthiddenbtn" Text="Accept" CssClass="hidden" runat="server" CausesValidation="False" />
         <asp:Button ID="Denyhiddenbtn" Text="Deny" CssClass="hidden" runat="server" CausesValidation="False" />
         <div class="h1 title">
-            <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out offer(s) for your home"></asp:Label>
+            <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Offer(s)"></asp:Label>
         </div>
     </div>
 

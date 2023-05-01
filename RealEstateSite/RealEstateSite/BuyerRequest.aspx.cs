@@ -14,9 +14,7 @@ namespace RealEstateSite
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Username"] == null || Request.Cookies["Role"].Value != "Buyer")
-            {
                 ((MasterBuyer)Master).logoutbtn_Click(sender, e); 
-            }
             else
             {
                 if (!IsPostBack)
@@ -29,6 +27,5 @@ namespace RealEstateSite
                 }
             }
         }
-
     }
 }

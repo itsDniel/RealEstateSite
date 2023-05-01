@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="VisitRequest.ascx.cs" Inherits="RealEstateSite.VisitRequest" %>
 <div class="h1 title">
-    <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here you can see the status of your visit request"></asp:Label>
+    <asp:Label ID="requestlbl" runat="server" Font-Strikeout="False" Text="Here you can see the status<br/>of your visit request"></asp:Label>
 </div>
 <div class="d-flex justify-content-center">
     <div class="container">

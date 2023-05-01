@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="h1 title">
         <asp:Label ID="homeidplaceholder" runat="server" CssClass="hidden"></asp:Label>
-        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="Check out the feedback(s)<br/>on your home"></asp:Label>
+        <asp:Label ID="searchlbl" runat="server" Font-Strikeout="False" Text="House Feedback"></asp:Label>
     </div>
 
     <asp:Panel ID="OverlayPanel" runat="server" CssClass="overlay" Visible="false"></asp:Panel>
